@@ -22,19 +22,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table
-public class Users implements Serializable {
+public class User implements Serializable {
 
     private long id;
-    private String username;
+    private String login;
     private String password;
-    private String name;
-    private String surname;
+    private String retypedPassword;
     private String address;
-    private long PESEL;
     private String phone;
     private String email;
-    private Company company;
-    private UserPreferences preferences;
+    private Profile profile;
+    private Offer offer;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -48,12 +46,12 @@ public class Users implements Serializable {
     }
 
     @Column(nullable = false, length = 20)
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String username) {
+        this.login = username;
     }
 
     @Column(nullable = false, length = 20)
@@ -66,21 +64,12 @@ public class Users implements Serializable {
     }
 
     @Column(nullable = false, length = 20)
-    public String getName() {
-        return name;
+    public String getRetypedPassword() {
+        return retypedPassword;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Column(nullable = false, length = 20)
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setRetypedPassword(String retypedPassword) {
+        this.retypedPassword = retypedPassword;
     }
 
     @Column(nullable = false, length = 20)
@@ -90,15 +79,6 @@ public class Users implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    @Column(nullable = false, length = 20)
-    public long getPESEL() {
-        return PESEL;
-    }
-
-    public void setPESEL(long PESEL) {
-        this.PESEL = PESEL;
     }
 
     @Column(nullable = false, length = 20)
@@ -119,22 +99,21 @@ public class Users implements Serializable {
         this.email = email;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, optional=true)
-    public Company getCompany() {
-        return company;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, optional = true)
+    public Profile getProfile() {
+        return profile;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, optional=true)
-    public UserPreferences getPreferences() {
-        return preferences;
-    }
-
-    public void setPreferences(UserPreferences preferences) {
-        this.preferences = preferences;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, optional = true)
+    public Offer getOffer() {
+        return offer;
     }
 
-    
+    public void setOffer(Offer offer) {
+        this.offer = offer;
+    }
+
 }

@@ -5,10 +5,9 @@
  */
 package com.ssidb.helpers;
 
-import com.ssidb.dto.Company;
-import com.ssidb.dto.Flats;
-import com.ssidb.dto.UserPreferences;
-import com.ssidb.dto.Users;
+import com.ssidb.dto.Offer;
+import com.ssidb.dto.Profile;
+import com.ssidb.dto.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -29,10 +28,9 @@ public class HibernateUtil {
         Configuration configuration = new Configuration();
 
         // Create the SessionFactory from hibernate.cfg.xml
-        configuration.addAnnotatedClass(Users.class);
-        configuration.addAnnotatedClass(Flats.class);
-        configuration.addAnnotatedClass(Company.class);
-        configuration.addAnnotatedClass(UserPreferences.class);
+        configuration.addAnnotatedClass(User.class);
+        configuration.addAnnotatedClass(Offer.class);
+        configuration.addAnnotatedClass(Profile.class);
         configuration.configure("hibernate.cfg.xml");
         serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
                 configuration.getProperties()).build();

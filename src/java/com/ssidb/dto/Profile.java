@@ -28,7 +28,6 @@ import javax.persistence.Table;
 public class Profile implements Serializable {
 
     private long id;
-    private String function;
     private float tanie_min;
     private float tanie_max;
     private float przecietne_min;
@@ -67,14 +66,6 @@ public class Profile implements Serializable {
         this.id = id;
     }
 
-    @Column(nullable = false, length = 20)
-    public String getFunction() {
-        return function;
-    }
-
-    public void setFunction(String function) {
-        this.function = function;
-    }
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)

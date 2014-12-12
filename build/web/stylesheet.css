@@ -4,43 +4,45 @@ body {
    padding: 50px;
    color: #555;
    width: 650px;
+   background-image: url('tlo.jpg');
+   background-size:  cover;
 }
 
-h1 {
-   letter-spacing: 6px;
-   font-size: 1.6em;
-   color: #be7429;
-   font-weight: bold;
-}
 
-h2 {
-   text-align: left;
-   letter-spacing: 6px;
-   font-size: 1.4em;
-   color: #be7429;
-   font-weight: normal;
-   width: 450px;
-}
 
-p {
-    font-size: 1.4em;
-    width: 400px;
-}
-
-div {
+#info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     padding: 10px;
     outline-width: 5px;
-    outline-style: dotted;
-    outline-color: yellowgreen;
-    background-color: yellow;
-    
+    outline-style: solid;
+    outline-color: grey;
+    background-color: rgba(150,150,150,0.3);
+    color: green;
 }
 
-table {
+#login {
+   padding: 20px;
    width: 550px;
    padding: 10px;
-   background-color: #c5e7e0;
+   background-color: rgba(192,248,241,0.8);
   font-family: sans-serif;
+}
+
+#panel_login{
+     position: absolute;
+    top: 40px;
+    left: 100px;
+}
+
+.info_login{
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px #333;
 }
 
 td {
@@ -48,11 +50,13 @@ td {
 }
 
 a {
-  color: #be7429;
-  text-decoration: none;
+    color: black;
+  text-decoration: underline;
+  text-shadow: none;
 }
 
 a:hover {
+    color: purple;
   text-decoration: underline;
 }
 
@@ -74,4 +78,57 @@ a:hover {
   color: #333;
   text-decoration: none;
   font-size: 1.2em;
+}
+
+#content{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#user_menu{
+    position: relative;
+    padding: 10px;
+    width: 300px;
+    height: 100%;
+    float: left;
+    
+}
+
+#user_content{
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: rgba(150,150,150,0.4);
+    position: relative;
+    margin-left: 310px;
+    min-height: 700px;
+}
+
+#user_menu p{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+#user_menu p a{
+    padding: 4px;
+text-decoration: none;
+display: block;
+color: #224059;
+background-color: #b5c9e2;
+border-top: 2px #cce3ff solid;
+border-left: 2px #cce3ff solid;
+border-bottom: 2px #31557f solid;
+border-right: 2px #31557f solid;
+}
+
+#user_menu p a:hover{ 
+    background-color: #99aabf;
+border-top: 2px #31557f solid;
+border-left: 2px #31557f solid;
+border-bottom: 2px #cce3ff solid;
+border-right: 2px #cce3ff solid;
 }

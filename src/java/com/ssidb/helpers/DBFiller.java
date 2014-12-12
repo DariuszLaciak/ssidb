@@ -23,7 +23,7 @@ public class DBFiller {
         s.beginTransaction();
         User user = new User("user", "user", "user","commonuser", "userowo", "1234567890", "user@user.user");
         User developer = new User("dev", "dev", "dev","superuser", "devowo", "0987654321", "dev@dev.dev");
-        User dev = new User("dev1", "dev1", "dev1", "dev1","superuser", "1023954633", "dev1@dev1.dev");
+        User dev = new User("dev1", "dev1", "dev1" ,"superuser","devowo", "1023954633", "dev1@dev1.dev");
         User admin = new User("admin", "admin", "admin","admin", "adminowo", "0192837465", "admin@admin.admin");
         
         Offer offer1 = new Offer(210000F, 31.5F, 4, 7.4F, 0.3F, 3, "tak", "adres1");

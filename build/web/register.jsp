@@ -12,46 +12,51 @@
         <title>Rejestracja</title>
     </head>
 <body>
-    <h1>Formularz rejestracyjny</h1>
-    <html:form action="/register">
-        <table> 
-            <tbody>
-                <tr>
-                    <td colspan="2">
-                        <bean:write name="User" property="error" filter="false"/>
-                    </td>
-                    <html:errors/>
-                </tr>
-                <tr>
-                    <td>Typ użytkownika:</td>
-                    <td>
-                    <html:radio property="type" value="superUser" />deweloper
-                    <html:radio property="type" value="commonUser" />użytkownik
-                    </td>
-                </tr>
-                <tr>
-                    <td>Login:</td>
-                    <td><html:text property="login" /></td>
-                </tr>
-                <tr>
-                    <td>Hasło:</td>
-                    <td><html:password property="password" /></td>
+    <div id='panel_login'>
+        <div class='info_login'>
+        <h1>Formularz rejestracyjny</h1>
+        <p>Powrót do strony <a href="login.jsp">głównej</a></p>
+        </div>
+        <html:form action="/register">
+            <table id='login'> 
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <bean:write name="User" property="error" filter="false"/>
+                        </td>
+                        <html:errors/>
+                    </tr>
+                    <tr>
+                        <td>Typ użytkownika:</td>
+                        <td>
+                            <html:radio property="type" value="superUser" />deweloper
+                            <html:radio property="type" value="commonUser" />użytkownik
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Login:</td>
+                        <td><html:text property="login" /></td>
+                    </tr>
+                    <tr>
+                        <td>Hasło:</td>
+                        <td><html:password property="password" /></td>
 
-                <tr>
-                <tr>
-                    <td>Powtórz hasło:</td>
-                    <td><html:password property="retypedPassword" /></td>
-                <tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><html:text property="email" /></td>
+                    <tr>
+                    <tr>
+                        <td>Powtórz hasło:</td>
+                        <td><html:password property="retypedPassword" /></td>
+                    <tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><html:text property="email" /></td>
+                    </tr>
+                <td></td>
+                <td><html:submit value="Rejestruj" /></td>
                 </tr>
-                    <td></td>
-                    <td><html:submit value="Rejestruj" /></td>
-                </tr>
-            </tbody>
-        </table>  
-    </html:form>
-    <p>Powrót do strony <a href="login.jsp">głównej</a></p>
+                </tbody>
+            </table>  
+        </html:form>
+        
+    </div>
 </body>
 </html>

@@ -147,7 +147,7 @@ public class User extends org.apache.struts.action.ActionForm implements Seriali
         return offers_set;
     }
 
-    public void setOffers(Set<Offer> offers_set) {
+    public void setOffers_set(Set<Offer> offers_set) {
         this.offers_set = offers_set;
     }
 

@@ -39,7 +39,7 @@ public class RegisterAction extends org.apache.struts.action.Action {
             return mapping.findForward("register_failure");
         }
 
-        String filename = "/home/monini/NetBeansProjects/ssidb/users.xml";
+        String filename = "users.xml";
         ArrayList<User> uzytkownicy = XMLUtils.xml2ArrayListUser(filename);
         if (uzytkownicy == null) {
             uzytkownicy = new ArrayList<>();

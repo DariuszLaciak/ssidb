@@ -8,17 +8,23 @@
         <title>Panel administratora</title>
     </head>
     <body>
+         <div id='content'>
+            <div id='user_menu'>
         <h1>Witaj <bean:write name="User" property="login" />!</h1>
-        <div>
-            <p>Twój typ to: <bean:write name="User" property="type" />.</p>
-            <p>Zarządzaj użytkownikami</p>
-            <ul><p>Lista użytkowników</p>
-                <li><p>Dodaj (-> register.jsp)</p></li>
-                <li><p>Usuń (albo guzik przy liście, albo pole z id użytkownika do usunięcia)</p></li>
-                <li><p>Edytuj (-> register.jsp, ale uzupełnione)</p></li>
-            </ul>
+        
+            
+           
+        <p><a href='#'>Lista użytkowników</a></p>
+                <p><a href='#'>Dodaj (-> register.jsp)</a></p>
+               <p><a href='#'>Usuń (albo guzik przy liście, albo pole z id użytkownika do usunięcia)</a></p>
+                <p><a href='#'>Edytuj (-> register.jsp, ale uzupełnione)</a></p>
+            
             <p><a href="login.jsp">Powrót do strony głównej</a></p>
-            <p><a href="/logout">Wyloguj</a>  ( -> login.jsp, sesja wygasa)</p>
+            <p><a href="/logout">Wyloguj( -> login.jsp, sesja wygasa)</a>  </p>
+        </div>
+            <div id='user_content'>
+
+            </div>
         </div>
     </body>
 </html>

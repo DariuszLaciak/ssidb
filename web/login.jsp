@@ -14,11 +14,16 @@
         <title>Login Page</title>
     </head>
     <body>
+        <div id='panel_login'>
+            <div class='info_login'>
         <h1>Logowanie</h1>
         Jeśli nie jesteś jeszcze zarejestrowany przejdź do formularza 
-        <a href="register.jsp">Rejestracja</a>
+        <a href="register.jsp">Rejestracja</a><br /><br/>
+        Jeśli nie chcesz się rejestrować ani logować 
+        <a href="searchSimple.jsp">Wyszukuj jako gość</a></br>
+            </div>
         <html:form action="/login">
-            <table>
+            <table id='login'>
                 <tbody>
                     <tr>
                         <td>Login:</td>
@@ -36,11 +41,9 @@
                 </tbody>
             </table>
         </html:form>
-        Jeśli nie chcesz się rejestrować ani logować 
-        <a href="searchSimple.jsp">Wyszukuj jako gość</a></br>
-        </br>
-        </br>
-        <div>
+           
+        </div>
+        <div id='info'>
             Informacja o firmie, jakaś fotka</br>
             Informacja dla dewelopera (jesli chcesz dodac swoją ofertę…)</br>
             Informacja do przeglądacza strony (jesli chcesz wyszukiwać zgodnie ze swoimi preferencjami…)</br>

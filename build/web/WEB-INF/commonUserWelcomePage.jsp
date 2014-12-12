@@ -8,13 +8,20 @@
         <title>Common User Success Page</title>
     </head>
     <body>
-        <h1>Witaj <bean:write name="User" property="login" />! </h1>
-        <div>
-            <p>Twój typ to: <bean:write name="User" property="type" />.</p>
-            <p>Edytuj profil ( -> profile.jsp)</p>
-            <p>Wyszukaj mieszkanie ( -> searchFuzzy.jsp)</p>
-            <p><a href="login.jsp">Powrót do strony głównej</a></p>
-            <p><a href="/logout">Wyloguj</a>( -> login.jsp, sesja wygasa)</p>
+        <div id='content'>
+            <div id='user_menu'>
+                <h1>Witaj <bean:write name="User" property="login" />! </h1>
+
+
+                <p><a href='#'>Edytuj profil ( -> profile.jsp)</a></p>
+                <p><a href='#'>Wyszukaj mieszkanie ( -> searchFuzzy.jsp)</a></p>
+                <p><a href="login.jsp">Powrót do strony głównej</a></p>
+                <p><a href="/logout">Wyloguj( -> login.jsp, sesja wygasa)</a></p>
+
+            </div>
+            <div id='user_content'>
+
+            </div>
         </div>
     </body>
 </html>

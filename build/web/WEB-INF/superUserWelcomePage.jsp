@@ -8,17 +8,21 @@
         <title>Super User success Page</title>
     </head>
     <body>
+        <div id='content'>
+            <div id='user_menu'>
         <h1>Witaj <bean:write name="User" property="login" />!</h1>
-        <div>
-            <p>Twój typ to: <bean:write name="User" property="type" />.</p>
-            Zarządzaj ofertami
-            Lista ofert
-            <p>Dodaj ofertę ( -> offer.jsp)</p>
-            <p>Edytuj ofertę (albo guzik przy liście, albo pole z id oferty do usunięcia)</p>
-            <p>Twoje oferty</p>
-            <p>Wyszukaj mieszkanie ( -> searchSimple.jsp)</p>
+        
+            <p><a href='#'>Dodaj ofertę ( -> offer.jsp)</a></p>
+            <p><a href='#'>Edytuj ofertę (albo guzik przy liście, albo pole z id oferty do usunięcia)</a></p>
+            <p><a href='#'>Twoje oferty</a></p>
+            <p><a href='#'>Wyszukaj mieszkanie ( -> searchSimple.jsp)</a></p>
             <p><a href="login.jsp">Powrót do strony głównej</a></p>
             <p><a href="/logout">Wyloguj</a></p>
+        
+            </div>
+         <div id='user_content'>
+
+            </div>
         </div>
     </body>
 </html>

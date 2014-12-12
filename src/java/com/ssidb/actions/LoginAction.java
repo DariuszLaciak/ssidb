@@ -39,7 +39,7 @@ public class LoginAction extends org.apache.struts.action.Action {
             return mapping.findForward("login_failure");
         }
 
-        String filename = "/home/monini/NetBeansProjects/SSIDB/users.xml";
+        String filename = "/home/monini/NetBeansProjects/ssidb/users.xml";
         ArrayList<User> users = XMLUtils.xml2ArrayListUser(filename);
         if (users == null) {
             users = new ArrayList<>();

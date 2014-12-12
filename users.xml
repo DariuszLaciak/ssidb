@@ -1,14 +1,20 @@
 <list>
   <com.ssidb.dto.User>
-    <id>0</id>
+    <id>1</id>
     <type>commonUser</type>
-    <login>sddsd</login>
-    <password>124</password>
+    <login>ela</login>
+    <password>123</password>
   </com.ssidb.dto.User>
   <com.ssidb.dto.User>
-    <id>0</id>
+    <id>2</id>
     <type>superUser</type>
-    <login>maria</login>
+    <login>darek</login>
     <password>123</password>
+  </com.ssidb.dto.User>
+  <com.ssidb.dto.User>
+    <id>3</id>
+    <type>admin</type>
+    <login>admin</login>
+    <password>qwe</password>
   </com.ssidb.dto.User>
 </list>

@@ -13,8 +13,8 @@
                 <h1>Witaj <bean:write name="User" property="login" />! </h1>
 
 
-                <p><a href='#'>Edytuj profil ( -> profile.jsp)</a></p>
-                <p><a href='#'>Wyszukaj mieszkanie ( -> searchFuzzy.jsp)</a></p>
+                <p><a href='profile.jsp'>Edytuj profil</a></p>
+                <p><a href='searchFuzzy.jsp'>Wyszukaj mieszkanie</a></p>
                 <p><a href="login.jsp">Powrót do strony głównej</a></p>
                 <p><a href="/logout">Wyloguj( -> login.jsp, sesja wygasa)</a></p>
 

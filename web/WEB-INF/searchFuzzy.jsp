@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <title>Wyszukiwarka rozmyta</title>
     </head>
     <body>
@@ -18,7 +19,6 @@
         - liczba pokoi
         - ekspozycja
          Zatwierdź (success -> searchResult.jsp)
-        Powrót do strony głównej ( -> login.jsp)
         <p>Powrót do strony <a href="login.jsp">głównej</a></p>
     </body>
 </html>

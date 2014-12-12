@@ -8,6 +8,8 @@
 <struts-config>
     <form-beans>
         <form-bean name="User" type="com.ssidb.dto.User"/>
+        <form-bean name="Offer" type="com.ssidb.dto.Offer"/>
+        <form-bean name="Profile" type="com.ssidb.dto.Profile"/>
     </form-beans>
     
     <global-exceptions>
@@ -15,23 +17,22 @@
     </global-exceptions>
 
     <global-forwards>
-        
+        <forward name="admin_page" path="/WEB-INF/adminWelcomePage.jsp"/>
+        <forward name="superUser_page" path="/WEB-INF/superUserWelcomePage.jsp"/>
+        <forward name="commonUser_page" path="/WEB-INF/commonUserWelcomePage.jsp"/>
+        <forward name="login_failure" path="/failure.jsp"/>
+        <forward name="register_success" path="/login.jsp"/>
+        <forward name="register_failure" path="/register.jsp"/>
+        <forward name="logout_success" path="/login.jsp"/>
+        <forward name="failure" path="/"/>
     </global-forwards>
 
     <action-mappings>
-        <action name="User" path="/login" scope="request" type="com.ssidb.actions.LoginAction" validate="false">
-            <forward name="admin_page" path="/WEB-INF/adminWelcomePage.jsp"/>
-            <forward name="superUser_page" path="/WEB-INF/superUserWelcomePage.jsp"/>
-            <forward name="commonUser_page" path="/WEB-INF/commonUserWelcomePage.jsp"/>
-            <forward name="login_failure" path="/failure.jsp"/>
-        </action>
-        <action input="/register.jsp" name="User" path="/register" scope="request" type="com.ssidb.actions.RegisterAction" validate="true">
-            <forward name="register_success" path="/login.jsp"/>
-            <forward name="register_failure" path="/register.jsp"/>
-        </action>
-        <action name="logout" class="com.ssidb.actions.LoginAction" method="logout">
-            <forward name="logout_success" path="/login.jsp"/>
-        </action>
+        <action name="User" path="/login" scope="request" type="com.ssidb.actions.LoginAction" validate="false"/>
+        <action name="Profile" path="/profile" scope="request" type="com.ssidb.actions.ProfileAction" validate="false"/>
+         <action name="Offer" path="/offer" scope="request" type="com.ssidb.actions.OfferAction" validate="false"/>
+        <action input="/register.jsp" name="User" path="/register" scope="request" type="com.ssidb.actions.RegisterAction" validate="true"/>
+        <action name="logout" class="com.ssidb.actions.LoginAction" method="logout"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

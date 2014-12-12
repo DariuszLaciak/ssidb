@@ -26,7 +26,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table
-public class Offer implements Serializable {
+public class Offer extends org.apache.struts.action.ActionForm implements Serializable {
 
     private long id;
     private float price;

@@ -12,10 +12,10 @@
             <div id='user_menu'>
         <h1>Witaj <bean:write name="User" property="login" />!</h1>
         
-            <p><a href='#'>Dodaj ofertę ( -> offer.jsp)</a></p>
+            <p><a href='offer.jsp'>Dodaj ofertę</a></p>
             <p><a href='#'>Edytuj ofertę (albo guzik przy liście, albo pole z id oferty do usunięcia)</a></p>
             <p><a href='#'>Twoje oferty</a></p>
-            <p><a href='#'>Wyszukaj mieszkanie ( -> searchSimple.jsp)</a></p>
+            <p><a href='searchSimple.jsp'>Wyszukaj mieszkanie</a></p>
             <p><a href="login.jsp">Powrót do strony głównej</a></p>
             <p><a href="/logout">Wyloguj</a></p>
         

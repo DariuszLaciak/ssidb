@@ -25,7 +25,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Profile implements Serializable {
+public class Profile extends org.apache.struts.action.ActionForm implements Serializable {
 
     private long id;
     private float tanie_min;
@@ -44,7 +44,7 @@ public class Profile implements Serializable {
     private float nisko_max;
     private float wysoko_min;
     private float wysoko_max;
-    private float c_bliko_min;
+    private float c_blisko_min;
     private float c_blisko_max;
     private float c_daleko_min;
     private float c_daleko_max;
@@ -73,7 +73,7 @@ public class Profile implements Serializable {
         this.nisko_max = nisko_max;
         this.wysoko_min = wysoko_min;
         this.wysoko_max = wysoko_max;
-        this.c_bliko_min = c_bliko_min;
+        this.c_blisko_min = c_bliko_min;
         this.c_blisko_max = c_blisko_max;
         this.c_daleko_min = c_daleko_min;
         this.c_daleko_max = c_daleko_max;
@@ -255,12 +255,12 @@ public class Profile implements Serializable {
     }
 
     @Column(nullable = false, length = 20)
-    public float getC_bliko_min() {
-        return c_bliko_min;
+    public float getC_blisko_min() {
+        return c_blisko_min;
     }
 
-    public void setC_bliko_min(float c_bliko_min) {
-        this.c_bliko_min = c_bliko_min;
+    public void setC_blisko_min(float c_bliko_min) {
+        this.c_blisko_min = c_bliko_min;
     }
 
     @Column(nullable = false, length = 20)

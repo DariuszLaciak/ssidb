@@ -45,8 +45,17 @@ body {
     text-shadow: 1px 1px #333;
 }
 
+table {
+     background-color: rgba(192,248,241,0.8);
+}
+
 td {
    padding: 10px;
+}
+
+th {
+    text-align: center;
+    font-weight: bold;
 }
 
 a {

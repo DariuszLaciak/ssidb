@@ -14,7 +14,7 @@
 <body>
     <h1>Formularz rejestracyjny</h1>
     <html:form action="/register">
-        <table border="0"> 
+        <table> 
             <tbody>
                 <tr>
                     <td colspan="2">
@@ -23,13 +23,6 @@
                     <html:errors/>
                 </tr>
                 <tr>
-                    <td>Login:</td>
-                    <td><html:text property="login" /></td>
-                </tr>
-                <tr>
-                    <td>Hasło:</td>
-                    <td><html:password property="password" /></td>
-                <tr>
                     <td>Typ użytkownika:</td>
                     <td>
                     <html:radio property="type" value="superUser" />deweloper
@@ -37,11 +30,28 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Login:</td>
+                    <td><html:text property="login" /></td>
+                </tr>
+                <tr>
+                    <td>Hasło:</td>
+                    <td><html:password property="password" /></td>
+
+                <tr>
+                <tr>
+                    <td>Powtórz hasło:</td>
+                    <td><html:password property="retypedPassword" /></td>
+                <tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><html:text property="email" /></td>
+                </tr>
                     <td></td>
                     <td><html:submit value="Rejestruj" /></td>
                 </tr>
             </tbody>
         </table>  
     </html:form>
+    <p>Powrót do strony <a href="login.jsp">głównej</a></p>
 </body>
 </html>

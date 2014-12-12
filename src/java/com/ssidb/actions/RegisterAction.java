@@ -1,7 +1,7 @@
 package com.ssidb.actions;
 
 import com.ssidb.helpers.XMLUtils;
-import com.ssidb.users.User;
+import com.ssidb.dto.User;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,9 +10,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 public class RegisterAction extends org.apache.struts.action.Action {
-
-    private static final String SUCCESS = "register_success";
-    private static final String FAILURE = "register_failure";
 
     /**
      * @param mapping The ActionMapping used to select this instance.
@@ -39,18 +36,36 @@ public class RegisterAction extends org.apache.struts.action.Action {
                 || login.equals("")
                 || password.length() < 3) {
 
-            return mapping.findForward(FAILURE);
+            return mapping.findForward("register_failure");
         }
-        
-        User nowy = new User();
-        nowy.setLogin(login);
-        nowy.setPassword(password);
-        nowy.setType(type);
-        String filename = "users.xml";
+
+        String filename = "/home/monini/NetBeansProjects/SSIDB/users.xml";
         ArrayList<User> uzytkownicy = XMLUtils.xml2ArrayListUser(filename);
-        if(uzytkownicy == null) uzytkownicy = new ArrayList<>();
-        uzytkownicy.add(nowy);
-        XMLUtils.arrayListUser2Xml(uzytkownicy, filename);
-        return mapping.findForward(SUCCESS);
+        if (uzytkownicy == null) {
+            uzytkownicy = new ArrayList<>();
+        }
+
+        if (loginExists(login, uzytkownicy)) {
+            formBean.setLogin("");
+            return mapping.findForward("register_failure");
+        } else {
+            User nowy = new User();
+            nowy.setLogin(login);
+            nowy.setPassword(password);
+            nowy.setType(type);
+
+            uzytkownicy.add(nowy);
+            XMLUtils.arrayListUser2Xml(uzytkownicy, filename);
+            return mapping.findForward("register_success");
+        }
+    }
+
+    boolean loginExists(String login, ArrayList<User> uzytkownicy) {
+        for (User u : uzytkownicy) {
+            if (u.getLogin().equals(login)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

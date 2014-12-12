@@ -7,10 +7,7 @@
 
 <struts-config>
     <form-beans>
-        <form-bean name="User" type="com.ssidb.users.User"/>
-        <form-bean name="CommonUser" type="com.ssidb.users.CommonUser"/>
-        <form-bean name="SuperUser" type="com.ssidb.users.SuperUser"/>
-        <form-bean name="Admin" type="com.ssidb.users.Admin"/>
+        <form-bean name="User" type="com.ssidb.dto.User"/>
     </form-beans>
     
     <global-exceptions>
@@ -23,12 +20,17 @@
 
     <action-mappings>
         <action name="User" path="/login" scope="request" type="com.ssidb.actions.LoginAction" validate="false">
-            <forward name="login_success" path="/success.jsp"/>
-            <forward name="login_failure" path="/login.jsp"/>
+            <forward name="admin_page" path="/WEB-INF/adminWelcomePage.jsp"/>
+            <forward name="superUser_page" path="/WEB-INF/superUserWelcomePage.jsp"/>
+            <forward name="commonUser_page" path="/WEB-INF/commonUserWelcomePage.jsp"/>
+            <forward name="login_failure" path="/failure.jsp"/>
         </action>
         <action input="/register.jsp" name="User" path="/register" scope="request" type="com.ssidb.actions.RegisterAction" validate="true">
-            <forward name="register_success" path="/success.jsp"/>
+            <forward name="register_success" path="/login.jsp"/>
             <forward name="register_failure" path="/register.jsp"/>
+        </action>
+        <action name="logout" class="com.ssidb.actions.LoginAction" method="logout">
+            <forward name="logout_success" path="/login.jsp"/>
         </action>
     </action-mappings>
     

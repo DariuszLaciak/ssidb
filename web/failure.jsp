@@ -5,13 +5,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
-        <title>Success Page</title>
+        <title>Failure Page</title>
     </head>
     <body>
-        <h1>Zalogowano poprawnie!</h1>
+        <h1>Nie zalogowano!</h1>
         <div>
-            <p>Twój login to: <bean:write name="User" property="login" />.</p>
-            <p>Twój typ to: <bean:write name="User" property="type" />.</p>
+            <p>Twój login i/lub hasło są niepoprawne!</p>
+            <p>Powrót do strony <a href="login.jsp">logowania</a></p>
+            <p>Jeśli nie jesteś jeszcze zarejestrowany, przejdź do formularza <a href="register.jsp">rejestracji</a></p>
         </div>
     </body>
 </html>

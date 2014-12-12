@@ -1,6 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%
+   response.setHeader( "Pragma", "no-cache" );
+   response.setHeader( "Cache-Control", "no-cache" );
+   response.setDateHeader( "Expires", 0 );
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,11 +22,12 @@
                 <tbody>
                     <tr>
                         <td>Login:</td>
-                        <td><html:text property="login" /></td>
+                        <td><html:text property="login"/>
+                        </td>
                     </tr>
                     <tr>
                         <td>Hasło:</td>
-                        <td><html:text property="password" /></td>
+                        <td><html:password property="password"/></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -30,5 +36,14 @@
                 </tbody>
             </table>
         </html:form>
+        Jeśli nie chcesz się rejestrować ani logować 
+        <a href="searchSimple.jsp">Wyszukuj jako gość</a></br>
+        </br>
+        </br>
+        <div>
+            Informacja o firmie, jakaś fotka</br>
+            Informacja dla dewelopera (jesli chcesz dodac swoją ofertę…)</br>
+            Informacja do przeglądacza strony (jesli chcesz wyszukiwać zgodnie ze swoimi preferencjami…)</br>
+        </div>
     </body>
 </html>

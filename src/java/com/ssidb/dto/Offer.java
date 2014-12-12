@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -41,6 +42,22 @@ public class Offer implements Serializable {
 
     private User user;
 
+    public Offer(float price, float total_area, int n_of_rooms, float distance_to_center, float distance_to_MPK, int floor, String exposition, String address) {
+        this.price = price;
+        this.total_area = total_area;
+        this.n_of_rooms = n_of_rooms;
+        this.distance_to_center = distance_to_center;
+        this.distance_to_MPK = distance_to_MPK;
+        this.floor = floor;
+        this.exposition = exposition;
+        this.address = address;
+    }
+
+    public Offer() {
+    }
+
+    
+    
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(unique = true, nullable = false)
@@ -124,8 +141,8 @@ public class Offer implements Serializable {
         this.address = address;
     }
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idUser", nullable = true)
     public User getUser() {
         return user;
     }

@@ -55,6 +55,39 @@ public class Profile implements Serializable {
 
     private User user;
 
+    public Profile(float tanie_min, float tanie_max, float przecietne_min, float przecietne_max, float drogie_min, float drogie_max, float male_min, float male_max, float srednie_min, float srednie_max, float duze_min, float duze_max, float nisko_min, float nisko_max, float wysoko_min, float wysoko_max, float c_bliko_min, float c_blisko_max, float c_daleko_min, float c_daleko_max, float mpk_blisko_min, float mpk_blisko_max, float mpk_daleko_min, float mpk_daleko_max) {
+
+        this.tanie_min = tanie_min;
+        this.tanie_max = tanie_max;
+        this.przecietne_min = przecietne_min;
+        this.przecietne_max = przecietne_max;
+        this.drogie_min = drogie_min;
+        this.drogie_max = drogie_max;
+        this.male_min = male_min;
+        this.male_max = male_max;
+        this.srednie_min = srednie_min;
+        this.srednie_max = srednie_max;
+        this.duze_min = duze_min;
+        this.duze_max = duze_max;
+        this.nisko_min = nisko_min;
+        this.nisko_max = nisko_max;
+        this.wysoko_min = wysoko_min;
+        this.wysoko_max = wysoko_max;
+        this.c_bliko_min = c_bliko_min;
+        this.c_blisko_max = c_blisko_max;
+        this.c_daleko_min = c_daleko_min;
+        this.c_daleko_max = c_daleko_max;
+        this.mpk_blisko_min = mpk_blisko_min;
+        this.mpk_blisko_max = mpk_blisko_max;
+        this.mpk_daleko_min = mpk_daleko_min;
+        this.mpk_daleko_max = mpk_daleko_max;
+    }
+
+    public Profile() {
+    }
+
+    
+    
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(unique = true, nullable = false)

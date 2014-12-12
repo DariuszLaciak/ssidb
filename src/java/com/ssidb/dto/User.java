@@ -6,6 +6,8 @@
 package com.ssidb.dto;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +15,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -28,12 +32,28 @@ public class User implements Serializable {
     private String login;
     private String password;
     private String retypedPassword;
+    private String type;
     private String address;
     private String phone;
     private String email;
     private Profile profile;
-    private Offer offer;
+    private Set<Offer> offers = new HashSet<>();
 
+    public User(String login, String password, String retypedPassword, String type, String address, String phone, String email) {
+        this.login = login;
+        this.password = password;
+        this.retypedPassword = retypedPassword;
+        this.type = type;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+    }
+
+    public User() {
+    }
+
+    
+    
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(unique = true, nullable = false)
@@ -99,7 +119,7 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, optional = true)
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, optional = true)
     public Profile getProfile() {
         return profile;
     }
@@ -107,13 +127,24 @@ public class User implements Serializable {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, optional = true)
-    public Offer getOffer() {
-        return offer;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    public Set<Offer> getOffers() {
+        return offers;
     }
 
-    public void setOffer(Offer offer) {
-        this.offer = offer;
+    public void setOffers(Set<Offer> offers) {
+        this.offers = offers;
     }
+    
+    @Column(nullable = false, length = 20)
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
 
 }

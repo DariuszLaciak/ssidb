@@ -35,13 +35,13 @@ public class DBFiller {
         user.setProfile(profile);
         profile.setUser(user);
         
-        developer.getOffers().add(offer1);
-        developer.getOffers().add(offer3);
+        developer.getOffers_set().add(offer1);
+        developer.getOffers_set().add(offer3);
         
         offer1.setUser(developer);
         offer3.setUser(developer);
         
-        dev.getOffers().add(offer2);
+        dev.getOffers_set().add(offer2);
         offer2.setUser(dev);
         
         s.save(user);

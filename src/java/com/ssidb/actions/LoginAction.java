@@ -2,6 +2,7 @@ package com.ssidb.actions;
 
 import com.ssidb.helpers.XMLUtils;
 import com.ssidb.dto.User;
+import com.ssidb.helpers.HibernateUtil;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,8 +10,12 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 public class LoginAction extends org.apache.struts.action.Action {
+
+    Session s = HibernateUtil.getSessionFactory().getCurrentSession();
 
     /**
      * @param mapping The ActionMapping used to select this instance.
@@ -39,29 +44,28 @@ public class LoginAction extends org.apache.struts.action.Action {
             return mapping.findForward("login_failure");
         }
 
-        String filename = "users.xml";
-        ArrayList<User> users = XMLUtils.xml2ArrayListUser(filename);
-        if (users == null) {
-            users = new ArrayList<>();
-        }
-        for (User u : users) {
-            if (u.getLogin().equals(login) && u.getPassword().equals(password)) {
-                String type = u.getType();
-                formBean.setType(type);
-                switch (type) {
-                    case "admin":
-                        return mapping.findForward("admin_page");
-                    case "superUser":
-                        return mapping.findForward("superUser_page");
-                    default:
-                        return mapping.findForward("commonUser_page");
-                }
+        User u = null;
+        s = HibernateUtil.getSessionFactory().getCurrentSession();
+        s.beginTransaction();
+        Query q = s.createQuery("from User where login=:login and password=:pass").setString("login", login).setString("pass", password);
+        if (!q.list().isEmpty()) {
+            u = (User) q.list().get(0);
+
+            String type = u.getType();
+            formBean.setType(type);
+            switch (type) {
+                case "admin":
+                    return mapping.findForward("admin_page");
+                case "superUser":
+                    return mapping.findForward("superUser_page");
+                default:
+                    return mapping.findForward("commonUser_page");
             }
         }
-
+        s.getTransaction().commit();
         return mapping.findForward("login_failure");
     }
-    
+
     public ActionForward logout(ActionMapping mapping, ActionForm form,
             HttpSession session, HttpServletResponse response)
             throws Exception {

@@ -13,10 +13,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
@@ -37,22 +37,30 @@ public class User extends org.apache.struts.action.ActionForm implements Seriali
     private String email;
     private Profile profile;
 
-    private Set<Offer> offers_set = new HashSet<>();
+    private Set<Offer> offers = new HashSet<>();
 
-    private HashMap<Integer,Offer> offers;
+   
     private String error;
 
 
-    public User(String login, String password, String retypedPassword, String type, String address, String phone, String email) {
+    public User(String login, String password, String type, String address, String phone, String email) {
         this.login = login;
         this.password = password;
-        this.retypedPassword = retypedPassword;
         this.type = type;
         this.address = address;
         this.phone = phone;
         this.email = email;
     }
 
+    public User(String type, String login, String password, String email) {
+        this.type = type;
+        this.login = login;
+        this.password = password;
+        this.retypedPassword = retypedPassword;
+        this.email = email;
+    }
+
+    
     public User() {
     }
 
@@ -97,7 +105,8 @@ public class User extends org.apache.struts.action.ActionForm implements Seriali
         this.password = password;
     }
 
-    @Column(nullable = false, length = 20)
+    
+    @Transient
     public String getRetypedPassword() {
         return retypedPassword;
     }
@@ -106,7 +115,7 @@ public class User extends org.apache.struts.action.ActionForm implements Seriali
         this.retypedPassword = retypedPassword;
     }
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     public String getAddress() {
         return address;
     }
@@ -115,7 +124,7 @@ public class User extends org.apache.struts.action.ActionForm implements Seriali
         this.address = address;
     }
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     public String getPhone() {
         return phone;
     }
@@ -143,14 +152,15 @@ public class User extends org.apache.struts.action.ActionForm implements Seriali
     }
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-    public Set<Offer> getOffers_set() {
-        return offers_set;
+    public Set<Offer> getOffers() {
+        return offers;
     }
 
-    public void setOffers_set(Set<Offer> offers_set) {
-        this.offers_set = offers_set;
+    public void setOffers(Set<Offer> offers) {
+        this.offers = offers;
     }
-
+    
+    @Transient
     public String getError() {
         return error;
     }

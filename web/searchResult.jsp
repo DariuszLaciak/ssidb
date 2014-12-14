@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <jsp:include page="WEB-INF/headers.jsp" />
         <title>Search Result Page</title>
     </head>
     <body>

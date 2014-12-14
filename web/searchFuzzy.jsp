@@ -1,12 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
-        <title>Wyszukiwarka rozmyta</title>
-    </head>
-    <body>
+<% try { if(session.getAttribute("user_type").equals("commonUser")) { %>
         <h1>Wyszukiwarka mieszkań</h1>
         możliwość “rozmytego” wyszukiwania
         * "rozmyte"
@@ -20,5 +14,10 @@
         - ekspozycja
          Zatwierdź (success -> searchResult.jsp)
         <p>Powrót do strony <a href="login.jsp">głównej</a></p>
-    </body>
-</html>
+<% } else { %>
+        
+        <h1>Nie masz uprawnień by tu być!</h1>
+        
+        <% } } catch(NullPointerException e) { %>
+            <h1>Nie jesteś zalogowany!</h1>
+<% } %>

@@ -2,16 +2,10 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
-        <title>Profile Page</title>
-    </head>
-    <body>
+<% try { if(session.getAttribute("user_type").equals("commonUser")) { %>
         <h1>Profil użytkownika</h1>
         <html:form action="/profile">
-            <table> 
+            <table class='content_table'> 
                 <tbody>
                     <tr>
                         <th colspan="3">Cena [w tys. PLN]</th>
@@ -100,6 +94,11 @@
         </tbody>
     </table>  
 </html:form>
-<p><a href="commonUserWelcomePage.jsp">Powrót</a></p>
-</body>
-</html>
+<% } else { %>
+        
+        <h1>Nie masz uprawnień by tu być!</h1>
+        
+        <% } } catch(NullPointerException e) { %>
+            <h1>Nie jesteś zalogowany!</h1>
+<% } %>
+        

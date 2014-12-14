@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <jsp:include page="headers.jsp" />
         <title>Super User success Page</title>
     </head>
     <body>
+        <% if(session.getAttribute("user_type").equals("superUser")) { %>
         <div id='content'>
             <div id='user_menu'>
         <h1>Witaj <bean:write name="User" property="login" />!</h1>
@@ -24,5 +24,11 @@
 
             </div>
         </div>
+        <% }
+        else { %>
+        <div id='content'>
+            <h1>Nie masz uprawnień by tu być!</h1>
+        </div>
+        <% } %>
     </body>
 </html>

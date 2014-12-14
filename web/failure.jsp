@@ -3,16 +3,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <jsp:include page="WEB-INF/headers.jsp" />
         <title>Failure Page</title>
     </head>
     <body>
-        <h1>Nie zalogowano!</h1>
-        <div>
+        <div id='login_fail'>
+            <h1>Nie zalogowano!</h1>
             <p>Twój login i/lub hasło są niepoprawne!</p>
             <p>Powrót do strony <a href="login.jsp">logowania</a></p>
             <p>Jeśli nie jesteś jeszcze zarejestrowany, przejdź do formularza <a href="register.jsp">rejestracji</a></p>
+
         </div>
     </body>
 </html>

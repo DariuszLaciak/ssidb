@@ -4,8 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <jsp:include page="WEB-INF/headers.jsp" />
         <title>JSP Page</title>
     </head>
     <body>
@@ -21,10 +20,11 @@
             <table id='login'> 
                 <tbody>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" class='errors'>
                             <bean:write name="User" property="error" filter="false"/>
+                            <html:errors/>
                         </td>
-                        <html:errors/>
+                        
                     </tr>
                     <tr>
                         <td>Typ użytkownika:</td>

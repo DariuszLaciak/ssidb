@@ -187,6 +187,9 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
         if (getRetypedPassword() == null || getRetypedPassword().length() < 3) {
             errors.add("retypedPassword", new ActionMessage("errors.invalid", "powtorzenie hasła"));
         }
+        if(getType() == null){
+            errors.add("type", new ActionMessage("errors.invalid", "typ użytkownika"));
+        }
         if (getEmail() == null || getEmail().indexOf('@') == -1) {
             errors.add("email", new ActionMessage("errors.invalid", "email"));
         }

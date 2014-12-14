@@ -9,8 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <jsp:include page="WEB-INF/headers.jsp" />
         <title>Login Page</title>
     </head>
     <body>
@@ -27,12 +26,12 @@
                 <tbody>
                     <tr>
                         <td>Login:</td>
-                        <td><html:text property="login"/>
+                        <td><html:text  size="30" property="login"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Hasło:</td>
-                        <td><html:password property="password"/></td>
+                        <td><html:password size="30" property="password"/></td>
                     </tr>
                     <tr>
                         <td></td>

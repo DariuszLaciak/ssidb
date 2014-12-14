@@ -30,6 +30,7 @@ public class LoginAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
+        HttpSession session = request.getSession();
         // extract user data
         UserDTO formBean = (UserDTO) form;
         String login = formBean.getLogin();
@@ -53,6 +54,10 @@ public class LoginAction extends org.apache.struts.action.Action {
 
             String type = u.getType();
             formBean.setType(type);
+            s.getTransaction().commit();
+            session.setAttribute("user_id", u.getId());
+            session.setAttribute("user_data", u);
+            session.setAttribute("user_type", type);
             switch (type) {
                 case "admin":
                     return mapping.findForward("admin_page");

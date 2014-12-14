@@ -4,14 +4,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <jsp:include page="WEB-INF/headers.jsp" />
         <title>Offer Form</title>
     </head>
     <body>
         <h1>Formularz oferty</h1>
         <html:form action="/offer">
-            <table> 
+            <table class='content_table'> 
                 <tbody>
                     <tr>
                         <td>Cena:</td>

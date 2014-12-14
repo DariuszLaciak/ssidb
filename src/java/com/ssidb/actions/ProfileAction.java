@@ -2,7 +2,7 @@ package com.ssidb.actions;
 
 import com.ssidb.dto.Profile;
 import com.ssidb.helpers.XMLUtils;
-import com.ssidb.dto.User;
+import com.ssidb.dto.UserDTO;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

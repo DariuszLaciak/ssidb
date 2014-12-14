@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -53,7 +54,7 @@ public class Profile extends org.apache.struts.action.ActionForm implements Seri
     private float mpk_daleko_min;
     private float mpk_daleko_max;
 
-    private User user;
+    private UserDTO user;
 
     public Profile(float tanie_min, float tanie_max, float przecietne_min, float przecietne_max, float drogie_min, float drogie_max, float male_min, float male_max, float srednie_min, float srednie_max, float duze_min, float duze_max, float nisko_min, float nisko_max, float wysoko_min, float wysoko_max, float c_bliko_min, float c_blisko_max, float c_daleko_min, float c_daleko_max, float mpk_blisko_min, float mpk_blisko_max, float mpk_daleko_min, float mpk_daleko_max) {
 
@@ -89,7 +90,7 @@ public class Profile extends org.apache.struts.action.ActionForm implements Seri
     
     
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(unique = true, nullable = false)
     public long getId() {
         return id;
@@ -102,11 +103,11 @@ public class Profile extends org.apache.struts.action.ActionForm implements Seri
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 

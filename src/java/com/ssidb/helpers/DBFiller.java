@@ -7,7 +7,7 @@ package com.ssidb.helpers;
 
 import com.ssidb.dto.Offer;
 import com.ssidb.dto.Profile;
-import com.ssidb.dto.User;
+import com.ssidb.dto.UserDTO;
 import org.hibernate.Session;
 
 /**
@@ -21,10 +21,10 @@ public class DBFiller {
         Session s = HibernateUtil.getSessionFactory().openSession();
         
         s.beginTransaction();
-        User user = new User("user", "user","commonUser", "userowo", "1234567890", "user@user.user");
-        User developer = new User("dev", "dev","superUser", "devowo", "0987654321", "dev@dev.dev");
-        User dev = new User("dev1", "dev1" ,"superUser","devowo", "1023954633", "dev1@dev1.dev");
-        User admin = new User("admin", "admin","admin", "adminowo", "0192837465", "admin@admin.admin");
+        UserDTO user = new UserDTO("user", "user","commonUser", "userowo", "1234567890", "user@user.user");
+        UserDTO developer = new UserDTO("dev", "dev","superUser", "devowo", "0987654321", "dev@dev.dev");
+        UserDTO dev = new UserDTO("dev1", "dev1" ,"superUser","devowo", "1023954633", "dev1@dev1.dev");
+        UserDTO admin = new UserDTO("admin", "admin","admin", "adminowo", "0192837465", "admin@admin.admin");
         
         Offer offer1 = new Offer(210000F, 31.5F, 4, 7.4F, 0.3F, 3, "tak", "adres1");
         Offer offer2 = new Offer(187500F, 22.7F, 3, 3.6F, 0.1F, 1, "tak", "adres2");

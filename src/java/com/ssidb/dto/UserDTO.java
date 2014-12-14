@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -25,7 +26,7 @@ import org.apache.struts.action.ActionMessage;
 
 @Entity
 @Table
-public class User extends org.apache.struts.action.ActionForm implements Serializable {
+public class UserDTO extends org.apache.struts.action.ActionForm implements Serializable {
 
     private long id;
     private String type;
@@ -43,7 +44,7 @@ public class User extends org.apache.struts.action.ActionForm implements Seriali
     private String error;
 
 
-    public User(String login, String password, String type, String address, String phone, String email) {
+    public UserDTO(String login, String password, String type, String address, String phone, String email) {
         this.login = login;
         this.password = password;
         this.type = type;
@@ -52,7 +53,7 @@ public class User extends org.apache.struts.action.ActionForm implements Seriali
         this.email = email;
     }
 
-    public User(String type, String login, String password, String email) {
+    public UserDTO(String type, String login, String password, String email) {
         this.type = type;
         this.login = login;
         this.password = password;
@@ -61,13 +62,13 @@ public class User extends org.apache.struts.action.ActionForm implements Seriali
     }
 
     
-    public User() {
+    public UserDTO() {
     }
 
     
     
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(unique = true, nullable = false)
     public long getId() {
         return id;

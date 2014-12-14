@@ -1,7 +1,7 @@
 package com.ssidb.actions;
 
 
-import com.ssidb.dto.User;
+import com.ssidb.dto.UserDTO;
 import com.ssidb.helpers.HibernateUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +30,7 @@ public class RegisterAction extends org.apache.struts.action.Action {
             throws Exception {
 
         // extract user data
-        User formBean = (User) form;
+        UserDTO formBean = (UserDTO) form;
         String login = formBean.getLogin();
         String password = formBean.getPassword();
         String retypedPwd = formBean.getRetypedPassword();
@@ -53,7 +53,7 @@ public class RegisterAction extends org.apache.struts.action.Action {
             formBean.setLogin("");
             return mapping.findForward("register_failure");
         } else {
-            User nowy = new User(type, login, password, email);
+            UserDTO nowy = new UserDTO(type, login, password, email);
             s = HibernateUtil.getSessionFactory().getCurrentSession();
             s.beginTransaction();
             long id = (long)s.save(nowy);
@@ -69,7 +69,7 @@ public class RegisterAction extends org.apache.struts.action.Action {
         boolean success = true;
         s = HibernateUtil.getSessionFactory().getCurrentSession();
         s.beginTransaction();
-        Query q = s.createQuery("from User where login= :login").setString("login", login);
+        Query q = s.createQuery("from UserDTO where login= :login").setString("login", login);
         if(q.list().isEmpty()){
             success = false;
         }

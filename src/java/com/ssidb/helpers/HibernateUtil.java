@@ -7,7 +7,7 @@ package com.ssidb.helpers;
 
 import com.ssidb.dto.Offer;
 import com.ssidb.dto.Profile;
-import com.ssidb.dto.User;
+import com.ssidb.dto.UserDTO;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -28,7 +28,7 @@ public class HibernateUtil {
         Configuration configuration = new Configuration();
 
         // Create the SessionFactory from hibernate.cfg.xml
-        configuration.addAnnotatedClass(User.class);
+        configuration.addAnnotatedClass(UserDTO.class);
         configuration.addAnnotatedClass(Offer.class);
         configuration.addAnnotatedClass(Profile.class);
         configuration.configure("hibernate.cfg.xml");

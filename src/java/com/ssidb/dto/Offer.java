@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -40,7 +41,7 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     private String exposition;
     private String address;
 
-    private User user;
+    private UserDTO user;
 
     public Offer(float price, float total_area, int n_of_rooms, float distance_to_center, float distance_to_MPK, int floor, String exposition, String address) {
         this.price = price;
@@ -59,7 +60,7 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     
     
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(unique = true, nullable = false)
     public long getId() {
         return id;
@@ -143,11 +144,11 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idUser", nullable = true)
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 

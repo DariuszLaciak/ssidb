@@ -1,7 +1,7 @@
 package com.ssidb.actions;
 
 import com.ssidb.helpers.XMLUtils;
-import com.ssidb.dto.User;
+import com.ssidb.dto.UserDTO;
 import com.ssidb.helpers.HibernateUtil;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +31,7 @@ public class LoginAction extends org.apache.struts.action.Action {
             throws Exception {
 
         // extract user data
-        User formBean = (User) form;
+        UserDTO formBean = (UserDTO) form;
         String login = formBean.getLogin();
         String password = formBean.getPassword();
 
@@ -44,12 +44,12 @@ public class LoginAction extends org.apache.struts.action.Action {
             return mapping.findForward("login_failure");
         }
 
-        User u = null;
+        UserDTO u = null;
         s = HibernateUtil.getSessionFactory().getCurrentSession();
         s.beginTransaction();
-        Query q = s.createQuery("from User where login=:login and password=:pass").setString("login", login).setString("pass", password);
+        Query q = s.createQuery("from UserDTO where login=:login and password=:pass").setString("login", login).setString("pass", password);
         if (!q.list().isEmpty()) {
-            u = (User) q.list().get(0);
+            u = (UserDTO) q.list().get(0);
 
             String type = u.getType();
             formBean.setType(type);

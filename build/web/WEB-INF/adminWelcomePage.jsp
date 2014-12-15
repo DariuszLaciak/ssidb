@@ -15,12 +15,12 @@
             
            
         <p><a href='#'>Lista użytkowników</a></p>
-                <p><a href='#'>Dodaj (-> register.jsp)</a></p>
+                <p><a id='add_user'>Dodaj (-> register.jsp)</a></p>
                <p><a href='#'>Usuń (albo guzik przy liście, albo pole z id użytkownika do usunięcia)</a></p>
                 <p><a href='#'>Edytuj (-> register.jsp, ale uzupełnione)</a></p>
             
             <p><a href="login.jsp">Powrót do strony głównej</a></p>
-            <p><a href="/logout">Wyloguj( -> login.jsp, sesja wygasa)</a>  </p>
+            <p><a id='logout'>Wyloguj( -> login.jsp, sesja wygasa)</a></p>
         </div>
             <div id='user_content'>
 

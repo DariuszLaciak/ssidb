@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%!String admin = ""; %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,10 @@
     <div id='panel_login'>
         <div class='info_login'>
         <h1>Formularz rejestracyjny</h1>
+        <% if(session.getAttribute("user_id") == null) {
+        admin = "_admin"; %>
         <p>Powrót do strony <a href="login.jsp">głównej</a></p>
+        <%}%>
         </div>
         <html:form action="/register">
             <table id='login'> 

@@ -17,7 +17,7 @@
             <p><a href='#'>Twoje oferty</a></p>
             <p><a href='searchSimple.jsp'>Wyszukaj mieszkanie</a></p>
             <p><a href="login.jsp">Powrót do strony głównej</a></p>
-            <p><a href="/logout">Wyloguj</a></p>
+            <p><a id='logout'>Wyloguj( -> login.jsp, sesja wygasa)</a></p>
         
             </div>
          <div id='user_content'>

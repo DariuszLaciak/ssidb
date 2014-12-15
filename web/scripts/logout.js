@@ -13,6 +13,10 @@ $( document ).ready( function(){
     $('#search_fuzzy').click(function(){
         $('#user_content').load('searchFuzzy.jsp');
     });
+    
+    $('#add_user').click(function(){
+        $('#user_content').load('register.jsp');
+    });
     $('#logout').click(function(){
         $(document).load('logout.jsp');
         setTimeout(function(){

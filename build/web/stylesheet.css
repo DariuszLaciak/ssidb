@@ -80,6 +80,7 @@ a {
     color: black;
   text-decoration: underline;
   text-shadow: none;
+  cursor: pointer;
 }
 
 a:hover {

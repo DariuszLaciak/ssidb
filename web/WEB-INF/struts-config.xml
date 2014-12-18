@@ -8,8 +8,6 @@
 <struts-config>
     <form-beans>
         <form-bean name="User" type="com.ssidb.dto.UserDTO"/>
-        <form-bean name="Offer" type="com.ssidb.dto.Offer"/>
-        <form-bean name="Profile" type="com.ssidb.dto.Profile"/>
     </form-beans>
     
     <global-exceptions>
@@ -28,9 +26,8 @@
     </global-forwards>
 
     <action-mappings>
+       
         <action name="User" path="/login" scope="request" type="com.ssidb.actions.LoginAction" validate="false"/>
-        <action name="Profile" path="/profile" scope="request" type="com.ssidb.actions.ProfileAction" validate="false"/>
-         <action name="Offer" path="/offer" scope="request" type="com.ssidb.actions.OfferAction" validate="false"/>
         <action input="/register.jsp" name="User" path="/register" scope="request" type="com.ssidb.actions.RegisterAction" validate="true"/>
     </action-mappings>
     

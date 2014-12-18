@@ -16,7 +16,7 @@
                 <p><a id='edit_profile'>Edytuj profil</a></p>
                 <p><a id='search_fuzzy'>Wyszukaj mieszkanie</a></p>
                 <p><a href="login.jsp">Powrót do strony głównej</a></p>
-                <p><a id='logout'>Wyloguj( -> login.jsp, sesja wygasa)</a></p>
+                <p><a id='logout'>Wyloguj</a></p>
 
             </div>
             <div id='user_content'>

@@ -29,65 +29,82 @@ import javax.persistence.Table;
 public class Profile extends org.apache.struts.action.ActionForm implements Serializable {
 
     private long id;
-    private float tanie_min;
-    private float tanie_max;
-    private float przecietne_min;
-    private float przecietne_max;
-    private float drogie_min;
-    private float drogie_max;
-    private float male_min;
-    private float male_max;
-    private float srednie_min;
-    private float srednie_max;
-    private float duze_min;
-    private float duze_max;
-    private float nisko_min;
-    private float nisko_max;
-    private float wysoko_min;
-    private float wysoko_max;
-    private float c_blisko_min;
-    private float c_blisko_max;
-    private float c_daleko_min;
-    private float c_daleko_max;
-    private float mpk_blisko_min;
-    private float mpk_blisko_max;
-    private float mpk_daleko_min;
-    private float mpk_daleko_max;
-
     private UserDTO user;
+    private float area_a;
+    private float area_b;
+    private float area_c;
+    private float area_d;
+    
+    private float price_a;
+    private float price_b;
+    private float price_c;
+    private float price_d;
+    
+    private float floor_a;
+    private float floor_b;
+    private float floor_c;
+    private float floor_d;
+    
+    private float city_dist_a;
+    private float city_dist_b;
+    private float city_dist_c;
+    private float city_dist_d;
+    
+    private float mpk_dist_a;
+    private float mpk_dist_b;
+    private float mpk_dist_c;
+    private float mpk_dist_d;
 
-    public Profile(float tanie_min, float tanie_max, float przecietne_min, float przecietne_max, float drogie_min, float drogie_max, float male_min, float male_max, float srednie_min, float srednie_max, float duze_min, float duze_max, float nisko_min, float nisko_max, float wysoko_min, float wysoko_max, float c_bliko_min, float c_blisko_max, float c_daleko_min, float c_daleko_max, float mpk_blisko_min, float mpk_blisko_max, float mpk_daleko_min, float mpk_daleko_max) {
-
-        this.tanie_min = tanie_min;
-        this.tanie_max = tanie_max;
-        this.przecietne_min = przecietne_min;
-        this.przecietne_max = przecietne_max;
-        this.drogie_min = drogie_min;
-        this.drogie_max = drogie_max;
-        this.male_min = male_min;
-        this.male_max = male_max;
-        this.srednie_min = srednie_min;
-        this.srednie_max = srednie_max;
-        this.duze_min = duze_min;
-        this.duze_max = duze_max;
-        this.nisko_min = nisko_min;
-        this.nisko_max = nisko_max;
-        this.wysoko_min = wysoko_min;
-        this.wysoko_max = wysoko_max;
-        this.c_blisko_min = c_bliko_min;
-        this.c_blisko_max = c_blisko_max;
-        this.c_daleko_min = c_daleko_min;
-        this.c_daleko_max = c_daleko_max;
-        this.mpk_blisko_min = mpk_blisko_min;
-        this.mpk_blisko_max = mpk_blisko_max;
-        this.mpk_daleko_min = mpk_daleko_min;
-        this.mpk_daleko_max = mpk_daleko_max;
-    }
-
-    public Profile() {
+    public Profile(float area_a, float area_b, float area_c, float area_d, float price_a, float price_b, float price_c, float price_d, float floor_a, float floor_b, float floor_c, float floor_d, float city_dist_a, float city_dist_b, float city_dist_c, float city_dist_d, float mpk_dist_a, float mpk_dist_b, float mpk_dist_c, float mpk_dist_d) {
+        this.area_a = area_a;
+        this.area_b = area_b;
+        this.area_c = area_c;
+        this.area_d = area_d;
+        this.price_a = price_a;
+        this.price_b = price_b;
+        this.price_c = price_c;
+        this.price_d = price_d;
+        this.floor_a = floor_a;
+        this.floor_b = floor_b;
+        this.floor_c = floor_c;
+        this.floor_d = floor_d;
+        this.city_dist_a = city_dist_a;
+        this.city_dist_b = city_dist_b;
+        this.city_dist_c = city_dist_c;
+        this.city_dist_d = city_dist_d;
+        this.mpk_dist_a = mpk_dist_a;
+        this.mpk_dist_b = mpk_dist_b;
+        this.mpk_dist_c = mpk_dist_c;
+        this.mpk_dist_d = mpk_dist_d;
     }
 
     
+    
+    public Profile() {
+    }
+
+    public void editProfile(float price_a, float price_b, float price_c, float price_d, float area_a, float area_b, float area_c, float area_d, float floor_a, float floor_b, float floor_c, float floor_d, float city_dist_a, float city_dist_b, float city_dist_c, float city_dist_d, float mpk_dist_a, float mpk_dist_b, float mpk_dist_c, float mpk_dist_d) {
+        this.area_a = area_a;
+        this.area_b = area_b;
+        this.area_c = area_c;
+        this.area_d = area_d;
+        this.price_a = price_a;
+        this.price_b = price_b;
+        this.price_c = price_c;
+        this.price_d = price_d;
+        this.floor_a = floor_a;
+        this.floor_b = floor_b;
+        this.floor_c = floor_c;
+        this.floor_d = floor_d;
+        this.city_dist_a = city_dist_a;
+        this.city_dist_b = city_dist_b;
+        this.city_dist_c = city_dist_c;
+        this.city_dist_d = city_dist_d;
+        this.mpk_dist_a = mpk_dist_a;
+        this.mpk_dist_b = mpk_dist_b;
+        this.mpk_dist_c = mpk_dist_c;
+        this.mpk_dist_d = mpk_dist_d;
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -110,221 +127,166 @@ public class Profile extends org.apache.struts.action.ActionForm implements Seri
     public void setUser(UserDTO user) {
         this.user = user;
     }
-
     @Column(nullable = false, length = 20)
-    public float getTanie_min() {
-        return tanie_min;
+    public float getArea_a() {
+        return area_a;
     }
 
-    public void setTanie_min(float tanie_min) {
-        this.tanie_min = tanie_min;
+    public void setArea_a(float area_a) {
+        this.area_a = area_a;
     }
-
     @Column(nullable = false, length = 20)
-    public float getTanie_max() {
-        return tanie_max;
+    public float getArea_b() {
+        return area_b;
     }
 
-    public void setTanie_max(float tanie_max) {
-        this.tanie_max = tanie_max;
+    public void setArea_b(float area_b) {
+        this.area_b = area_b;
     }
-
     @Column(nullable = false, length = 20)
-    public float getPrzecietne_min() {
-        return przecietne_min;
+    public float getArea_c() {
+        return area_c;
     }
 
-    public void setPrzecietne_min(float przecietne_min) {
-        this.przecietne_min = przecietne_min;
+    public void setArea_c(float area_c) {
+        this.area_c = area_c;
     }
-
     @Column(nullable = false, length = 20)
-    public float getPrzecietne_max() {
-        return przecietne_max;
+    public float getArea_d() {
+        return area_d;
     }
 
-    public void setPrzecietne_max(float przecietne_max) {
-        this.przecietne_max = przecietne_max;
+    public void setArea_d(float area_d) {
+        this.area_d = area_d;
     }
-
     @Column(nullable = false, length = 20)
-    public float getDrogie_min() {
-        return drogie_min;
+    public float getPrice_a() {
+        return price_a;
     }
 
-    public void setDrogie_min(float drogie_min) {
-        this.drogie_min = drogie_min;
+    public void setPrice_a(float price_a) {
+        this.price_a = price_a;
     }
-
     @Column(nullable = false, length = 20)
-    public float getDrogie_max() {
-        return drogie_max;
+    public float getPrice_b() {
+        return price_b;
     }
 
-    public void setDrogie_max(float drogie_max) {
-        this.drogie_max = drogie_max;
+    public void setPrice_b(float price_b) {
+        this.price_b = price_b;
     }
-
     @Column(nullable = false, length = 20)
-    public float getMale_min() {
-        return male_min;
+    public float getPrice_c() {
+        return price_c;
     }
 
-    public void setMale_min(float male_min) {
-        this.male_min = male_min;
+    public void setPrice_c(float price_c) {
+        this.price_c = price_c;
     }
-
     @Column(nullable = false, length = 20)
-    public float getMale_max() {
-        return male_max;
+    public float getPrice_d() {
+        return price_d;
     }
 
-    public void setMale_max(float male_max) {
-        this.male_max = male_max;
+    public void setPrice_d(float price_d) {
+        this.price_d = price_d;
     }
-
     @Column(nullable = false, length = 20)
-    public float getSrednie_min() {
-        return srednie_min;
+    public float getFloor_a() {
+        return floor_a;
     }
 
-    public void setSrednie_min(float srednie_min) {
-        this.srednie_min = srednie_min;
+    public void setFloor_a(float floor_a) {
+        this.floor_a = floor_a;
     }
-
     @Column(nullable = false, length = 20)
-    public float getSrednie_max() {
-        return srednie_max;
+    public float getFloor_b() {
+        return floor_b;
     }
 
-    public void setSrednie_max(float srednie_max) {
-        this.srednie_max = srednie_max;
+    public void setFloor_b(float floor_b) {
+        this.floor_b = floor_b;
     }
-
     @Column(nullable = false, length = 20)
-    public float getDuze_min() {
-        return duze_min;
+    public float getFloor_c() {
+        return floor_c;
     }
 
-    public void setDuze_min(float duze_min) {
-        this.duze_min = duze_min;
+    public void setFloor_c(float floor_c) {
+        this.floor_c = floor_c;
     }
-
     @Column(nullable = false, length = 20)
-    public float getDuze_max() {
-        return duze_max;
+    public float getFloor_d() {
+        return floor_d;
     }
 
-    public void setDuze_max(float duze_max) {
-        this.duze_max = duze_max;
+    public void setFloor_d(float floor_d) {
+        this.floor_d = floor_d;
     }
-
     @Column(nullable = false, length = 20)
-    public float getNisko_min() {
-        return nisko_min;
+    public float getCity_dist_a() {
+        return city_dist_a;
     }
 
-    public void setNisko_min(float nisko_min) {
-        this.nisko_min = nisko_min;
+    public void setCity_dist_a(float city_dist_a) {
+        this.city_dist_a = city_dist_a;
     }
-
     @Column(nullable = false, length = 20)
-    public float getNisko_max() {
-        return nisko_max;
+    public float getCity_dist_b() {
+        return city_dist_b;
     }
 
-    public void setNisko_max(float nisko_max) {
-        this.nisko_max = nisko_max;
+    public void setCity_dist_b(float city_dist_b) {
+        this.city_dist_b = city_dist_b;
     }
-
     @Column(nullable = false, length = 20)
-    public float getWysoko_min() {
-        return wysoko_min;
+    public float getCity_dist_c() {
+        return city_dist_c;
     }
 
-    public void setWysoko_min(float wysoko_min) {
-        this.wysoko_min = wysoko_min;
+    public void setCity_dist_c(float city_dist_c) {
+        this.city_dist_c = city_dist_c;
     }
-
     @Column(nullable = false, length = 20)
-    public float getWysoko_max() {
-        return wysoko_max;
+    public float getCity_dist_d() {
+        return city_dist_d;
     }
 
-    public void setWysoko_max(float wysoko_max) {
-        this.wysoko_max = wysoko_max;
+    public void setCity_dist_d(float city_dist_d) {
+        this.city_dist_d = city_dist_d;
     }
-
     @Column(nullable = false, length = 20)
-    public float getC_blisko_min() {
-        return c_blisko_min;
+    public float getMpk_dist_a() {
+        return mpk_dist_a;
     }
 
-    public void setC_blisko_min(float c_bliko_min) {
-        this.c_blisko_min = c_bliko_min;
+    public void setMpk_dist_a(float mpk_dist_a) {
+        this.mpk_dist_a = mpk_dist_a;
     }
-
     @Column(nullable = false, length = 20)
-    public float getC_blisko_max() {
-        return c_blisko_max;
+    public float getMpk_dist_b() {
+        return mpk_dist_b;
     }
 
-    public void setC_blisko_max(float c_blisko_max) {
-        this.c_blisko_max = c_blisko_max;
+    public void setMpk_dist_b(float mpk_dist_b) {
+        this.mpk_dist_b = mpk_dist_b;
     }
-
     @Column(nullable = false, length = 20)
-    public float getC_daleko_min() {
-        return c_daleko_min;
+    public float getMpk_dist_c() {
+        return mpk_dist_c;
     }
 
-    public void setC_daleko_min(float c_daleko_min) {
-        this.c_daleko_min = c_daleko_min;
+    public void setMpk_dist_c(float mpk_dist_c) {
+        this.mpk_dist_c = mpk_dist_c;
     }
-
     @Column(nullable = false, length = 20)
-    public float getC_daleko_max() {
-        return c_daleko_max;
+    public float getMpk_dist_d() {
+        return mpk_dist_d;
     }
 
-    public void setC_daleko_max(float c_daleko_max) {
-        this.c_daleko_max = c_daleko_max;
+    public void setMpk_dist_d(float mpk_dist_d) {
+        this.mpk_dist_d = mpk_dist_d;
     }
 
-    @Column(nullable = false, length = 20)
-    public float getMpk_blisko_min() {
-        return mpk_blisko_min;
-    }
-
-    public void setMpk_blisko_min(float mpk_blisko_min) {
-        this.mpk_blisko_min = mpk_blisko_min;
-    }
-
-    @Column(nullable = false, length = 20)
-    public float getMpk_blisko_max() {
-        return mpk_blisko_max;
-    }
-
-    public void setMpk_blisko_max(float mpk_blisko_max) {
-        this.mpk_blisko_max = mpk_blisko_max;
-    }
-
-    @Column(nullable = false, length = 20)
-    public float getMpk_daleko_min() {
-        return mpk_daleko_min;
-    }
-
-    public void setMpk_daleko_min(float mpk_daleko_min) {
-        this.mpk_daleko_min = mpk_daleko_min;
-    }
-
-    @Column(nullable = false, length = 20)
-    public float getMpk_daleko_max() {
-        return mpk_daleko_max;
-    }
-
-    public void setMpk_daleko_max(float mpk_daleko_max) {
-        this.mpk_daleko_max = mpk_daleko_max;
-    }
-
+    
 }

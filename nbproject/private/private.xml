@@ -3,20 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Develop/Projects/ssidb/web/failure.jsp</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/WEB-INF/commonUserWelcomePage.jsp</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/profile.jsp</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/WEB-INF/adminWelcomePage.jsp</file>
-            <file>file:/E:/Develop/Projects/ssidb/src/java/com/ssidb/actions/LoginAction.java</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/offer.jsp</file>
             <file>file:/E:/Develop/Projects/ssidb/web/stylesheet.css</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/searchResult.jsp</file>
+            <file>file:/E:/Develop/Projects/ssidb/web/WEB-INF/commonUserWelcomePage.jsp</file>
+            <file>file:/E:/Develop/Projects/ssidb/src/java/com/ssidb/dto/Profile.java</file>
             <file>file:/E:/Develop/Projects/ssidb/web/scripts/logout.js</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/login.jsp</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/WEB-INF/superUserWelcomePage.jsp</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/searchFuzzy.jsp</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/searchSimple.jsp</file>
-            <file>file:/E:/Develop/Projects/ssidb/web/logout.jsp</file>
+            <file>file:/E:/Develop/Projects/ssidb/web/profile.jsp</file>
+            <file>file:/E:/Develop/Projects/ssidb/web/WEB-INF/web.xml</file>
+            <file>file:/E:/Develop/Projects/ssidb/web/search_fuzzy.jsp</file>
+            <file>file:/E:/Develop/Projects/ssidb/src/java/com/ssidb/actions/LoginAction.java</file>
+            <file>file:/E:/Develop/Projects/ssidb/src/java/com/ssidb/servlets/Manage.java</file>
+            <file>file:/E:/Develop/Projects/ssidb/web/WEB-INF/validator-rules.xml</file>
         </group>
     </open-files>
 </project-private>

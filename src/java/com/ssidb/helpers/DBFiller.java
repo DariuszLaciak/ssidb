@@ -30,7 +30,7 @@ public class DBFiller {
         Offer offer2 = new Offer(187500F, 22.7F, 3, 3.6F, 0.1F, 1, "tak", "adres2");
         Offer offer3 = new Offer(567220F, 48F, 6, 1F,0.1F,5,"nie","adres3");
         
-        Profile profile = new Profile(160000F, 180000F, 170000F, 190000F, 185000F, 230000F, 15F, 17F, 17F, 18F, 17.5F, 25F, 1F, 4F, 3F, 10F, 1F, 2F, 2F, 10F, 0.1F, 0.4F, 0.3F, 1F);
+        Profile profile = new Profile(20F, 50F, 70F, 100F, 70F, 300F, 500F, 1000F, 1F, 3F, 5F, 7F, 1F, 5F, 7F, 10F, 20F, 200F, 500F, 1000F);
         
         user.setProfile(profile);
         profile.setUser(user);

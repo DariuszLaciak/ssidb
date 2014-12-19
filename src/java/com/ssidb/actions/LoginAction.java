@@ -1,9 +1,7 @@
 package com.ssidb.actions;
 
-import com.ssidb.helpers.XMLUtils;
 import com.ssidb.dto.UserDTO;
 import com.ssidb.helpers.HibernateUtil;
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -70,6 +68,5 @@ public class LoginAction extends org.apache.struts.action.Action {
         s.getTransaction().commit();
         return mapping.findForward("login_failure");
     }
-
-    
+ 
 }

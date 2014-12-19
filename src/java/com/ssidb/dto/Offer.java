@@ -1,30 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ssidb.dto;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-/**
- *
- * @author Darek
- */
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+
 @Entity
 @Table
 public class Offer extends org.apache.struts.action.ActionForm implements Serializable {
@@ -33,14 +24,11 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     private float price;
     private float total_area;
     private int n_of_rooms;
-
     private float distance_to_center;
     private float distance_to_MPK;
-
     private int floor;
     private String exposition;
     private String address;
-
     private UserDTO user;
 
     public Offer(float price, float total_area, int n_of_rooms, float distance_to_center, float distance_to_MPK, int floor, String exposition, String address) {
@@ -56,8 +44,6 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
 
     public Offer() {
     }
-
-    
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -65,8 +51,7 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public long getId() {
         return id;
     }
-
-    private void setId(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -74,7 +59,6 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public float getPrice() {
         return price;
     }
-
     public void setPrice(float price) {
         this.price = price;
     }
@@ -83,7 +67,6 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public float getTotal_area() {
         return total_area;
     }
-
     public void setTotal_area(float total_area) {
         this.total_area = total_area;
     }
@@ -92,7 +75,6 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public float getDistance_to_center() {
         return distance_to_center;
     }
-
     public void setDistance_to_center(float distance_to_center) {
         this.distance_to_center = distance_to_center;
     }
@@ -101,7 +83,6 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public int getN_of_rooms() {
         return n_of_rooms;
     }
-
     public void setN_of_rooms(int n_of_rooms) {
         this.n_of_rooms = n_of_rooms;
     }
@@ -110,7 +91,6 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public float getDistance_to_MPK() {
         return distance_to_MPK;
     }
-
     public void setDistance_to_MPK(float distance_to_MPK) {
         this.distance_to_MPK = distance_to_MPK;
     }
@@ -119,7 +99,6 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public int getFloor() {
         return floor;
     }
-
     public void setFloor(int floor) {
         this.floor = floor;
     }
@@ -128,7 +107,6 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public String getExposition() {
         return exposition;
     }
-
     public void setExposition(String exposition) {
         this.exposition = exposition;
     }
@@ -137,7 +115,6 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public String getAddress() {
         return address;
     }
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -147,9 +124,40 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public UserDTO getUser() {
         return user;
     }
-
     public void setUser(UserDTO user) {
         this.user = user;
+    }
+    
+     /**
+     * @param mapping The ActionMapping used to select this instance.
+     * @param request The HTTP Request we are processing.
+     * @return
+     */
+    @Override
+    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+        ActionErrors errors = new ActionErrors();
+        if (getPrice() <= 0) {
+            errors.add("price", new ActionMessage("errors.required","price"));
+        }
+        if (getTotal_area() <= 0) {
+            errors.add("total_area", new ActionMessage("errors.invalid","total_area"));
+        }
+        if (getDistance_to_center() < 0) {
+            errors.add("distance_to_center", new ActionMessage("errors.invalid", "distance_to_center"));
+        }
+        if(getDistance_to_MPK() < 0){
+            errors.add("distance_to_MPK", new ActionMessage("errors.invalid", "distance_to_MPK"));
+        }
+        if (getN_of_rooms() < 0) {
+            errors.add("n_of_rooms", new ActionMessage("errors.invalid", "n_of_rooms"));
+        }
+        if (getFloor() < -1) {
+            errors.add("floor", new ActionMessage("errors.invalid", "floor"));
+        }
+        if (getExposition() == null) {
+            errors.add("exposition", new ActionMessage("errors.invalid", "exposition"));
+        }
+        return errors;
     }
 
 }

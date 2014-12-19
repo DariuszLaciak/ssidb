@@ -36,6 +36,8 @@ public class RegisterAction extends org.apache.struts.action.Action {
         String retypedPwd = formBean.getRetypedPassword();
         String type = formBean.getType();
         String email = formBean.getEmail();
+        String phone = formBean.getPhone();
+        String address = formBean.getAddress();        
 
         // perform validation
         if ((login == null)
@@ -47,13 +49,11 @@ public class RegisterAction extends org.apache.struts.action.Action {
             return mapping.findForward("register_failure");
         }
 
-        
-
         if (loginExists(login)) {
             formBean.setLogin("");
             return mapping.findForward("register_failure");
         } else {
-            UserDTO nowy = new UserDTO(type, login, password, email);
+            UserDTO nowy = new UserDTO(type, login, password, address, phone, email);
             s = HibernateUtil.getSessionFactory().getCurrentSession();
             s.beginTransaction();
             long id = (long)s.save(nowy);

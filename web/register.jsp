@@ -54,6 +54,14 @@
                         <td>Email:</td>
                         <td><html:text property="email" /></td>
                     </tr>
+                    <tr>
+                        <td>Telefon:</td>
+                        <td><html:text property="phone" /></td>
+                    </tr>
+                                        <tr>
+                        <td>Adres:</td>
+                        <td><html:text property="address" /></td>
+                    </tr>
                 <td></td>
                 <td><html:submit value="Rejestruj" /></td>
                 </tr>

@@ -5,14 +5,12 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import java.util.HashMap;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -42,30 +40,18 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
 
    
     private String error;
+    
+    public UserDTO(){}
 
-
-    public UserDTO(String login, String password, String type, String address, String phone, String email) {
+    public UserDTO(String type, String login, String password, String address, String phone, String email) {
+        this.type = type;
         this.login = login;
         this.password = password;
-        this.type = type;
         this.address = address;
         this.phone = phone;
         this.email = email;
+        this.profile = new Profile();
     }
-
-    public UserDTO(String type, String login, String password, String email) {
-        this.type = type;
-        this.login = login;
-        this.password = password;
-        this.retypedPassword = retypedPassword;
-        this.email = email;
-    }
-
-    
-    public UserDTO() {
-    }
-
-    
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -73,8 +59,7 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public long getId() {
         return id;
     }
-
-    private void setId(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -82,7 +67,6 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         if(type == null) this.type = "guest";
         this.type = type;
@@ -92,7 +76,6 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public String getLogin() {
         return login;
     }
-
     public void setLogin(String username) {
         this.login = username;
     }
@@ -101,17 +84,14 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
     
     @Transient
     public String getRetypedPassword() {
         return retypedPassword;
     }
-
     public void setRetypedPassword(String retypedPassword) {
         this.retypedPassword = retypedPassword;
     }
@@ -120,7 +100,6 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public String getAddress() {
         return address;
     }
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -129,7 +108,6 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public String getPhone() {
         return phone;
     }
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
@@ -138,7 +116,6 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -147,7 +124,6 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public Profile getProfile() {
         return profile;
     }
-
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
@@ -156,7 +132,6 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public Set<Offer> getOffers() {
         return offers;
     }
-
     public void setOffers(Set<Offer> offers) {
         this.offers = offers;
     }
@@ -165,7 +140,6 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
     public String getError() {
         return error;
     }
-
     public void setError(String error) {
         this.error = error;
     }

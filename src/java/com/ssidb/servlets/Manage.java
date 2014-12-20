@@ -5,23 +5,26 @@
  */
 package com.ssidb.servlets;
 
-import com.ssidb.dto.Profile;
+import com.ssidb.dto.Offer;
 import com.ssidb.dto.UserDTO;
 import com.ssidb.helpers.HibernateUtil;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.Serializable;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 
 /**
  *
@@ -87,7 +90,10 @@ public class Manage extends HttpServlet {
                 sess.beginTransaction();
                 if(values.containsKey("price"))
                 {
-                    out.println(values.get("price"));
+                    Query q = sess.getNamedQuery("getFunc");
+                    q.setParameter("id", 230);
+                    List<Offer> of = q.list();
+                    out.println(of.get(1).getAddress());
                 }
                 sess.getTransaction().commit();
                 break;

@@ -16,6 +16,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
+@javax.persistence.NamedNativeQuery(name = "getFunc", query = "{? = call example(:id) }", resultClass = Offer.class, hints = {
+@javax.persistence.QueryHint(name = "org.hibernate.callable", value = "true") })
 @Entity
 @Table
 public class Offer extends org.apache.struts.action.ActionForm implements Serializable {
@@ -127,6 +129,12 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     public void setUser(UserDTO user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "Offer{" + "price=" + price + ", total_area=" + total_area + ", n_of_rooms=" + n_of_rooms + ", distance_to_center=" + distance_to_center + ", distance_to_MPK=" + distance_to_MPK + ", floor=" + floor + ", exposition=" + exposition + ", address=" + address + '}';
+    }
+    
     
      /**
      * @param mapping The ActionMapping used to select this instance.

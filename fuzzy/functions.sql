@@ -2,7 +2,7 @@
 --  Funkcja przynależności typu L
 --------------------------------------------------------
 
-CREATE OR REPLACE FUNCTION FUNCTION FP_KL 
+CREATE OR REPLACE FUNCTION FP_KL 
 (
   X IN NUMBER 
 , A IN NUMBER 
@@ -23,7 +23,7 @@ END FP_KL;
 --  Funkcja przynależności typu Gamma
 --------------------------------------------------------
 
-CREATE OR REPLACE FUNCTION FUNCTION FP_KG 
+CREATE OR REPLACE FUNCTION FP_KG 
 (
   X IN NUMBER 
 , C IN NUMBER 
@@ -44,7 +44,7 @@ END FP_KG;
 --  Funkcja przynależności trapezowa
 --------------------------------------------------------
 
-CREATE OR REPLACE FUNCTION FUNCTION FP_TR 
+CREATE OR REPLACE FUNCTION FP_TR 
 (
   X IN NUMBER 
 , A IN NUMBER 
@@ -55,7 +55,7 @@ CREATE OR REPLACE FUNCTION FUNCTION FP_TR
 Y NUMBER(6,5);
 
 BEGIN
-  IF (X <= A || X > D) THEN Y := 0.0;
+  IF ((X <= A) OR (X > D)) THEN Y := 0.0;
   ELSIF(X < B) THEN Y := (X-A) / (B-A);
   ELSIF(X < C) THEN Y := 1.0;
   ELSE Y := (D-X) / (D-C);

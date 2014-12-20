@@ -9,6 +9,7 @@ import com.ssidb.dto.Offer;
 import com.ssidb.dto.Profile;
 import com.ssidb.dto.UserDTO;
 import com.ssidb.helpers.HibernateUtil;
+import com.ssidb.helpers.Util;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -91,14 +92,11 @@ public class Manage extends HttpServlet {
                 sess.beginTransaction();
                 if(values.containsKey("price"))
                 {
-                    Query q = sess.getNamedQuery("tanie");
+                    Query q = sess.getNamedQuery("price");
                     q.setParameter("id",s.getAttribute("user_id"));
+                    q.setString("typ", values.get("price"));
                     List<Offer> of = q.list();
-                    String reply = "<ul>";
-                    for(Offer o : of){
-                        reply += "<li>"+o+"</li>";
-                    }
-                    reply += "</ul>";
+                    String reply = Util.createResultTable(of);
                     out.println(reply);
                 }
                 sess.getTransaction().commit();

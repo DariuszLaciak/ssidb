@@ -6,6 +6,15 @@ body {
    width: 650px;
    background-image: url('tlo.jpg');
    background-size:  cover;
+   background-attachment: fixed;
+}
+
+.result_table{
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    min-width: 450px;
 }
 
 th {

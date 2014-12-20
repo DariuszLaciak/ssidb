@@ -16,7 +16,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
-@javax.persistence.NamedNativeQuery(name = "tanie", query = "{? = call tanie(:id) }", resultClass = Offer.class, hints = {
+@javax.persistence.NamedNativeQuery(name = "price", query = "{? = call price(:typ,:id) }", resultClass = Offer.class, hints = {
 @javax.persistence.QueryHint(name = "org.hibernate.callable", value = "true") })
 @Entity
 @Table

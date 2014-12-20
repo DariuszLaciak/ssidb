@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <td>Niska<input type='radio' name='price' value='low'/></td>
-                <td>Przeciętna<input type='radio' name='price' value='average'/></td>
+                <td>Przeciętna<input type='radio' name='price' value='avg'/></td>
                 <td>Wysoka<input type='radio' name='price' value='high'/></td>
             </tr>
             <tr>
@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <td>Mała<input type='radio' name='area' value='low'/></td>
-                <td>Średnia<input type='radio' name='area' value='average'/></td>
+                <td>Średnia<input type='radio' name='area' value='avg'/></td>
                 <td>Duża<input type='radio' name='area' value='high'/></td>
             </tr>
             <tr>
@@ -34,7 +34,7 @@
             </tr>
             <tr>
                 <td>Nisko<input type='radio' name='floor' value='low'/></td>
-                <td>Pośrodku<input type='radio' name='floor' value='average'/></td>
+                <td>Pośrodku<input type='radio' name='floor' value='avg'/></td>
                 <td>Wysoko<input type='radio' name='floor' value='high'/></td>
             </tr>
             <tr>
@@ -42,7 +42,7 @@
             </tr>
             <tr>
                 <td>Blisko<input type='radio' name='center' value='low'/></td>
-                <td>Umiarkowanie<input type='radio' name='center' value='average'/></td>
+                <td>Umiarkowanie<input type='radio' name='center' value='avg'/></td>
                 <td>Daleko<input type='radio' name='center' value='high'/></td>
             </tr>
             <tr>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td>Blisko<input type='radio' name='mpk' value='low'/></td>
-                <td>Umiarkowanie<input type='radio' name='mpk' value='average'/></td>
+                <td>Umiarkowanie<input type='radio' name='mpk' value='avg'/></td>
                 <td>Daleko<input type='radio' name='mpk' value='high'/></td>
             </tr>
             <tr>

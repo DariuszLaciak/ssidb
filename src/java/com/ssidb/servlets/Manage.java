@@ -94,10 +94,14 @@ public class Manage extends HttpServlet {
                     Query q1 = sess.createQuery("from Profile where user_id=:user");
                     q1.setParameter("user", s.getAttribute("user_id"));
                     List<Profile> p = q1.list();
-                    System.out.println(p.get(0).getPrice_b());
+                    float a = p.get(0).getPrice_a();
+                    float b = p.get(0).getPrice_b();
+                    
+                    System.out.println(a + " " + b);
+                    
                     Query q = sess.getNamedQuery("getFunc");
-                    q.setParameter("a", p.get(0).getPrice_a());
-                    q.setParameter("b", p.get(0).getPrice_b());
+                    q.setFloat("a", a);
+                    q.setFloat("b", b);
                     List<Offer> of = q.list();
                     String reply = "<ul>";
                     for(Offer o : of){

@@ -18,30 +18,30 @@ public class Profile extends org.apache.struts.action.ActionForm implements Seri
     private UserDTO user;
     
     // default values
-    private float area_a = 20;
-    private float area_b = 50;
-    private float area_c = 70;
-    private float area_d = 100;
+    private float area_a = 20F;
+    private float area_b = 50F;
+    private float area_c = 70F;
+    private float area_d = 100F;
     
-    private float price_a = 70;
-    private float price_b = 300;
-    private float price_c = 500;
-    private float price_d = 1000;
+    private float price_a = 70F;
+    private float price_b = 300F;
+    private float price_c = 500F;
+    private float price_d = 1000F;
     
-    private float floor_a = 1;
-    private float floor_b = 3;
-    private float floor_c = 5;
-    private float floor_d = 7;
+    private float floor_a = 1F;
+    private float floor_b = 3F;
+    private float floor_c = 5F;
+    private float floor_d = 7F;
     
-    private float city_dist_a = 1;
-    private float city_dist_b = 5;
-    private float city_dist_c = 7;
-    private float city_dist_d = 10;
+    private float city_dist_a = 1F;
+    private float city_dist_b = 5F;
+    private float city_dist_c = 7F;
+    private float city_dist_d = 10F;
     
-    private float mpk_dist_a = 20;
-    private float mpk_dist_b = 200;
-    private float mpk_dist_c = 500;
-    private float mpk_dist_d = 1000;
+    private float mpk_dist_a = 20F;
+    private float mpk_dist_b = 200F;
+    private float mpk_dist_c = 500F;
+    private float mpk_dist_d = 1000F;
 
     public Profile(float area_a, float area_b, float area_c, float area_d, float price_a, float price_b, float price_c, float price_d, float floor_a, float floor_b, float floor_c, float floor_d, float city_dist_a, float city_dist_b, float city_dist_c, float city_dist_d, float mpk_dist_a, float mpk_dist_b, float mpk_dist_c, float mpk_dist_d) {
         this.area_a = area_a;

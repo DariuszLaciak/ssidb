@@ -27,9 +27,7 @@ public class DBFiller {
         UserDTO dev = new UserDTO("superUser","dev1", "dev1" ,"devowo", "1023954633", "dev1@dev1.dev");
         UserDTO admin = new UserDTO("admin", "admin","admin", "adminowo", "0192837465", "admin@admin.admin");
 
-        
-        
-        
+       
         Profile profile = new Profile();
         
         user.setProfile(profile);
@@ -44,7 +42,7 @@ public class DBFiller {
         Random r = new Random(System.currentTimeMillis());
         for(int i = 0; i < 50 ; i++){
             
-            float price = r.nextFloat()*(1200000) + 40000;
+            float price = r.nextFloat()*(1200) + 40;
             float area = r.nextFloat()*100 + 10;
             int floor = r.nextInt(11)+1;
             float city = r.nextFloat()*12;

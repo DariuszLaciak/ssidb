@@ -6,6 +6,7 @@
 package com.ssidb.servlets;
 
 import com.ssidb.dto.Offer;
+import com.ssidb.dto.Profile;
 import com.ssidb.dto.UserDTO;
 import com.ssidb.helpers.HibernateUtil;
 import java.io.IOException;
@@ -90,10 +91,20 @@ public class Manage extends HttpServlet {
                 sess.beginTransaction();
                 if(values.containsKey("price"))
                 {
+                    Query q1 = sess.createQuery("from Profile where user_id=:user");
+                    q1.setParameter("user", s.getAttribute("user_id"));
+                    List<Profile> p = q1.list();
+                    System.out.println(p.get(0).getPrice_b());
                     Query q = sess.getNamedQuery("getFunc");
-                    q.setParameter("id", 230);
+                    q.setParameter("a", p.get(0).getPrice_a());
+                    q.setParameter("b", p.get(0).getPrice_b());
                     List<Offer> of = q.list();
-                    out.println(of.get(1).getAddress());
+                    String reply = "<ul>";
+                    for(Offer o : of){
+                        reply += "<li>"+o+"</li>";
+                    }
+                    reply += "</ul>";
+                    out.println(reply);
                 }
                 sess.getTransaction().commit();
                 break;

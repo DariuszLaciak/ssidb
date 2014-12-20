@@ -102,8 +102,8 @@ public class Profile extends org.apache.struts.action.ActionForm implements Seri
         this.id = id;
     }
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)
+    @OneToOne(optional = true)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true, unique = true)
     public UserDTO getUser() {
         return user;
     }

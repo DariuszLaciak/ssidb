@@ -1,4 +1,4 @@
---------------------------------------------------------
+﻿--------------------------------------------------------
 --  Funkcja przynależności typu L
 --------------------------------------------------------
 
@@ -67,3 +67,15 @@ END FP_TR;
 --------------------------------------------------------
 --
 --------------------------------------------------------
+
+create or replace 
+FUNCTION EXAMPLE 
+(
+A IN FLOAT,
+B IN FLOAT
+) RETURN SYS_REFCURSOR IS
+my_cursor SYS_REFCURSOR;
+BEGIN
+  open my_cursor FOR select * from offer where low_value(A,B,price) > 0;
+  RETURN my_cursor;
+END EXAMPLE;

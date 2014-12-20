@@ -65,17 +65,17 @@ END FP_TR;
 /
 
 --------------------------------------------------------
---
+--  Funkcja zwraca tanie mieszkania (dla użytkownika)
 --------------------------------------------------------
 
-create or replace 
-FUNCTION EXAMPLE 
+CREATE OR REPLACE FUNCTION TANIE 
 (
-A IN FLOAT,
-B IN FLOAT
+  ID_number IN NUMBER
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR select * from offer where low_value(A,B,price) > 0;
+  open my_cursor FOR select * from offer 
+  where FP_KL(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number)) > 0
+  order by FP_KL(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number)) desc;
   RETURN my_cursor;
-END EXAMPLE;
+END TANIE;

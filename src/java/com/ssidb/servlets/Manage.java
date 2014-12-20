@@ -91,17 +91,8 @@ public class Manage extends HttpServlet {
                 sess.beginTransaction();
                 if(values.containsKey("price"))
                 {
-                    Query q1 = sess.createQuery("from Profile where user_id=:user");
-                    q1.setParameter("user", s.getAttribute("user_id"));
-                    List<Profile> p = q1.list();
-                    float a = p.get(0).getPrice_a();
-                    float b = p.get(0).getPrice_b();
-                    
-                    System.out.println(a + " " + b);
-                    
-                    Query q = sess.getNamedQuery("getFunc");
-                    q.setFloat("a", a);
-                    q.setFloat("b", b);
+                    Query q = sess.getNamedQuery("tanie");
+                    q.setParameter("id",s.getAttribute("user_id"));
                     List<Offer> of = q.list();
                     String reply = "<ul>";
                     for(Offer o : of){

@@ -139,7 +139,7 @@ END CITY_LOW;
 --  DDL for Function FLOOR
 --------------------------------------------------------
 
-  CREATE OR REPLACE FUNCTION FLOOR 
+  CREATE OR REPLACE FUNCTION FLOOR_FCT
 (
   TYP IN VARCHAR
   ,ID_number IN NUMBER
@@ -152,7 +152,7 @@ ELSE my_cursor:= area_high(id_number);
 END IF;
   
   RETURN my_cursor;
-END FLOOR;
+END FLOOR_FCT;
 /
 --------------------------------------------------------
 --  DDL for Function FLOOR_AVG
@@ -399,3 +399,24 @@ BEGIN
   RETURN my_cursor;
 END PRICE_LOW;
 /
+
+--------------------------------------------------------
+--  Main function
+--------------------------------------------------------
+
+create or replace 
+FUNCTION FUZZY_FCT(
+cecha IN VARCHAR
+,typ IN VARCHAR
+,ID_number IN NUMBER
+) RETURN SYS_REFCURSOR IS
+my_cursor SYS_REFCURSOR;
+BEGIN
+  IF cecha ='price' THEN my_cursor:=price(typ,id_number);
+  ELSIF cecha='area' THEN my_cursor:=area(typ,id_number);
+  ELSIF cecha='floor' THEN my_cursor:=floor_fct(typ,id_number);
+  ELSIF cecha='center' THEN my_cursor:=city(typ,id_number);
+  ELSE my_cursor:=mpk(typ,id_number);
+  END IF;
+  RETURN my_cursor;
+END FUZZY_FCT;

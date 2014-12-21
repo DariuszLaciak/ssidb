@@ -13,9 +13,11 @@ import com.ssidb.helpers.Util;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
@@ -37,6 +39,7 @@ public class Manage extends HttpServlet {
     HttpSession s;
     String[] obj;
     Session sess;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -57,7 +60,7 @@ public class Manage extends HttpServlet {
             case "save_profile":
                 obj = request.getParameterValues("form_data[]");
                 for (String str : obj) {
-                    
+
                 }
                 s = request.getSession();
                 long user_id = (long) s.getAttribute("user_id");
@@ -80,26 +83,40 @@ public class Manage extends HttpServlet {
                 break;
             case "search_fuzzy":
                 obj = request.getParameterValues("form_data[]");
-                Map<String,String> values = new HashMap<>();
-                
+                Map<String, String> values = new HashMap<>();
+
                 for (String str : obj) {
                     String[] qwer = str.split("=>");
                     values.put(qwer[0], qwer[1]);
                 }
                 s = request.getSession();
+
+                Map<Long, Offer> results = new HashMap<>();
                 
                 sess = HibernateUtil.getSessionFactory().getCurrentSession();
                 sess.beginTransaction();
-                if(values.containsKey("price"))
-                {
-                    Query q = sess.getNamedQuery("price");
-                    q.setParameter("id",s.getAttribute("user_id"));
-                    q.setString("typ", values.get("price"));
-                    List<Offer> of = q.list();
-                    String reply = Util.createResultTable(of);
-                    out.println(reply);
+
+                List<Offer> tmp;
+
+                for (Entry<String, String> entry : values.entrySet()) {
+                    System.out.println(entry.getKey());
+                    Query q = sess.getNamedQuery("fuzzy");
+                    q.setParameter("id", s.getAttribute("user_id"));
+                    q.setParameter("cecha", entry.getKey());
+                    q.setParameter("typ", entry.getValue());
+                    tmp = q.list();
+                    results = Util.getJoinOnAllResults(results, tmp);
                 }
+
                 sess.getTransaction().commit();
+
+                List<Offer> offers = new ArrayList<>();
+                for (Entry<Long, Offer> ent : results.entrySet()) {
+                    offers.add(ent.getValue());
+                }
+
+                out.println(Util.createResultTable(offers));
+
                 break;
         }
     }

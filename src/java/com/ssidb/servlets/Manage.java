@@ -85,39 +85,45 @@ public class Manage extends HttpServlet {
                 obj = request.getParameterValues("form_data[]");
                 Map<String, String> values = new HashMap<>();
 
-                for (String str : obj) {
-                    String[] qwer = str.split("=>");
-                    values.put(qwer[0], qwer[1]);
+                if (obj!=null) {
+                    for (String str : obj) {
+                        String[] qwer = str.split("=>");
+                        values.put(qwer[0], qwer[1]);
+                    }
+                    s = request.getSession();
+
+                    Map<Long, Offer> results = new HashMap<>();
+
+                    sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                    sess.beginTransaction();
+
+                    List<Offer> tmp;
+
+                    for (Entry<String, String> entry : values.entrySet()) {
+                        Query q = sess.getNamedQuery("fuzzy");
+                        q.setParameter("id", s.getAttribute("user_id"));
+                        q.setParameter("cecha", entry.getKey());
+                        q.setParameter("typ", entry.getValue());
+                        tmp = q.list();
+                        results = Util.getJoinOnAllResults(results, tmp);
+                    }
+
+                    sess.getTransaction().commit();
+
+                    List<Offer> offers = new ArrayList<>();
+                    for (Entry<Long, Offer> ent : results.entrySet()) {
+                        offers.add(ent.getValue());
+                    }
+
+                    if (!offers.isEmpty()) {
+                        out.println(Util.createResultTable(offers));
+                    } else {
+                        out.println("<H1>Brak mieszkań o podanych parametrach</H1>");
+                    }
                 }
-                s = request.getSession();
-
-                Map<Long, Offer> results = new HashMap<>();
-                
-                sess = HibernateUtil.getSessionFactory().getCurrentSession();
-                sess.beginTransaction();
-
-                List<Offer> tmp;
-
-                for (Entry<String, String> entry : values.entrySet()) {
-                    Query q = sess.getNamedQuery("fuzzy");
-                    q.setParameter("id", s.getAttribute("user_id"));
-                    q.setParameter("cecha", entry.getKey());
-                    q.setParameter("typ", entry.getValue());
-                    tmp = q.list();
-                    results = Util.getJoinOnAllResults(results, tmp);
+                else {
+                    out.println("<H1>Wybierz parametry wyszukiwania</H1>");
                 }
-
-                sess.getTransaction().commit();
-
-                List<Offer> offers = new ArrayList<>();
-                for (Entry<Long, Offer> ent : results.entrySet()) {
-                    offers.add(ent.getValue());
-                }
-
-                if(!offers.isEmpty())
-                    out.println(Util.createResultTable(offers));
-                else
-                    out.println("<H1>Brak mieszkań o podanych parametrach</H1>");
                 break;
         }
     }

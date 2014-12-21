@@ -99,7 +99,6 @@ public class Manage extends HttpServlet {
                 List<Offer> tmp;
 
                 for (Entry<String, String> entry : values.entrySet()) {
-                    System.out.println(entry.getKey());
                     Query q = sess.getNamedQuery("fuzzy");
                     q.setParameter("id", s.getAttribute("user_id"));
                     q.setParameter("cecha", entry.getKey());

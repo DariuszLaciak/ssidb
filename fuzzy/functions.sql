@@ -81,7 +81,7 @@ END AREA_LOW;
 BEGIN
 IF TYP='low' THEN my_cursor:= city_low(id_number);
 ELSIF TYP='avg' THEN my_cursor:= city_avg(id_number);
-ELSE my_cursor:= area_high(id_number);
+ELSE my_cursor:= city_high(id_number);
 END IF;
   
   RETURN my_cursor;
@@ -148,7 +148,7 @@ END CITY_LOW;
 BEGIN
 IF TYP='low' THEN my_cursor:= floor_low(id_number);
 ELSIF TYP='avg' THEN my_cursor:= floor_avg(id_number);
-ELSE my_cursor:= area_high(id_number);
+ELSE my_cursor:= floor_high(id_number);
 END IF;
   
   RETURN my_cursor;
@@ -278,7 +278,7 @@ END FP_TR;
 BEGIN
 IF TYP='low' THEN my_cursor:= mpk_low(id_number);
 ELSIF TYP='avg' THEN my_cursor:= mpk_avg(id_number);
-ELSE my_cursor:= area_high(id_number);
+ELSE my_cursor:= mpk_high(id_number);
 END IF;
   
   RETURN my_cursor;

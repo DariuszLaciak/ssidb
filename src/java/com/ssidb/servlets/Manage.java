@@ -114,8 +114,10 @@ public class Manage extends HttpServlet {
                     offers.add(ent.getValue());
                 }
 
-                out.println(Util.createResultTable(offers));
-
+                if(!offers.isEmpty())
+                    out.println(Util.createResultTable(offers));
+                else
+                    out.println("<H1>Brak mieszkań o podanych parametrach</H1>");
                 break;
         }
     }

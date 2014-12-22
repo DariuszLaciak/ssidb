@@ -32,6 +32,7 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     private String exposition;
     private String address;
     private UserDTO user;
+    private float MI = 1.0F;
 
     public Offer(float price, float total_area, int n_of_rooms, float distance_to_center, float distance_to_MPK, int floor, String exposition, String address) {
         this.price = price;
@@ -122,7 +123,7 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idUser", nullable = true)
+    @JoinColumn(name = "idUser", nullable = false)
     public UserDTO getUser() {
         return user;
     }
@@ -130,9 +131,17 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
         this.user = user;
     }
 
+    @Column(nullable = false, length = 20)
+    public float getMI() {
+        return MI;
+    }
+    public void setMI(float MI) {
+        this.MI = MI;
+    }
+
     @Override
     public String toString() {
-        return "Offer{" + "price=" + price + ", total_area=" + total_area + ", n_of_rooms=" + n_of_rooms + ", distance_to_center=" + distance_to_center + ", distance_to_MPK=" + distance_to_MPK + ", floor=" + floor + ", exposition=" + exposition + ", address=" + address + '}';
+        return "Offer{" + "price=" + price + ", total_area=" + total_area + ", n_of_rooms=" + n_of_rooms + ", distance_to_center=" + distance_to_center + ", distance_to_MPK=" + distance_to_MPK + ", floor=" + floor + ", exposition=" + exposition + ", address=" + address + ", mi=" + MI +'}';
     }
     
     

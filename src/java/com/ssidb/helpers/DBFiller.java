@@ -55,7 +55,7 @@ public class DBFiller {
             }
             if(i%3 == 0)
                 exposition = "E";
-            Offer offer = new Offer(price, area, rooms, city, mpk, floor, exposition, "adres"+i);
+            Offer offer = new Offer(price, area, rooms, city, mpk, floor, exposition, "adres"+(i+1));
             developer.getOffers().add(offer);
             if(r.nextBoolean())
                 offer.setUser(developer);

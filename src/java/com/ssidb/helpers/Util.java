@@ -8,7 +8,6 @@ package com.ssidb.helpers;
 import com.ssidb.dto.Offer;
 import com.ssidb.dto.UserDTO;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +23,7 @@ public class Util {
         for (Offer o : offers) {
             table += "<table class='result_table'><tbody>";
             table += "<tr><td colspan='2'><b>Oferta nr: " + o.getId() + "</b></td></tr>";
+            table += "<tr><td colspan='2'>Dopasowanie: " + o.getMI() + "</td></tr>";
             table += "<tr><td>Cena całkowita: " + Math.round(o.getPrice()) + " tys. zł</td><td>Jednostkowa: " + Math.round((o.getPrice() / o.getTotal_area() * 1000)) + " zł/m<sup>2</sup></td></tr>";
             table += "<tr><td>Powierzchnia: " + round(o.getTotal_area(), 2) + " m<sup>2</sup></td><td>Wystawa: " + o.getExposition() + "</td></tr>";
             table += "<tr><td>Liczba pokoi: " + o.getN_of_rooms() + "</td><td>Piętro: " + o.getFloor() + "</td></tr>";
@@ -57,6 +57,9 @@ public class Util {
         } else {
             for (Offer o : of) {
                 if(res.containsKey(o.getId())){
+                    float mi = res.get(o.getId()).getMI();
+                    if (mi < o.getMI())
+                        o.setMI(mi);
                     offers.put(o.getId(), o);
                 }
             }

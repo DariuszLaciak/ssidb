@@ -31,11 +31,8 @@ END AREA;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_TR(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number),(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number)) as MI_AREA 
-  from offer 
-  where FP_TR(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number),(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number)) > 0
-  order by MI_AREA desc;
+  update offer SET MI = FP_TR(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number),(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END AREA_AVG;
 
@@ -50,11 +47,8 @@ END AREA_AVG;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KG(total_area,(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number)) as MI_AREA 
-  from offer 
-  where FP_KG(total_area,(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number)) > 0
-  order by MI_AREA desc;
+  update offer SET MI = FP_KG(total_area,(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END AREA_HIGH;
 
@@ -69,11 +63,8 @@ END AREA_HIGH;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KL(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number)) as MI_AREA
-  from offer 
-  where FP_KL(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number)) > 0
-  order by MI_AREA desc;
+  update offer SET MI = FP_KL(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END AREA_LOW;
 
@@ -108,11 +99,8 @@ END CITY;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_TR(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number),(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number)) as MI_CITY 
-  from offer 
-  where FP_TR(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number),(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number)) > 0
-  order by MI_CITY desc;
+  update offer SET MI = FP_TR(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number),(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END CITY_AVG;
 
@@ -127,11 +115,8 @@ END CITY_AVG;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KG(distance_to_center,(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number)) as MI_CITY 
-  from offer 
-  where FP_KG(distance_to_center,(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number)) > 0
-  order by MI_CITY desc;
+  update offer SET MI = FP_KG(distance_to_center,(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END CITY_HIGH;
 
@@ -146,11 +131,8 @@ END CITY_HIGH;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KL(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number)) as MI_CITY 
-  from offer 
-  where FP_KL(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number)) > 0
-  order by MI_CITY desc;
+  update offer SET MI = FP_KL(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END CITY_LOW;
 
@@ -165,11 +147,8 @@ END CITY_LOW;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_TR(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number),(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number)) as MI_FLOOR 
-  from offer 
-  where FP_TR(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number),(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number)) > 0
-  order by MI_FLOOR desc;
+  update offer SET MI = FP_TR(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number),(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END FLOOR_AVG;
 
@@ -204,11 +183,8 @@ END FLOOR_FCT;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KG(floor,(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number)) as MI_FLOOR 
-  from offer 
-  where FP_KG(floor,(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number)) > 0
-  order by MI_FLOOR desc;
+  update offer SET MI = FP_KG(floor,(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END FLOOR_HIGH;
 
@@ -223,11 +199,8 @@ END FLOOR_HIGH;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KL(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number)) as MI_FLOOR 
-  from offer 
-  where FP_KL(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number)) > 0
-  order by MI_FLOOR desc;
+  update offer SET MI = FP_KL(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END FLOOR_LOW;
 
@@ -350,11 +323,8 @@ END MPK;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_TR(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number),(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number)) as MI_MPK 
-  from offer 
-  where FP_TR(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number),(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number)) > 0
-  order by MI_MPK desc;
+  update offer SET MI = FP_TR(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number),(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END MPK_AVG;
 
@@ -369,11 +339,8 @@ END MPK_AVG;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KG(distance_to_mpk,(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number)) as MI_MPK 
-  from offer 
-  where FP_KG(distance_to_mpk,(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number)) > 0
-  order by MI_MPK desc;
+  update offer SET MI = FP_KG(distance_to_mpk,(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END MPK_HIGH;
 
@@ -388,11 +355,8 @@ END MPK_HIGH;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KL(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number)) as MI_MPK 
-  from offer 
-  where FP_KL(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number)) > 0
-  order by MI_MPK desc;
+  update offer SET MI = FP_KL(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END MPK_LOW;
 
@@ -427,11 +391,8 @@ END PRICE;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_TR(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number),(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number)) as MI_PRICE 
-  from offer 
-  where FP_TR(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number),(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number)) > 0
-  order by MI_PRICE desc;
+  update offer SET MI = FP_TR(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number),(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END PRICE_AVG;
 
@@ -446,11 +407,8 @@ END PRICE_AVG;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KG(price,(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number)) as MI_PRICE 
-  from offer 
-  where FP_KG(price,(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number)) > 0
-  order by MI_PRICE desc;
+  update offer SET MI = FP_KG(price,(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END PRICE_HIGH;
 
@@ -465,11 +423,8 @@ END PRICE_HIGH;
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  open my_cursor FOR 
-  select ID, ADDRESS, DISTANCE_TO_MPK, DISTANCE_TO_CENTER, EXPOSITION, FLOOR, N_OF_ROOMS, PRICE, TOTAL_AREA, IDUSER, FP_KL(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number)) as MI_PRICE 
-  from offer 
-  where FP_KL(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number)) > 0
-  order by MI_PRICE desc;
+  update offer SET MI = FP_KL(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number));
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END PRICE_LOW;
 

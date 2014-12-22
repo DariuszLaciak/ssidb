@@ -6,6 +6,7 @@
 package com.ssidb.helpers;
 
 import com.ssidb.dto.Offer;
+import com.ssidb.dto.UserDTO;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,15 +23,22 @@ public class Util {
         String table = "";
         for (Offer o : offers) {
             table += "<table class='result_table'><tbody>";
-            table += "<tr><td colspan='2'>Powierzchnia: " + round(o.getTotal_area(), 2) + " m2</td></tr>";
+            table += "<tr><td colspan='2'><b>Oferta nr: " + o.getId() + "</b></td></tr>";
+            table += "<tr><td>Cena całkowita: " + Math.round(o.getPrice()) + " tys. zł</td><td>Jednostkowa: " + Math.round((o.getPrice() / o.getTotal_area() * 1000)) + " zł/m<sup>2</sup></td></tr>";
+            table += "<tr><td>Powierzchnia: " + round(o.getTotal_area(), 2) + " m<sup>2</sup></td><td>Wystawa: " + o.getExposition() + "</td></tr>";
             table += "<tr><td>Liczba pokoi: " + o.getN_of_rooms() + "</td><td>Piętro: " + o.getFloor() + "</td></tr>";
             table += "<tr><td>Odl. od centrum: " + round(o.getDistance_to_center(), 2) + " km</td><td>Odl. do MPK: " + round(o.getDistance_to_MPK(), 2) + " m</td></tr>";
-            table += "<tr><td>Cena całkowita: " + Math.round(o.getPrice()) + " tys. zł</td><td>Jednostkowa: " + Math.round((o.getPrice() / o.getTotal_area() * 1000)) + " zł/m2</td></tr>";
-            table += "<tr rowspan='2'><td colspan='2'>Adres: <br />" + o.getAddress() + "</td></tr>";
+            //table += "<tr rowspan='2'><td colspan='2'>Adres: <br />" + o.getAddress() + "</td></tr>";
+            table += "<tr rowspan='2'><td colspan='2'>Kontakt: <br />" + getDeveloper(o.getUser()) + "</td></tr>";
             table += "</tbody></table>";
         }
 
         return table;
+    }
+    
+    public static String getDeveloper(UserDTO user)
+    {                       
+        return "tel.: " + user.getPhone() + "<br />email: " + user.getEmail();
     }
 
     public static double round(double unrounded, int precision) {

@@ -38,7 +38,6 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
 
     private Set<Offer> offers = new HashSet<>();
 
-   
     private String error;
     
     public UserDTO(){}

@@ -53,6 +53,7 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
         if(this.type.equals("commonUser"))
         {
             this.profile = new Profile();
+            this.profile.setUser(this);
         }
     }
     

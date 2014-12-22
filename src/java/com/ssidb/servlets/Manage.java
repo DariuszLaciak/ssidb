@@ -95,22 +95,19 @@ public class Manage extends HttpServlet {
                     s = request.getSession();
 
                     Map<Long, Offer> results = new HashMap<>();
-
-                    sess = HibernateUtil.getSessionFactory().getCurrentSession();
-                    sess.beginTransaction();
-
                     List<Offer> tmp;
 
                     for (Entry<String, String> entry : values.entrySet()) {
+                        sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                        sess.beginTransaction();
                         Query q = sess.getNamedQuery("fuzzy");
                         q.setParameter("id", s.getAttribute("user_id"));
                         q.setParameter("cecha", entry.getKey());
                         q.setParameter("typ", entry.getValue());
                         tmp = q.list();
+                        sess.getTransaction().commit();
                         results = Util.getJoinOnAllResults(results, tmp);
                     }
-
-                    sess.getTransaction().commit();
 
                     List<Offer> offers = new ArrayList<>();
                     for (Entry<Long, Offer> ent : results.entrySet()) {

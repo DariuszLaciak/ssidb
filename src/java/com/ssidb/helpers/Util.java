@@ -58,8 +58,11 @@ public class Util {
             for (Offer o : of) {
                 if(res.containsKey(o.getId())){
                     float mi = res.get(o.getId()).getMI();
+                    System.out.println(o.getId() + "," + mi);
+                    System.out.println(o.getId() + "," + o.getMI());
                     if (mi < o.getMI())
                         o.setMI(mi);
+                    System.out.println("after: " + o.getId() + "," + mi);
                     offers.put(o.getId(), o);
                 }
             }

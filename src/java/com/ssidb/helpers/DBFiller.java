@@ -27,13 +27,11 @@ public class DBFiller {
         UserDTO dev = new UserDTO("superUser","dev1", "dev1" ,"devowo", "1023954633", "dev1@dev1.dev");
         UserDTO admin = new UserDTO("admin", "admin","admin", "adminowo", "0192837465", "admin@admin.admin");
 
-       
         Profile profile = new Profile();
         
         user.setProfile(profile);
         profile.setUser(user);
-        
-        
+                
         s.save(user);
         s.save(developer);
         s.save(dev);
@@ -48,7 +46,16 @@ public class DBFiller {
             float city = r.nextFloat()*12;
             float mpk = r.nextFloat()*1200+10;
             int rooms = r.nextInt(6)+1;
-            Offer offer = new Offer(price, area, rooms, city, mpk, floor, "tak", "adres");
+            String exposition = "N";
+            if(i%2 == 0)
+            {
+                if(i%4 == 0)
+                    exposition = "S";
+                else exposition = "W";
+            }
+            if(i%3 == 0)
+                exposition = "E";
+            Offer offer = new Offer(price, area, rooms, city, mpk, floor, exposition, "adres"+i);
             developer.getOffers().add(offer);
             if(r.nextBoolean())
                 offer.setUser(developer);

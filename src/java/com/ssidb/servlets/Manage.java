@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -115,6 +117,14 @@ public class Manage extends HttpServlet {
                         offers.add(ent.getValue());
                     }
 
+                    //sorting by mi
+                    Collections.sort(offers, new Comparator<Offer>() {
+                    public int compare(Offer c1, Offer c2) {
+                        if (c1.getMI() > c2.getMI()) return -1;
+                        if (c1.getMI() < c2.getMI()) return 1;
+                        return 0;
+                    }});
+                    
                     if (!offers.isEmpty()) {
                         out.println(Util.createResultTable(offers));
                     } else {

@@ -87,10 +87,14 @@ public class Manage extends HttpServlet {
                 obj = request.getParameterValues("form_data[]");
                 Map<String, String> values = new HashMap<>();
 
+                double treshold = 0.0;
                 if (obj!=null) {
                     for (String str : obj) {
                         String[] qwer = str.split("=>");
-                        values.put(qwer[0], qwer[1]);
+                        if(qwer[0].equals("treshold"))
+                            treshold = Double.parseDouble(qwer[1]);
+                        else
+                            values.put(qwer[0], qwer[1]);
                     }
                     s = request.getSession();
 
@@ -104,6 +108,7 @@ public class Manage extends HttpServlet {
                         q.setParameter("id", s.getAttribute("user_id"));
                         q.setParameter("cecha", entry.getKey());
                         q.setParameter("typ", entry.getValue());
+                        q.setParameter("treshold", treshold);
                         tmp = q.list();
                         sess.getTransaction().commit();
                         results = Util.getJoinOnAllResults(results, tmp);

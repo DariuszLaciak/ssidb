@@ -1,9 +1,3 @@
-<%-- 
-    Document   : search_fuzzy
-    Created on : 2014-12-18, 21:38:36
-    Author     : Darek
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% try { if(session.getAttribute("user_type").equals("commonUser")) { 
@@ -11,6 +5,7 @@
 <h1>Wyszukiwanie mieszkań</h1>
 <h3>Rozmyty algorytm</h3>
 <form id='search_fuzzy_form'>
+    Minimalny akceptowalny poziom dopasowania: <input type="number" name="treshold" value="0.0" step="0.05" max="1.0" min="0.0"/>
     <table class='content_table' id='fuzzy_search_table'>
         <tbody>
             <tr>

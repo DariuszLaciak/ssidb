@@ -9,6 +9,7 @@
 (
   TYP IN VARCHAR
   ,ID_number IN NUMBER
+  ,treshold IN NUMBER
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
@@ -16,7 +17,7 @@ IF TYP='low' THEN update offer SET MI = FP_KL(total_area,(Select area_a from pro
 ELSIF TYP='avg' THEN update offer SET MI = FP_TR(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number),(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number));
 ELSE update offer SET MI = FP_KG(total_area,(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number));
 END IF;
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
+  open my_cursor FOR select * from offer where MI > treshold order by MI desc;
   RETURN my_cursor;
 END AREA;
 
@@ -29,6 +30,7 @@ END AREA;
 (
   TYP IN VARCHAR
   ,ID_number IN NUMBER
+  ,treshold IN NUMBER
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
@@ -36,7 +38,7 @@ IF TYP='low' THEN update offer SET MI = FP_KL(distance_to_center,(Select city_di
 ELSIF TYP='avg' THEN update offer SET MI = FP_TR(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number),(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number));
 ELSE update offer SET MI = FP_KG(distance_to_center,(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number));
 END IF;
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
+  open my_cursor FOR select * from offer where MI > treshold order by MI desc;
   RETURN my_cursor;
 END CITY;
 
@@ -49,6 +51,7 @@ END CITY;
 (
   TYP IN VARCHAR
   ,ID_number IN NUMBER
+  ,treshold IN NUMBER
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
@@ -56,7 +59,7 @@ IF TYP='low' THEN update offer SET MI = FP_KL(floor,(Select floor_a from profile
 ELSIF TYP='avg' THEN update offer SET MI = FP_TR(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number),(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number));
 ELSE update offer SET MI = FP_KG(floor,(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number));
 END IF;
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
+  open my_cursor FOR select * from offer where MI > treshold order by MI desc;
   RETURN my_cursor;
 END FLOOR_FCT;
 
@@ -136,14 +139,15 @@ END FP_TR;
 cecha IN VARCHAR
 ,typ IN VARCHAR
 ,ID_number IN NUMBER
+,treshold IN NUMBER
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
-  IF cecha ='price' THEN my_cursor:=price(typ,id_number);
-  ELSIF cecha='area' THEN my_cursor:=area(typ,id_number);
-  ELSIF cecha='floor' THEN my_cursor:=floor_fct(typ,id_number);
-  ELSIF cecha='center' THEN my_cursor:=city(typ,id_number);
-  ELSE my_cursor:=mpk(typ,id_number);
+  IF cecha ='price' THEN my_cursor:=price(typ,id_number,treshold);
+  ELSIF cecha='area' THEN my_cursor:=area(typ,id_number,treshold);
+  ELSIF cecha='floor' THEN my_cursor:=floor_fct(typ,id_number,treshold);
+  ELSIF cecha='center' THEN my_cursor:=city(typ,id_number,treshold);
+  ELSE my_cursor:=mpk(typ,id_number,treshold);
   END IF;
   RETURN my_cursor;
 END FUZZY_FCT;
@@ -157,6 +161,7 @@ END FUZZY_FCT;
 (
   TYP IN VARCHAR
   ,ID_number IN NUMBER
+  ,treshold IN NUMBER
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
@@ -164,7 +169,7 @@ IF TYP='low' THEN update offer SET MI = FP_KL(distance_to_mpk,(Select mpk_dist_a
 ELSIF TYP='avg' THEN update offer SET MI = FP_TR(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number),(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number));
 ELSE update offer SET MI = FP_KG(distance_to_mpk,(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number));
 END IF;
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
+  open my_cursor FOR select * from offer where MI > treshold order by MI desc;
   RETURN my_cursor;
 END MPK;
 
@@ -177,6 +182,7 @@ END MPK;
 (
   TYP IN VARCHAR
   ,ID_number IN NUMBER
+  ,treshold IN NUMBER
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
@@ -184,7 +190,7 @@ IF TYP='low' THEN update offer SET MI = FP_KL(price,(Select price_a from profile
 ELSIF TYP='avg' THEN update offer SET MI = FP_TR(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number),(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number));
 ELSE update offer SET MI = FP_KG(price,(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number));
 END IF;
- open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
+ open my_cursor FOR select * from offer where MI > treshold order by MI desc;
  RETURN my_cursor;
 END PRICE;
 

@@ -16,7 +16,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
-@javax.persistence.NamedNativeQuery(name = "fuzzy", query = "{? = call fuzzy_fct(:cecha,:typ,:id) }", resultClass = Offer.class, hints = {
+@javax.persistence.NamedNativeQuery(name = "fuzzy", query = "{? = call fuzzy_fct(:cecha,:typ,:id,:treshold) }", resultClass = Offer.class, hints = {
 @javax.persistence.QueryHint(name = "org.hibernate.callable", value = "true") })
 @Entity
 @Table

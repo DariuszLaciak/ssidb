@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ssidb.servlets;
 
 import com.ssidb.dto.Offer;
-import com.ssidb.dto.Profile;
 import com.ssidb.dto.UserDTO;
 import com.ssidb.helpers.HibernateUtil;
 import com.ssidb.helpers.Util;
@@ -20,8 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,18 +23,12 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.jpa.HibernatePersistenceProvider;
 
-/**
- *
- * @author Darek
- */
 public class Manage extends HttpServlet {
 
     HttpSession s;
     String[] obj;
     Session sess;
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -57,13 +44,10 @@ public class Manage extends HttpServlet {
         PrintWriter out = new PrintWriter(new OutputStreamWriter(response.getOutputStream(), "UTF8"), true);
         response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String response_msg = "";
+        String response_msg;
         switch (action) {
             case "save_profile":
                 obj = request.getParameterValues("form_data[]");
-                for (String str : obj) {
-
-                }
                 s = request.getSession();
                 long user_id = (long) s.getAttribute("user_id");
 
@@ -83,18 +67,33 @@ public class Manage extends HttpServlet {
                 response_msg = "<h1>Pomyślnie zedytowano współczynniki</h1><img src='correct-us.png' style='width: 300px;'/>";
                 out.println(response_msg);
                 break;
+            case "display_offers":
+                s = request.getSession();
+                user_id = (long) s.getAttribute("user_id");
+
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                user = (UserDTO) sess.load(UserDTO.class, user_id);
+                List<Offer> current_offers = new ArrayList(user.getOffers());
+                if (!current_offers.isEmpty()) {
+                        out.println(Util.createResultTable(current_offers));
+                } else {
+                        out.println("<H1>Jeszcze nie dodałeś żadnej oferty!</H1>");
+                }
+                break;
             case "search_fuzzy":
                 obj = request.getParameterValues("form_data[]");
                 Map<String, String> values = new HashMap<>();
 
                 double treshold = 0.0;
-                if (obj!=null) {
+                if (obj != null) {
                     for (String str : obj) {
                         String[] qwer = str.split("=>");
-                        if(qwer[0].equals("treshold"))
+                        if (qwer[0].equals("treshold")) {
                             treshold = Double.parseDouble(qwer[1]);
-                        else
+                        } else {
                             values.put(qwer[0], qwer[1]);
+                        }
                     }
                     s = request.getSession();
 
@@ -121,19 +120,23 @@ public class Manage extends HttpServlet {
 
                     //sorting by mi
                     Collections.sort(offers, new Comparator<Offer>() {
-                    public int compare(Offer c1, Offer c2) {
-                        if (c1.getMI() > c2.getMI()) return -1;
-                        if (c1.getMI() < c2.getMI()) return 1;
-                        return 0;
-                    }});
-                    
+                        public int compare(Offer c1, Offer c2) {
+                            if (c1.getMI() > c2.getMI()) {
+                                return -1;
+                            }
+                            if (c1.getMI() < c2.getMI()) {
+                                return 1;
+                            }
+                            return 0;
+                        }
+                    });
+
                     if (!offers.isEmpty()) {
                         out.println(Util.createResultTable(offers));
                     } else {
                         out.println("<H1>Brak mieszkań o podanych parametrach</H1>");
                     }
-                }
-                else {
+                } else {
                     out.println("<H1>Wybierz parametry wyszukiwania</H1>");
                 }
                 break;

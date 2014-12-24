@@ -57,6 +57,7 @@ public class OfferAction extends org.apache.struts.action.Action {
             return mapping.findForward("superUser_page");       
         } else {
             return mapping.findForward("failure");
+            //TODO failure powoduje błąd, a nie pozostanie na stronie formularza
         }
 
     }

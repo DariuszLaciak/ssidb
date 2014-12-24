@@ -9,7 +9,7 @@ $(document).ready(function () {
     $('#edit_profile').click(function () {
         $('#user_content').load('profile.jsp');
     });
-
+    
     $('#search_fuzzy').click(function () {
         $('#user_content').load('search_fuzzy.jsp');
     });
@@ -17,6 +17,7 @@ $(document).ready(function () {
     $('#add_user').click(function () {
         $('#user_content').load('add_edit_user.jsp');
     });
+    
     $('#logout').click(function () {
         $(document).load('logout.jsp');
         setTimeout(function () {
@@ -42,6 +43,21 @@ function saveProfile() {
         success: function (data) {
             $('#user_content').html(data);
         }
+    });
+}
+
+function displayOffers() {
+    $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "display_offers"
+        },
+        success: function (data) {
+            $('#user_content').html(data);
+        }
+        
     });
 }
 

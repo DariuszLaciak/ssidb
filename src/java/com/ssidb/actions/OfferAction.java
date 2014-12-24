@@ -3,19 +3,17 @@ package com.ssidb.actions;
 import com.ssidb.dto.Offer;
 import com.ssidb.dto.UserDTO;
 import com.ssidb.helpers.HibernateUtil;
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.hibernate.Query;
 import org.hibernate.Session;
 
 public class OfferAction extends org.apache.struts.action.Action {
     
-    Session s = HibernateUtil.getSessionFactory().getCurrentSession();
+    Session s;
     
     /**
      * @param mapping The ActionMapping used to select this instance.
@@ -40,17 +38,23 @@ public class OfferAction extends org.apache.struts.action.Action {
         int floor = formBean.getFloor();
         String exposition = formBean.getExposition();
         String address = formBean.getAddress();
-        int userId;
         
         // perform validation
-        if ((price <= 0)
-                || total_area <= 0) {
-            Offer nowa = new Offer(price, total_area, n_of_rooms, distance_to_center, distance_to_MPK, floor, exposition, address);
+        if ((price > 0)
+                && total_area > 0) {
+            HttpSession sess = request.getSession();
+            long user_id = (long) sess.getAttribute("user_id");
+            //s = HibernateUtil.getSessionFactory().openSession();
             s = HibernateUtil.getSessionFactory().getCurrentSession();
             s.beginTransaction();
-            long id = (long)s.save(nowa);
+            UserDTO user = (UserDTO) s.load(UserDTO.class, user_id);
+            Offer nowa = new Offer(price, total_area, n_of_rooms, distance_to_center, distance_to_MPK, floor, exposition, address);
+            nowa.setUser(user);
+            user.getOffers().add(nowa);
+            s.save(nowa);
             s.getTransaction().commit();
-            return mapping.findForward("superUser_page");
+            //s.close();
+            return mapping.findForward("superUser_page");       
         } else {
             return mapping.findForward("failure");
         }

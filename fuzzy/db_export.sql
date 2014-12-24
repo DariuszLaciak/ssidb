@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - Monday-December-22-2014   
+--  File created - Wednesday-December-24-2014   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table OFFER
@@ -76,65 +76,65 @@
   TABLESPACE "SYSTEM" ;
 REM INSERTING into SYSTEM.OFFER
 SET DEFINE OFF;
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (280,0,'adres0',410.7812,1.4527309,'E',3,1,317.87085,85.506775,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (281,0,'adres1',656.12537,1.8887157,'N',1,2,1198.62,51.64947,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (282,0,'adres2',343.8748,1.1002257,'W',10,1,1199.5013,76.10719,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (283,0,'adres3',1133.6973,5.8572187,'E',9,5,443.60907,77.78919,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (284,0,'adres4',111.88868,0.13791347,'S',2,3,884.64606,15.795139,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (285,0,'adres5',718.3363,10.287542,'N',3,4,925.4807,108.42413,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (286,0,'adres6',844.81586,7.6577067,'E',9,5,935.72723,40.33403,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (287,0.30713,'adres7',713.6415,3.1316206,'N',4,1,229.36052,10.423824,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (288,0,'adres8',1010.3507,3.8553987,'S',2,1,612.1137,99.3441,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (289,0,'adres9',1165.744,10.528683,'E',4,1,833.4537,91.44203,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (290,0,'adres10',331.70007,4.4577813,'W',5,3,409.9066,29.061768,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (291,0,'adres11',720.58167,8.012522,'N',10,1,1051.4685,12.565217,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (292,0,'adres12',222.7496,4.091176,'E',7,4,892.02155,18.846336,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (293,0,'adres13',834.355,5.0536385,'N',11,5,792.94556,26.968267,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (294,0.09235,'adres14',377.53436,5.0336676,'W',3,1,278.7593,45.46172,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (295,0,'adres15',230.88628,2.9965932,'E',2,3,1201.8224,52.689205,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (296,0,'adres16',1195.9177,11.364374,'S',9,1,446.30804,34.942635,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (297,0,'adres17',1061.4221,9.227808,'N',6,1,971.308,12.349705,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (298,0.1099,'adres18',1038.4585,10.960856,'E',7,4,274.7229,25.884571,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (299,0.1271,'adres19',71.70032,4.2401342,'N',10,4,270.76666,27.21843,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (300,0,'adres20',439.32797,0.2838714,'S',1,3,1211.8633,38.596954,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (301,0,'adres21',807.48755,5.969354,'E',10,4,1234.914,47.969326,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (302,0,'adres22',370.97913,3.800952,'W',5,6,1071.6686,80.222664,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (303,1,'adres23',568.8261,5.3159018,'N',3,4,66.052765,67.81853,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (304,0,'adres24',174.71167,7.159491,'E',8,1,1124.377,85.478714,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (305,0,'adres25',1207.7292,7.322406,'N',9,5,743.7133,40.113125,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (306,0,'adres26',84.604324,0.40176558,'W',9,3,1202.5498,13.578496,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (307,0,'adres27',281.20795,0.8112123,'E',3,1,960.60284,75.76038,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (308,0,'adres28',392.9135,6.5531893,'S',3,3,1199.4287,77.43177,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (309,0,'adres29',261.42276,0.56651115,'N',7,2,835.0772,18.46306,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (310,0.76337,'adres30',748.9984,8.899865,'E',9,6,124.42521,94.07796,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (311,0,'adres31',99.247536,4.743222,'N',11,1,1009.5639,12.332049,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (312,0,'adres32',943.44617,5.4366713,'S',10,2,360.76202,27.092186,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (313,0,'adres33',539.7371,11.941294,'E',7,5,540.5631,40.18316,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (314,0,'adres34',802.5321,5.616872,'W',7,2,1199.8801,64.6337,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (315,0,'adres35',976.4487,3.0434625,'N',5,3,842.282,22.615128,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (316,0,'adres36',811.14264,4.256594,'E',7,6,777.75134,25.852684,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (317,0,'adres37',674.6507,3.5085168,'N',2,1,1071.2015,10.647259,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (318,0,'adres38',1111.3864,10.604858,'W',7,6,981.9004,98.88311,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (319,0,'adres39',222.59016,8.922366,'E',3,2,1016.0143,67.09334,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (320,0,'adres40',264.14294,1.6931477,'S',5,1,935.0839,71.43027,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (321,0,'adres41',922.60645,9.553821,'N',2,3,487.37015,107.61403,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (322,0,'adres42',390.74344,4.2816076,'E',10,4,768.54474,92.63431,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (323,0.43737,'adres43',939.49365,11.7773075,'N',4,3,199.40555,52.72778,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (324,0,'adres44',926.86584,0.29082155,'S',3,2,487.56683,30.231277,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (325,0,'adres45',968.98737,7.540187,'E',2,2,337.90137,80.87232,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (326,0,'adres46',788.84314,6.8681045,'W',8,6,432.35068,85.87863,262);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (327,0.32509,'adres47',561.4718,2.7789645,'N',2,6,225.22935,86.94193,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (328,0,'adres48',10.526071,0.062791586,'E',2,6,602.9019,59.670685,261);
-Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (329,0,'adres49',503.18286,9.070174,'N',2,6,1065.6125,28.78109,261);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (30,0,'adres1',10.608039,9.623753,'E',7,1,421.6991,39.369537,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (31,0.47203,'adres2',221.0528,4.767927,'N',8,5,191.43408,28.799889,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (32,0,'adres3',353.04803,3.821718,'W',1,6,1009.79297,38.538986,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (33,0,'adres4',708.07336,9.361984,'E',7,2,1029.2908,14.451919,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (34,0,'adres5',939.3011,7.792986,'S',1,1,641.52606,75.20349,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (35,0,'adres6',733.4982,5.0898685,'N',3,6,457.818,19.553146,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (36,0.68146,'adres7',857.42725,9.994123,'E',1,1,143.26425,19.485018,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (37,0,'adres8',566.9811,7.1659427,'N',3,6,711.53674,40.253967,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (38,0,'adres9',1014.0717,7.277602,'S',1,1,868.523,11.214957,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (39,0,'adres10',17.725191,4.198478,'E',1,6,313.6549,55.58545,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (40,0,'adres11',780.4328,10.240952,'W',11,4,317.91162,50.37965,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (41,0,'adres12',890.9005,6.538495,'N',9,4,387.51566,107.89801,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (42,0,'adres13',791.78784,11.530924,'E',1,1,374.59106,34.896694,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (43,0,'adres14',280.1892,6.6347294,'N',3,2,648.5522,91.37844,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (44,0,'adres15',598.23065,9.014115,'W',5,5,333.2351,42.840122,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (45,0,'adres16',452.69803,11.753947,'E',1,5,513.8715,70.487045,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (46,0,'adres17',971.3094,2.473481,'S',5,2,414.2646,103.27206,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (47,0,'adres18',822.84186,9.824908,'N',7,1,1108.4027,57.968285,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (48,0.90194,'adres19',981.4397,3.0283577,'E',1,2,92.553635,46.998653,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (49,0,'adres20',516.68646,7.800724,'N',11,5,1193.8926,58.49119,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (50,0,'adres21',215.7245,8.537351,'S',8,1,499.25583,89.06986,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (51,0.36181,'adres22',556.40424,11.401133,'E',5,2,216.78296,31.371645,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (52,0,'adres23',232.22867,8.176503,'W',10,6,1011.6894,93.470955,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (53,0,'adres24',922.90515,4.8014593,'N',2,3,864.7855,88.238716,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (54,0,'adres25',612.1688,4.3257365,'E',9,4,749.7061,109.0192,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (55,0,'adres26',1107.5956,5.682992,'N',7,4,577.5033,42.80357,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (56,0,'adres27',1010.0803,4.233471,'W',10,3,1191.4409,68.69916,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (57,0,'adres28',152.55061,7.0856867,'E',8,3,643.6385,76.6407,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (58,0,'adres29',943.2889,8.044519,'S',6,2,685.6636,41.54445,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (59,0,'adres30',498.02792,10.387852,'N',7,1,1052.4507,109.18338,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (60,0,'adres31',703.017,6.668998,'E',5,1,1238.4884,43.81725,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (61,0,'adres32',155.97067,4.2383003,'N',8,2,381.24414,87.16297,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (62,0.3667,'adres33',1145.8467,7.001027,'S',6,6,215.65944,109.98375,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (63,0,'adres34',420.65872,3.75585,'E',8,6,560.3895,68.26309,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (64,0,'adres35',547.0591,9.610213,'W',9,3,400.8252,39.484406,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (65,0,'adres36',1079.9061,5.6973653,'N',1,2,999.34625,34.073147,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (66,0,'adres37',935.2734,6.9399962,'E',11,3,806.9102,95.16411,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (67,0,'adres38',391.02124,7.7624416,'N',10,2,1159.1688,54.443657,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (68,0,'adres39',527.1614,0.99589777,'W',5,2,1060.3027,58.703117,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (69,0,'adres40',352.17227,2.310467,'E',9,2,732.2312,99.43905,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (70,0.59599,'adres41',428.21854,9.324959,'S',1,3,162.92136,101.354515,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (71,0,'adres42',645.1661,5.5833616,'N',3,2,452.3096,92.033745,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (72,0.52679,'adres43',409.01443,2.4281359,'E',1,5,178.83722,46.817158,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (73,0,'adres44',1175.5737,11.597574,'N',2,6,470.02612,96.89549,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (74,0,'adres45',1127.6086,6.4648633,'S',2,5,1149.6697,40.58754,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (75,0,'adres46',40.827736,4.923196,'E',1,1,803.9514,28.857925,12);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (76,0,'adres47',485.33115,6.9001465,'W',2,3,439.92166,100.1875,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (77,0.10026,'adres48',910.6526,7.040847,'N',4,4,276.94135,10.429684,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (78,0,'adres49',556.9556,6.2830877,'E',11,5,742.8798,10.07667,11);
+Insert into SYSTEM.OFFER (ID,MI,ADDRESS,DISTANCE_TO_MPK,DISTANCE_TO_CENTER,EXPOSITION,FLOOR,N_OF_ROOMS,PRICE,TOTAL_AREA,IDUSER) values (79,0,'adres50',645.51385,3.481159,'N',1,2,762.6023,99.67731,12);
 REM INSERTING into SYSTEM.PROFILE
 SET DEFINE OFF;
-Insert into SYSTEM.PROFILE (ID,AREA_A,AREA_B,AREA_C,AREA_D,CITY_DIST_A,CITY_DIST_B,CITY_DIST_C,CITY_DIST_D,FLOOR_A,FLOOR_B,FLOOR_C,FLOOR_D,MPK_DIST_A,MPK_DIST_B,MPK_DIST_C,MPK_DIST_D,PRICE_A,PRICE_B,PRICE_C,PRICE_D,USER_ID) values (270,20,50,70,100,1,5,7,10,1,3,5,7,20,200,500,1000,70,300,500,1000,260);
+Insert into SYSTEM.PROFILE (ID,AREA_A,AREA_B,AREA_C,AREA_D,CITY_DIST_A,CITY_DIST_B,CITY_DIST_C,CITY_DIST_D,FLOOR_A,FLOOR_B,FLOOR_C,FLOOR_D,MPK_DIST_A,MPK_DIST_B,MPK_DIST_C,MPK_DIST_D,PRICE_A,PRICE_B,PRICE_C,PRICE_D,USER_ID) values (20,20,50,70,100,1,5,7,10,1,3,5,7,20,200,500,1000,70,300,500,1000,10);
 REM INSERTING into SYSTEM.USERDTO
 SET DEFINE OFF;
-Insert into SYSTEM.USERDTO (ID,ADDRESS,EMAIL,LOGIN,PASSWORD,PHONE,TYPE) values (260,'userowo','user@user.user','user','user','1234567890','commonUser');
-Insert into SYSTEM.USERDTO (ID,ADDRESS,EMAIL,LOGIN,PASSWORD,PHONE,TYPE) values (261,'devowo','dev@dev.dev','dev','dev','0987654321','superUser');
-Insert into SYSTEM.USERDTO (ID,ADDRESS,EMAIL,LOGIN,PASSWORD,PHONE,TYPE) values (262,'devowo','dev1@dev1.dev','dev1','dev1','1023954633','superUser');
-Insert into SYSTEM.USERDTO (ID,ADDRESS,EMAIL,LOGIN,PASSWORD,PHONE,TYPE) values (263,'adminowo','admin@admin.admin','admin','admin','0192837465','admin');
+Insert into SYSTEM.USERDTO (ID,ADDRESS,EMAIL,LOGIN,PASSWORD,PHONE,TYPE) values (10,'userowo','user@user.user','user','user','1234567890','commonUser');
+Insert into SYSTEM.USERDTO (ID,ADDRESS,EMAIL,LOGIN,PASSWORD,PHONE,TYPE) values (11,'devowo','dev@dev.dev','dev','dev','0987654321','superUser');
+Insert into SYSTEM.USERDTO (ID,ADDRESS,EMAIL,LOGIN,PASSWORD,PHONE,TYPE) values (12,'devowo','dev1@dev1.dev','dev1','dev1','1023954633','superUser');
+Insert into SYSTEM.USERDTO (ID,ADDRESS,EMAIL,LOGIN,PASSWORD,PHONE,TYPE) values (13,'adminowo','admin@admin.admin','admin','admin','0192837465','admin');
 --------------------------------------------------------
 --  DDL for Function AREA
 --------------------------------------------------------
@@ -146,61 +146,13 @@ Insert into SYSTEM.USERDTO (ID,ADDRESS,EMAIL,LOGIN,PASSWORD,PHONE,TYPE) values (
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
-IF TYP='low' THEN my_cursor:= area_low(id_number);
-ELSIF TYP='avg' THEN my_cursor:= area_avg(id_number);
-ELSE my_cursor:= area_high(id_number);
+IF TYP='low' THEN update offer SET MI = FP_KL(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number));
+ELSIF TYP='avg' THEN update offer SET MI = FP_TR(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number),(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number));
+ELSE update offer SET MI = FP_KG(total_area,(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number));
 END IF;
-  
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END AREA;
-
-/
---------------------------------------------------------
---  DDL for Function AREA_AVG
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."AREA_AVG" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_TR(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number),(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END AREA_AVG;
-
-/
---------------------------------------------------------
---  DDL for Function AREA_HIGH
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."AREA_HIGH" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KG(total_area,(Select area_c from profile where user_id=ID_number),(Select area_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END AREA_HIGH;
-
-/
---------------------------------------------------------
---  DDL for Function AREA_LOW
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."AREA_LOW" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KL(total_area,(Select area_a from profile where user_id=ID_number),(Select area_b from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END AREA_LOW;
 
 /
 --------------------------------------------------------
@@ -214,77 +166,13 @@ END AREA_LOW;
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
-IF TYP='low' THEN my_cursor:= city_low(id_number);
-ELSIF TYP='avg' THEN my_cursor:= city_avg(id_number);
-ELSE my_cursor:= city_high(id_number);
+IF TYP='low' THEN update offer SET MI = FP_KL(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number));
+ELSIF TYP='avg' THEN update offer SET MI = FP_TR(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number),(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number));
+ELSE update offer SET MI = FP_KG(distance_to_center,(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number));
 END IF;
-  
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END CITY;
-
-/
---------------------------------------------------------
---  DDL for Function CITY_AVG
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."CITY_AVG" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_TR(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number),(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END CITY_AVG;
-
-/
---------------------------------------------------------
---  DDL for Function CITY_HIGH
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."CITY_HIGH" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KG(distance_to_center,(Select city_dist_c from profile where user_id=ID_number),(Select city_dist_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END CITY_HIGH;
-
-/
---------------------------------------------------------
---  DDL for Function CITY_LOW
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."CITY_LOW" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KL(distance_to_center,(Select city_dist_a from profile where user_id=ID_number),(Select city_dist_b from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END CITY_LOW;
-
-/
---------------------------------------------------------
---  DDL for Function FLOOR_AVG
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."FLOOR_AVG" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_TR(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number),(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END FLOOR_AVG;
 
 /
 --------------------------------------------------------
@@ -298,45 +186,13 @@ END FLOOR_AVG;
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
-IF TYP='low' THEN my_cursor:= floor_low(id_number);
-ELSIF TYP='avg' THEN my_cursor:= floor_avg(id_number);
-ELSE my_cursor:= floor_high(id_number);
+IF TYP='low' THEN update offer SET MI = FP_KL(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number));
+ELSIF TYP='avg' THEN update offer SET MI = FP_TR(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number),(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number));
+ELSE update offer SET MI = FP_KG(floor,(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number));
 END IF;
-  
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END FLOOR_FCT;
-
-/
---------------------------------------------------------
---  DDL for Function FLOOR_HIGH
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."FLOOR_HIGH" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KG(floor,(Select floor_c from profile where user_id=ID_number),(Select floor_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END FLOOR_HIGH;
-
-/
---------------------------------------------------------
---  DDL for Function FLOOR_LOW
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."FLOOR_LOW" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KL(floor,(Select floor_a from profile where user_id=ID_number),(Select floor_b from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END FLOOR_LOW;
 
 /
 --------------------------------------------------------
@@ -438,61 +294,13 @@ END FUZZY_FCT;
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
-IF TYP='low' THEN my_cursor:= mpk_low(id_number);
-ELSIF TYP='avg' THEN my_cursor:= mpk_avg(id_number);
-ELSE my_cursor:= mpk_high(id_number);
+IF TYP='low' THEN update offer SET MI = FP_KL(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number));
+ELSIF TYP='avg' THEN update offer SET MI = FP_TR(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number),(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number));
+ELSE update offer SET MI = FP_KG(distance_to_mpk,(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number));
 END IF;
-  
+  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
   RETURN my_cursor;
 END MPK;
-
-/
---------------------------------------------------------
---  DDL for Function MPK_AVG
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."MPK_AVG" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_TR(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number),(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END MPK_AVG;
-
-/
---------------------------------------------------------
---  DDL for Function MPK_HIGH
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."MPK_HIGH" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KG(distance_to_mpk,(Select mpk_dist_c from profile where user_id=ID_number),(Select mpk_dist_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END MPK_HIGH;
-
-/
---------------------------------------------------------
---  DDL for Function MPK_LOW
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."MPK_LOW" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KL(distance_to_mpk,(Select mpk_dist_a from profile where user_id=ID_number),(Select mpk_dist_b from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END MPK_LOW;
 
 /
 --------------------------------------------------------
@@ -506,60 +314,12 @@ END MPK_LOW;
   ) RETURN SYS_REFCURSOR IS
   my_cursor SYS_REFCURSOR;
 BEGIN
-IF TYP='low' THEN my_cursor:= price_low(id_number);
-ELSIF TYP='avg' THEN my_cursor:= price_avg(id_number);
-ELSE my_cursor:= price_high(id_number);
+IF TYP='low' THEN update offer SET MI = FP_KL(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number));
+ELSIF TYP='avg' THEN update offer SET MI = FP_TR(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number),(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number));
+ELSE update offer SET MI = FP_KG(price,(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number));
 END IF;
-  
-  RETURN my_cursor;
+ open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
+ RETURN my_cursor;
 END PRICE;
-
-/
---------------------------------------------------------
---  DDL for Function PRICE_AVG
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."PRICE_AVG" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_TR(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number),(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END PRICE_AVG;
-
-/
---------------------------------------------------------
---  DDL for Function PRICE_HIGH
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."PRICE_HIGH" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KG(price,(Select price_c from profile where user_id=ID_number),(Select price_d from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END PRICE_HIGH;
-
-/
---------------------------------------------------------
---  DDL for Function PRICE_LOW
---------------------------------------------------------
-
-  CREATE OR REPLACE NONEDITIONABLE FUNCTION "SYSTEM"."PRICE_LOW" 
-(
-  ID_number IN NUMBER
-) RETURN SYS_REFCURSOR IS
-my_cursor SYS_REFCURSOR;
-BEGIN
-  update offer SET MI = FP_KL(price,(Select price_a from profile where user_id=ID_number),(Select price_b from profile where user_id=ID_number));
-  open my_cursor FOR select * from offer where MI > 0.0 order by MI desc;
-  RETURN my_cursor;
-END PRICE_LOW;
 
 /

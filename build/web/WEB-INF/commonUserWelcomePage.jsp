@@ -15,7 +15,6 @@
 
                 <p><a id='edit_profile'>Edytuj profil</a></p>
                 <p><a id='search_fuzzy'>Wyszukaj mieszkanie</a></p>
-                <p><a href="login.jsp">Powrót do strony głównej</a></p>
                 <p><a id='logout'>Wyloguj</a></p>
 
             </div>

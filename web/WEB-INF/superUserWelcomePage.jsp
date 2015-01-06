@@ -10,7 +10,7 @@
         <% if(session.getAttribute("user_type").equals("superUser")) { %>
         <div id='content'>
             <div id='user_menu'>
-        <h1>Witaj <bean:write name="UserDTO" property="login" />!</h1>
+        <h1>Witaj <bean:write name="User" property="login" />!</h1>
         
             <p><a href='offer.jsp'>Dodaj ofertę</a></p>
             <p><a href='#'>Edytuj ofertę (albo guzik przy liście, albo pole z id oferty do usunięcia)</a></p>

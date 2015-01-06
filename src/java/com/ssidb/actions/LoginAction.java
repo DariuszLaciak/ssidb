@@ -57,12 +57,13 @@ public class LoginAction extends org.apache.struts.action.Action {
             session.setAttribute("user_data", u);
             session.setAttribute("user_type", type);
             switch (type) {
-                case "admin":
+                case "admin": 
                     return mapping.findForward("admin_page");
                 case "superUser":
                     return mapping.findForward("superUser_page");
                 default:
                     return mapping.findForward("commonUser_page");
+                    
             }
         }
         s.getTransaction().commit();

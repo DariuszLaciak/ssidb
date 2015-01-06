@@ -8,44 +8,43 @@
         <title>Offer Form</title>
     </head>
     <body>
-        <h1>Formularz oferty</h1>
         <html:form action="/offer">
             <table class='content_table'> 
                 <tbody>
                     <tr>
-                        <td>Cena:</td>
-                        <td><html:text property="price" /></td>
+                        <td>Cena (w tys. PLN):</td>
+                        <td><html:text property="price"/></td>
                     </tr>
                     <tr>
-                        <td>Metraż:</td>
-                        <td><html:text property="total_area" /></td>
+                        <td>Metraż (w m<sup>2</sup>):</td>
+                        <td><html:text property="total_area"/></td>
                     </tr>
                     <tr>
                         <td>Liczba pokoi:</td>
-                        <td><html:text property="n_of_rooms" /></td>
+                        <td><html:text property="n_of_rooms"/></td>
                     </tr>
                     <tr>
-                        <td>Piętro:</td>
-                        <td><html:text property="floor" /></td>
+                        <td>Piętro (liczba arabska):</td>
+                        <td><html:text property="floor"/></td>
                     <tr>
                     <tr>
-                        <td>Odległość do centrum:</td>
-                        <td><html:text property="distance_to_center" /></td>
+                        <td>Odległość do centrum (w km):</td>
+                        <td><html:text property="distance_to_center"/></td>
                     </tr>
                     <tr>
-                        <td>Odległość do komunikacji miejskiej:</td>
-                        <td><html:text property="distance_to_MPK" /></td>
+                        <td>Odległość do komunikacji miejskiej (w m):</td>
+                        <td><html:text property="distance_to_MPK"/></td>
                     </tr>
                     <tr>
-                        <td>Ekspozycja:</td>
-                        <td><html:text property="exposition" /></td>
+                        <td>Ekspozycja (N, S, W, E):</td>
+                        <td><html:text property="exposition"/></td>
                     </tr>
                     <tr>
                         <td>Adres:</td>
-                        <td><html:text property="address" /></td>
+                        <td><html:text property="address"/></td>
                     </tr>
                 <td></td>
-                <td><html:submit value="Dodaj ofertę" />(failure -> offer.jsp, success -> superUserWelcomePage.jsp)</td>
+                <td><html:submit value="Dodaj ofertę"/></td>
             </tr>
         </tbody>
     </table>  

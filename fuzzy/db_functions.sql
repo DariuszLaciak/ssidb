@@ -143,6 +143,7 @@ cecha IN VARCHAR
 ) RETURN SYS_REFCURSOR IS
 my_cursor SYS_REFCURSOR;
 BEGIN
+  update offer SET MI = 0.0;
   IF cecha ='price' THEN my_cursor:=price(typ,id_number,treshold);
   ELSIF cecha='area' THEN my_cursor:=area(typ,id_number,treshold);
   ELSIF cecha='floor' THEN my_cursor:=floor_fct(typ,id_number,treshold);

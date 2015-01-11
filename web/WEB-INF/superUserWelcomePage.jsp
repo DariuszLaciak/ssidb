@@ -10,17 +10,16 @@
         <% if(session.getAttribute("user_type").equals("superUser")) { %>
         <div id='content'>
             <div id='user_menu'>
-        <h1>Witaj <bean:write name="User" property="login" />!</h1>
-        
-            <p><a id='edit_dane' class='first'>Edytuj swoje dane</a></p>
-            <p><a href='offer.jsp'>Dodaj ofertę</a></p>
-            <p><a href='#'>Edytuj ofertę (albo guzik przy liście, albo pole z id oferty do usunięcia)</a></p>
-            <p><a onclick='displayOffers()'/>Twoje oferty</a></p>
-            <p><a href='searchSimple.jsp'>Wyszukaj mieszkanie</a></p>
-            <p><a id='logout'>Wyloguj</a></p>
-        
+            <h1>Witaj <bean:write name="UserDTO" property="login" />!</h1>
+                <p><a id='edit_dane' class='first'>Edytuj swoje dane</a></p>
+                <p><a href='offer.jsp'>Dodaj ofertę</a></p>
+                <p><a href='#'>Edytuj ofertę</a></p>
+                <p><a href='#'>Usuń ofertę</a></p>
+                <p><a onclick='displayOffers()'/>Twoje oferty</a></p>
+                <p><a href='searchSimple.jsp'>Wyszukaj mieszkanie</a></p>
+                <p><a id='logout'>Wyloguj</a></p>
             </div>
-         <div id='user_content'>
+            <div id='user_content'>
 
             </div>
         </div>

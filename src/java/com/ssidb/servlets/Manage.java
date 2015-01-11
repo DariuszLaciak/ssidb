@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -77,7 +76,7 @@ public class Manage extends HttpServlet {
                 user = (UserDTO) sess.load(UserDTO.class, user_id);
                 List<Offer> current_offers = new ArrayList(user.getOffers());
                 if (!current_offers.isEmpty()) {
-                        out.println(Util.createResultTable(current_offers));
+                        out.println(Util.createResultTable(current_offers,false));
                 } else {
                         out.println("<H1>Jeszcze nie dodałeś żadnej oferty!</H1>");
                 }
@@ -89,9 +88,9 @@ public class Manage extends HttpServlet {
                 
                 List<Offer> look_offers = sess.createQuery("from Offer").list();
                 if (!look_offers.isEmpty()) {
-                        out.println(Util.createResultTable(look_offers));
+                        out.println(Util.createResultTable(look_offers,false));
                 } else {
-                        out.println("<H1>Brak ofert w bazie</H1>");
+                        out.println("<H1>Brak ofert w bazie.</H1>");
                 }
                 sess.getTransaction().commit();
                 break;
@@ -146,7 +145,7 @@ public class Manage extends HttpServlet {
                     });
 
                     if (!offers.isEmpty()) {
-                        out.println(Util.createResultTable(offers));
+                        out.println(Util.createResultTable(offers,true));
                     } else {
                         out.println("<H1>Brak mieszkań o podanych parametrach</H1>");
                     }
@@ -163,19 +162,20 @@ public class Manage extends HttpServlet {
                     String[] qwer = str.split("=>");
                     form.put(qwer[0], Integer.parseInt(qwer[1]));
                 }
+                }
                 sess = HibernateUtil.getSessionFactory().getCurrentSession();
                 sess.beginTransaction();
                 
-                List<Offer> offers = sess.createQuery("from Offer where "+Util.createWhereToSimple(form)).list();
-                
+                List<Offer> offers;
+                if(obj != null) offers = sess.createQuery("from Offer where "+Util.createWhereToSimple(form)).list();
+                else offers = sess.createQuery("from Offer").list();
                 sess.getTransaction().commit();
-                
-                
-                reply += Util.createResultTable(offers);
+                if (!offers.isEmpty()) {
+                        reply += Util.createResultTable(offers,false);
+                } else {
+                        reply +="<h1>Brak ofert w bazie.</h1>";
                 }
-                else {
-                    reply +="<h1>Nie podano wspolczynnikow</h1>";
-                }
+                
                 String url = request.getHeader("Referer");
                 String page = url.substring(url.lastIndexOf("/")+1,url.length());
                 if(page.equals("searchSimple.jsp")){

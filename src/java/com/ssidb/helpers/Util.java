@@ -10,12 +10,13 @@ import java.util.Map.Entry;
 
 public class Util {
 
-    public static String createResultTable(List<Offer> offers) {
+    public static String createResultTable(List<Offer> offers, boolean isFuzzy) {
         String table = "";
         for (Offer o : offers) {
             table += "<table class='result_table'><tbody>";
             table += "<tr><td colspan='2'><b>Oferta nr: " + o.getId() + "</b></td></tr>";
-            table += "<tr><td colspan='2'>Dopasowanie: " + o.getMI() + "</td></tr>";
+            if(isFuzzy)
+                table += "<tr><td colspan='2'>Dopasowanie: " + o.getMI() + "</td></tr>";
             table += "<tr><td>Cena całkowita: " + Math.round(o.getPrice()) + " tys. zł</td><td>Jednostkowa: " + Math.round((o.getPrice() / o.getTotal_area() * 1000)) + " zł/m<sup>2</sup></td></tr>";
             table += "<tr><td>Powierzchnia: " + round(o.getTotal_area(), 2) + " m<sup>2</sup></td><td>Wystawa: " + o.getExposition() + "</td></tr>";
             table += "<tr><td>Liczba pokoi: " + o.getN_of_rooms() + "</td><td>Piętro: " + o.getFloor() + "</td></tr>";

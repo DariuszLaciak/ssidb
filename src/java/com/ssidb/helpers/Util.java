@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Util {
 
@@ -57,5 +58,24 @@ public class Util {
             }
         }
         return offers;
+    }
+    
+    public static String createWhereToSimple(Map<String,Integer> values){
+        String html ="";
+        for(Entry<String,Integer> entry : values.entrySet()){
+            String param = entry.getKey().substring(0,entry.getKey().lastIndexOf("_"));
+            String type = entry.getKey().substring(entry.getKey().lastIndexOf("_")+1);
+            if(!html.equals("")){
+                html += " and ";
+            }
+            if(type.equals("min")){
+                html += param + " > " + entry.getValue();
+            }
+            else {
+                html += param + " < " + entry.getValue();
+            }
+        }
+        System.out.println(html);
+        return html;
     }
 }

@@ -7,13 +7,31 @@
     </head>
     <body>
         <h1>Prosta wyszukiwarka mieszkań</h1>
-        Wyszukiwarka mieszkań (wersja dla gości):
-        -brak “rozmytego” wyszukiwania
-        -cena (min, max)
-        -metraż(min,max)
-        -liczba pokoi (min,max)
-        -pietro(min,max)
-        Zatwierdź (success -> searchResult.jsp)
-        <p>Powrót do strony <a href="login.jsp">głównej</a></p>
+        <div id='searchSimpleDiv'>
+            <form id='searchSimpleForm'>
+                <table class='content_table'>
+                    <thead>
+                        <tr><th>Cecha</th><th>Min</th><th>Max</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Cena</td><td><input type="text" size="30" name="price_min"/></td>
+                            <td><input type="text" size="30" name="price_max"/></td></tr>
+                        <tr><td>Metraż</td><td><input type="text" size="30" name="total_area_min"/></td>
+                            <td><input type="text" size="30" name="total_area_max"/></td></tr>
+                        <tr><td>Liczba pokoi</td><td><input type="text" size="30" name="n_of_rooms_min"/></td>
+                            <td><input type="text" size="30" name="n_of_rooms_max"/></td></tr>
+                        <tr><td>Piętro</td><td><input type="text" size="30" name="floor_min"/></td>
+                            <td><input type="text" size="30" name="floor_max"/></td></tr>
+                        <tr><td>Odległość od centrum</td><td><input type="text" size="30" name="distance_to_center_min"/></td>
+                            <td><input type="text" size="30" name="distance_to_center_max"/></td></tr>
+                        <tr><td>Odległość od przystanku</td><td><input type="text" size="30" name="distance_to_mpk_min"/></td>
+                            <td><input type="text" size="30" name="distance_to_mpk_max"/></td></tr>
+                        <tr><td colspan="3"><input type='button' onclick="searchSimple()" value='Szukaj'/></td></tr>
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
+        <p class='back'>Powrót do strony <a href="login.jsp">głównej</a></p>
     </body>
 </html>

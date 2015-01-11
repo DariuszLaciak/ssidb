@@ -14,7 +14,7 @@
         
             <p><a href='offer.jsp'>Dodaj ofertę</a></p>
             <p><a href='#'>Edytuj ofertę (albo guzik przy liście, albo pole z id oferty do usunięcia)</a></p>
-            <p><a onclick='displayOffers()' type='button'/>Twoje oferty</a></p>
+            <p><a onclick='displayOffers()'/>Twoje oferty</a></p>
             <p><a href='searchSimple.jsp'>Wyszukaj mieszkanie</a></p>
             <p><a id='logout'>Wyloguj</a></p>
         

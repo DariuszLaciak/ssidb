@@ -24,13 +24,16 @@ $(document).ready(function () {
             location.href = "login.jsp";
         }, 100);
     });
+    $("#searchSimpleForm input").keypress(function(event){
+         return isNumber(event);
+    });
 });
 
 function saveProfile() {
     var form = $("#profile_edit_form").serializeArray();
     var values = new Array();
     $.each(form, function (index, element) {
-        values.push(element.value);
+            values.push(element.value);
     });
     $.ajax({
         url: "Manage",
@@ -79,4 +82,34 @@ function searchFuzzy() {
             $('#user_content').html(data);
         }
     });
+}
+
+function searchSimple(){
+    var form = $("#searchSimpleForm").serializeArray();
+    var values = new Array();
+    $.each(form, function (index, element) {
+        if(element.value)
+            values.push(element.name + "=>" + element.value);
+    });
+    $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "search_simple",
+            form_data: values
+        },
+        success: function (data) {
+            $('#searchSimpleDiv').html(data);
+        }
+    });
+}
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
 }

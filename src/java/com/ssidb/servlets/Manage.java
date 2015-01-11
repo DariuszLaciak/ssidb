@@ -140,6 +140,24 @@ public class Manage extends HttpServlet {
                     out.println("<H1>Wybierz parametry wyszukiwania</H1>");
                 }
                 break;
+            case "search_simple":
+                obj = request.getParameterValues("form_data[]");
+                Map<String, Integer> form = new HashMap<>();
+                for (String str : obj) {
+                    String[] qwer = str.split("=>");
+                    form.put(qwer[0], Integer.parseInt(qwer[1]));
+                }
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                
+                List<Offer> offers = sess.createQuery("from Offer where "+Util.createWhereToSimple(form)).list();
+                
+                sess.getTransaction().commit();
+                
+                String reply = "<p class='back'> <a href=\"searchSimple.jsp\">Wyszukaj jeszcze raz</a></p>";
+                reply += Util.createResultTable(offers);
+                out.println(reply);
+                break;
         }
     }
 

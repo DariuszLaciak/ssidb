@@ -56,6 +56,13 @@ public class UserDTO extends org.apache.struts.action.ActionForm implements Seri
         }
     }
     
+    public void editUser(String password, String address, String phone, String email){
+        this.password = password;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(unique = true, nullable = false)

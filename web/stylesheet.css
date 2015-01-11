@@ -23,6 +23,10 @@ body {
     min-width: 450px;
 }
 
+.first {
+    margin-bottom: 30px;
+}
+
 th {
     padding-right: 10px;
 }

@@ -45,10 +45,11 @@ public class Manage extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         String response_msg;
+        s = request.getSession();
         switch (action) {
             case "save_profile":
                 obj = request.getParameterValues("form_data[]");
-                s = request.getSession();
+                
                 long user_id = (long) s.getAttribute("user_id");
 
                 sess = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -157,6 +158,57 @@ public class Manage extends HttpServlet {
                 String reply = "<p class='back'> <a href=\"searchSimple.jsp\">Wyszukaj jeszcze raz</a></p>";
                 reply += Util.createResultTable(offers);
                 out.println(reply);
+                break;
+            case "edit_dane":
+                obj = request.getParameterValues("form_data[]");
+                Map<String, String> dane = new HashMap<>();
+                String reply_dane = "";
+                UserDTO user_edit = (UserDTO)s.getAttribute("user_data");
+                for (String str : obj) {
+                    String[] qwer = str.split("=>");
+                    dane.put(qwer[0], qwer[1]);
+                }
+                String new_password = user_edit.getPassword();
+                String new_email = user_edit.getEmail();
+                String new_phone = user_edit.getPhone();
+                String new_address = user_edit.getAddress();
+                
+                if(!dane.containsKey("old_password")){
+                    reply_dane = "<h1>Prosze podac stare haslo</h1>";
+                }
+                else if(!dane.get("old_password").equals(user_edit.getPassword())){
+                    reply_dane = "<h1>Nieporpawne haslo</h1>";
+                }
+                else{
+                    if(dane.containsKey("new_password")){
+                        if(!dane.containsKey("retypedPassword")){
+                            reply_dane = "<h1>Brakujace pole - powtorzone haslo</h1>";
+                        }
+                        else if(!dane.get("new_password").equals(dane.get("retyped_password"))){
+                            reply_dane = "<h1>Nowe haslo i powtorzone nie sa takie same</h1>";
+                        }
+                        else {
+                            new_password = dane.get("new_password");
+                        }
+                    }
+                    if(dane.containsKey("email")){
+                        new_email = dane.get("email");
+                    }
+                    if(dane.containsKey("phone")){
+                        new_phone = dane.get("phone");
+                    }
+                    if(dane.containsKey("address")){
+                        new_address = dane.get("address");
+                    }
+                    user_edit.editUser(new_password, new_address, new_phone, new_email);
+                    sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                    sess.beginTransaction();
+                    sess.update(user_edit);
+                    sess.getTransaction().commit();
+                    reply_dane = "<h1>Zmieniono dane</h1><img src='correct-us.png' style='width: 300px;'/>";
+                }
+                reply_dane += "<p class='back'> <a onclick=\"$('#edit_dane').click();\" >Wroc</a></p>";
+                out.println(reply_dane);
                 break;
         }
     }

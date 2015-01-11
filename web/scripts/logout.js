@@ -27,6 +27,22 @@ $(document).ready(function () {
     $("#searchSimpleForm input").keypress(function(event){
          return isNumber(event);
     });
+    $("#list_users").click(function(){
+        
+    });
+    $("#add_user").click(function(){
+        
+    });
+    $("#delete_user").click(function(){
+        
+    });
+    $("#edit_user").click(function(){
+        
+    });
+    $("#edit_dane").click(function(){
+        $('#user_content').load('edit_dane.jsp');
+    });
+    
 });
 
 function saveProfile() {
@@ -112,4 +128,25 @@ function isNumber(evt) {
         return false;
     }
     return true;
+}
+
+function edit_dane(){
+    var form = $("#edit_dane_form").serializeArray();
+    var values = new Array();
+    $.each(form, function (index, element) {
+        if(element.value)
+            values.push(element.name + "=>" + element.value);
+    });
+    $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "edit_dane",
+            form_data: values
+        },
+        success: function (data) {
+            $('#edit_dane_div').html(data);
+        }
+    });
 }

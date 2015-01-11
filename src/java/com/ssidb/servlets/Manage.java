@@ -81,6 +81,19 @@ public class Manage extends HttpServlet {
                 } else {
                         out.println("<H1>Jeszcze nie dodałeś żadnej oferty!</H1>");
                 }
+                sess.getTransaction().commit();
+                break;
+            case "look_offers":
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                
+                List<Offer> look_offers = sess.createQuery("from Offer").list();
+                if (!look_offers.isEmpty()) {
+                        out.println(Util.createResultTable(look_offers));
+                } else {
+                        out.println("<H1>Brak ofert w bazie</H1>");
+                }
+                sess.getTransaction().commit();
                 break;
             case "search_fuzzy":
                 obj = request.getParameterValues("form_data[]");
@@ -144,6 +157,8 @@ public class Manage extends HttpServlet {
             case "search_simple":
                 obj = request.getParameterValues("form_data[]");
                 Map<String, Integer> form = new HashMap<>();
+                String reply = "";
+                if(obj != null) {
                 for (String str : obj) {
                     String[] qwer = str.split("=>");
                     form.put(qwer[0], Integer.parseInt(qwer[1]));
@@ -155,8 +170,19 @@ public class Manage extends HttpServlet {
                 
                 sess.getTransaction().commit();
                 
-                String reply = "<p class='back'> <a href=\"searchSimple.jsp\">Wyszukaj jeszcze raz</a></p>";
+                
                 reply += Util.createResultTable(offers);
+                }
+                else {
+                    reply +="<h1>Nie podano wspolczynnikow</h1>";
+                }
+                String url = request.getHeader("Referer");
+                String page = url.substring(url.lastIndexOf("/")+1,url.length());
+                if(page.equals("searchSimple.jsp")){
+                    reply += "<p class='back'> <a href=\"searchSimple.jsp\">Wyszukaj jeszcze raz</a></p>";
+                }
+                else
+                    reply += "<p class='back'> <a onclick=\"$('#search_not_fuzzy').click();\">Wyszukaj jeszcze raz</a></p>";
                 out.println(reply);
                 break;
             case "edit_dane":

@@ -32,6 +32,12 @@
 
             </form>
         </div>
+        <%
+        String url = request.getHeader("Referer");
+                String page_url = url.substring(url.lastIndexOf("/")+1,url.length());
+                if(page_url.equals("searchSimple.jsp")){    
+        %>
         <p class='back'>Powrót do strony <a href="login.jsp">głównej</a></p>
+        <%}%>
     </body>
 </html>

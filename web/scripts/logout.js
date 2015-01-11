@@ -43,6 +43,24 @@ $(document).ready(function () {
         $('#user_content').load('edit_dane.jsp');
     });
     
+    $("#search_not_fuzzy").click(function(){
+        $('#user_content').load('searchSimple.jsp');
+    });
+    $("#look_offers").click(function(){
+        $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "look_offers"
+        },
+        success: function (data) {
+            $('#user_content').html(data);
+        }
+        
+    });
+    });
+    
 });
 
 function saveProfile() {

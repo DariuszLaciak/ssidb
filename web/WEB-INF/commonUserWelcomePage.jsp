@@ -14,7 +14,10 @@
 
                 <p><a id='edit_dane' class='first'>Edytuj swoje dane</a></p>
                 <p><a id='edit_profile'>Edytuj profil</a></p>
-                <p><a id='search_fuzzy'>Wyszukaj mieszkanie</a></p>
+                <p><a id='search_fuzzy'>Wyszukaj mieszkanie(rozmyte)</a></p>
+                <p><a id='search_not_fuzzy'>Wyszukaj mieszkanie(proste)</a></p>
+                <p><a id='look_offers'>Przeglądaj wszystkie oferty</a></p>
+                
                 <p><a id='logout'>Wyloguj</a></p>
 
             </div>

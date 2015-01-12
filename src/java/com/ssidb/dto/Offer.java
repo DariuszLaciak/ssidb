@@ -44,6 +44,16 @@ public class Offer extends org.apache.struts.action.ActionForm implements Serial
         this.exposition = exposition;
         this.address = address;
     }
+    public void editOffer(float price, float total_area, int n_of_rooms, float distance_to_center, float distance_to_MPK, int floor, String exposition, String address) {
+        this.price = price;
+        this.total_area = total_area;
+        this.n_of_rooms = n_of_rooms;
+        this.distance_to_center = distance_to_center;
+        this.distance_to_MPK = distance_to_MPK;
+        this.floor = floor;
+        this.exposition = exposition;
+        this.address = address;
+    }
 
     public Offer() {
     }

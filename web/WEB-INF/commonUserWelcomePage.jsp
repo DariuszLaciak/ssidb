@@ -10,7 +10,7 @@
         <% if(session.getAttribute("user_type").equals("commonUser")) { %>
         <div id='content'>
             <div id='user_menu'>
-            <h1>Witaj <bean:write name="UserDTO" property="login" />!</h1>
+            <h1>Witaj <bean:write name="User" property="login" />!</h1>
                 <p><a id='edit_dane' class='first'>Edytuj swoje dane</a></p>
                 <p><a id='edit_profile'>Edytuj profil</a></p>
                 <p><a id='search_fuzzy'>Wyszukaj mieszkanie (rozmyte)</a></p>

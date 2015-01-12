@@ -99,6 +99,7 @@ function displayOffers() {
         },
         success: function (data) {
             $('#user_content').html(data);
+            add_edit_button();
         }
         
     });
@@ -171,6 +172,58 @@ function edit_dane(){
         },
         success: function (data) {
             $('#edit_dane_div').html(data);
+        }
+    });
+}
+
+function add_edit_button(){
+    var tables = $(".result_table");
+    $.each(tables,function(index,element){
+        var id = element.getElementsByClassName("offer_id")[0].getElementsByTagName("b")[0].innerHTML;
+        var id_number = id.substring(id.lastIndexOf(":")+2,id.length);
+        $(this).find("#edit_button").html("<button onclick='edit_offer("+id_number+")'>Edytuj</button>");
+    });
+}
+
+function edit_offer(number){
+    $.ajax({
+        url: "Manage",
+        type: "POST",
+        data: {
+            action: "edit_offer_form",
+            id: number
+        },
+        success: function(data){
+            $("#user_content").html(data);
+        }
+    });
+}
+
+function confirm_edit_offer(){
+    var form = $("#edit_offer_form").serializeArray();
+    var values = new Array();
+    $.each(form, function (index, element) {
+        if(element.value)
+            values.push(element.name + "=>" + element.value);
+    });
+    var id_text = $("#user_content").find("h1").text();
+    var id = id_text.substring(id_text.lastIndexOf("r")+2,id_text.length);
+   $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "confirm_edit_offer",
+            form_data: values,
+            id: id
+        },
+        success: function (data) {
+            if(data == 1){
+                $('#user_content').html("<h1>Zmieniono dane</h1><img src='correct-us.png' style='width: 300px;'/>");
+            }
+            else if(data == 0){
+                alert("Niepoprawne dane");
+            }
         }
     });
 }

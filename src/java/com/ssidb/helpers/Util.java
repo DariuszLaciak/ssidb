@@ -14,7 +14,7 @@ public class Util {
         String table = "";
         for (Offer o : offers) {
             table += "<table class='result_table'><tbody>";
-            table += "<tr><td colspan='2'><b>Oferta nr: " + o.getId() + "</b></td></tr>";
+            table += "<tr><td colspan='2'><div class='offer_id'><b>Oferta nr: " + o.getId() + "</b></id><div id='edit_button'></div></td></tr>";
             if(isFuzzy)
                 table += "<tr><td colspan='2'>Dopasowanie: " + o.getMI() + "</td></tr>";
             table += "<tr><td>Cena całkowita: " + Math.round(o.getPrice()) + " tys. zł</td><td>Jednostkowa: " + Math.round((o.getPrice() / o.getTotal_area() * 1000)) + " zł/m<sup>2</sup></td></tr>";
@@ -93,6 +93,20 @@ public class Util {
             }
         }
         System.out.println(html);
+        return html;
+    }
+    
+    public static String createFormText(String id, Map<String,String> params){
+        String html ="<h1>Edytujesz ofertę nr "+params.get("id")+"</h1>";
+        html += "<form id='"+id+"'><table class='content_table'><tbody>";
+        for(Entry<String,String> entry : params.entrySet()){
+            if(!entry.getKey().equals("id")){
+                String label = entry.getKey().substring(0,1).toUpperCase()+entry.getKey().substring(1,entry.getKey().length());
+                label = label.replaceAll("_", " ");
+                html += "<tr><td>"+label+"</td><td><input type='text' id='"+entry.getKey()+"' name='"+entry.getKey()+"' value='"+entry.getValue()+"'/></td></tr>";
+            }
+        }
+        html += "<tr><td></td><td><button onclick='confirm_edit_offer()' type='button'>Edytuj</button></td></tr></tbody></table></form>";
         return html;
     }
 }

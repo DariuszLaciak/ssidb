@@ -245,6 +245,49 @@ public class Manage extends HttpServlet {
                 reply_dane += "<p class='back'> <a onclick=\"$('#edit_dane').click();\" >Wroc</a></p>";
                 out.println(reply_dane);
                 break;
+            case "edit_offer_form":
+                long id_offer = Long.parseLong(request.getParameter("id"));
+                Map<String,String> params = new HashMap<>();
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                Offer offer = (Offer)sess.get(Offer.class, id_offer);
+                params.put("id", Long.toString(offer.getId()));
+                params.put("cena", Float.toString(offer.getPrice()));
+                params.put("powierzchnia", Float.toString(offer.getTotal_area()));
+                params.put("liczba_pokoi", Integer.toString(offer.getN_of_rooms()));
+                params.put("pietro", Integer.toString(offer.getFloor()));
+                params.put("odl_od_centrum", Float.toString(offer.getDistance_to_center()));
+                params.put("odl_od_mpk", Float.toString(offer.getDistance_to_MPK()));
+                params.put("wystawa", offer.getExposition());
+                params.put("adres",offer.getAddress());
+                sess.getTransaction().commit();
+                out.println(Util.createFormText("edit_offer_form", params));
+                break;
+            case "confirm_edit_offer":
+                obj = request.getParameterValues("form_data[]");
+                Map<String, String> offer_dane = new HashMap<>();
+                for (String str : obj) {
+                    String[] qwer = str.split("=>");
+                    offer_dane.put(qwer[0], qwer[1]);
+                }
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                Offer offer_edit = (Offer)sess.get(Offer.class, Long.parseLong(request.getParameter("id")));
+                try{
+                offer_edit.editOffer(Float.parseFloat(offer_dane.get("cena")), Float.parseFloat(offer_dane.get("powierzchnia")),
+                        Integer.parseInt(offer_dane.get("liczba_pokoi")), Float.parseFloat(offer_dane.get("odl_od_centrum")),
+                        Float.parseFloat(offer_dane.get("odl_od_mpk")), Integer.parseInt(offer_dane.get("pietro")),
+                        offer_dane.get("wystawa"), offer_dane.get("adres"));
+                }
+                catch(NumberFormatException e){
+                    out.println(0);
+                    sess.getTransaction().rollback();
+                    return;
+                }
+                sess.update(offer_edit);
+                sess.getTransaction().commit();
+                out.println(1);
+                break;
         }
     }
 

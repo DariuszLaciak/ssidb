@@ -10,7 +10,7 @@
          <% if(session.getAttribute("user_type").equals("admin")) { %>
          <div id='content'>
             <div id='user_menu'>
-            <h1>Witaj <bean:write name="UserDTO" property="login" />!</h1>
+            <h1>Witaj <bean:write name="User" property="login" />!</h1>
                 <p><a id='look_offers'>Lista ofert</a></p>
                 <p><a id='manage_users'>Zarządzaj użytkownikami</a></p>
                 <p><a id='logout'>Wyloguj</a></p>

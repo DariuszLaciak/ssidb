@@ -10,7 +10,7 @@ UserDTO user;%>
         user = (UserDTO) session.getAttribute("user_data");
         user_profile = user.getProfile();
 %>
-        <h1>Edycja wspóczynników rozmycia</h1>
+        <h1>Edycja współczynników rozmycia</h1>
         <h3>Zmiana na własną odpowiedzialność!!</h3>
         <form id='profile_edit_form' >
             <table class='content_table'> 
@@ -33,7 +33,7 @@ UserDTO user;%>
                     </tr>
                     
                     <tr>
-                        <th colspan="4" class='label_table'>Metraż [w m2]</th>
+                        <th colspan="4" class='label_table'>Metraż [w m<sup>2</sup>]</th>
                     </tr>
                     <tr>
                         <th>poniżej jest mały</th>

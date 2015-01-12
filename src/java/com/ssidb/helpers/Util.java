@@ -27,6 +27,22 @@ public class Util {
         return table;
     }
     
+    public static String displayUsers(List<UserDTO> users) {
+        String table = "<table class='grid'><tbody>";
+        table += "<tr><th>Id</th><th>Login</th><th>Email</th><th>Telefon</th><th>Adres</th><th>Uprawnienia</th><th>Zarządzaj</th></tr>";
+        for (UserDTO u : users) {
+            table += "<tr><td>" + u.getId();
+            table += "</td><td>" + u.getLogin();
+            table += "</td><td>" + u.getEmail();
+            table += "</td><td>" + u.getPhone();
+            table += "</td><td>" + u.getAddress();
+            table += "</td><td>" + u.getType();
+            table += "</td><td> <button type=\"button\">Edytuj</button> <button type=\"button\">Usuń</button> <button type=\"button\">Resetuj hasło</button> </td></tr>";  
+        }
+        table += "</tbody></table>";
+        return table;
+    }
+    
     public static String getDeveloper(UserDTO user)
     {                       
         return "tel.: " + user.getPhone() + "<br />email: " + user.getEmail();

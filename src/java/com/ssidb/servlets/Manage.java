@@ -82,10 +82,19 @@ public class Manage extends HttpServlet {
                 }
                 sess.getTransaction().commit();
                 break;
+            case "manage_users":
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                List<UserDTO> users = sess.createQuery("from UserDTO").list();
+                if(users.isEmpty())
+                    out.println("<H1>Brak użytkowników w bazie.</H1>");
+                else
+                    out.println(Util.displayUsers(users));
+                sess.getTransaction().commit();
+                break;
             case "look_offers":
                 sess = HibernateUtil.getSessionFactory().getCurrentSession();
                 sess.beginTransaction();
-                
                 List<Offer> look_offers = sess.createQuery("from Offer").list();
                 if (!look_offers.isEmpty()) {
                         out.println(Util.createResultTable(look_offers,false));

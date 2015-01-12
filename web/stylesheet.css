@@ -24,6 +24,13 @@ body {
     text-align: center;
 }
 
+.grid tr{
+    border: 1px solid gray;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
 .first {
     margin-bottom: 30px;
 }

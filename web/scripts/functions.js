@@ -1,11 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 $(document).ready(function () {
+    
     $('#edit_profile').click(function () {
         $('#user_content').load('profile.jsp');
     });
@@ -24,21 +18,19 @@ $(document).ready(function () {
             location.href = "login.jsp";
         }, 100);
     });
+    
     $("#searchSimpleForm input").keypress(function(event){
          return isNumber(event);
     });
-    $("#list_users").click(function(){
-        
-    });
-    $("#add_user").click(function(){
-        
-    });
+    
     $("#delete_user").click(function(){
         
     });
+    
     $("#edit_user").click(function(){
-        
+
     });
+    
     $("#edit_dane").click(function(){
         $('#user_content').load('edit_dane.jsp');
     });
@@ -46,19 +38,33 @@ $(document).ready(function () {
     $("#search_not_fuzzy").click(function(){
         $('#user_content').load('searchSimple.jsp');
     });
+    
     $("#look_offers").click(function(){
         $.ajax({
-        url: "Manage",
-        type: 'POST',
-        async: false,
-        data: {
-            action: "look_offers"
-        },
-        success: function (data) {
-            $('#user_content').html(data);
-        }
-        
+            url: "Manage",
+            type: 'POST',
+            async: false,
+            data: {
+                action: "look_offers"
+            },
+            success: function (data) {
+                $('#user_content').html(data);
+            }       
+        });
     });
+    
+    $("#manage_users").click(function(){
+        $.ajax({
+            url: "Manage",
+            type: 'POST',
+            async: false,
+            data: {
+                action: "manage_users"
+            },
+            success: function (data) {
+                $('#user_content').html(data);
+            }       
+        });
     });
     
 });

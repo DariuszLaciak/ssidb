@@ -11,10 +11,8 @@
          <div id='content'>
             <div id='user_menu'>
             <h1>Witaj <bean:write name="UserDTO" property="login" />!</h1>
-                <p><a id='list_users'>Lista użytkowników</a></p>
-                <p><a id='add_user'>Dodaj użytkownika</a></p>
-                <p><a id='delete_user'>Usuń użytkownika</a></p>
-                <p><a id='edit_user'>Edytuj użytkownika</a></p>
+                <p><a id='look_offers'>Lista ofert</a></p>
+                <p><a id='manage_users'>Zarządzaj użytkownikami</a></p>
                 <p><a id='logout'>Wyloguj</a></p>
             </div>
             <div id='user_content'>

@@ -96,17 +96,29 @@ public class Util {
         return html;
     }
     
-    public static String createFormText(String id, Map<String,String> params){
-        String html ="<h1>Edytujesz ofertę nr "+params.get("id")+"</h1>";
+    public static String createFormText(String id, Map<String,String> params,boolean isNew){
+        String html ="";
+        if(isNew)
+            html +="<h1>Edytujesz ofertę nr "+params.get("id")+"</h1>";
+        else 
+            html +="<h1>Dodajesz nową ofertę</h1>";
         html += "<form id='"+id+"'><table class='content_table'><tbody>";
         for(Entry<String,String> entry : params.entrySet()){
             if(!entry.getKey().equals("id")){
                 String label = entry.getKey().substring(0,1).toUpperCase()+entry.getKey().substring(1,entry.getKey().length());
                 label = label.replaceAll("_", " ");
-                html += "<tr><td>"+label+"</td><td><input type='text' id='"+entry.getKey()+"' name='"+entry.getKey()+"' value='"+entry.getValue()+"'/></td></tr>";
+                String names = entry.getKey();
+                if(entry.getKey().contains("[")){
+                    names = entry.getKey().substring(0,entry.getKey().indexOf("["));
+                }
+        
+                html += "<tr><td>"+label+"</td><td><input type='text' id='"+names+"' name='"+names+"' value='"+entry.getValue()+"'/></td></tr>";
             }
         }
-        html += "<tr><td></td><td><button onclick='confirm_edit_offer()' type='button'>Edytuj</button></td></tr></tbody></table></form>";
+        if(isNew)
+            html += "<tr><td></td><td><button onclick='confirm_edit_offer()' type='button'>Edytuj</button></td></tr></tbody></table></form>";
+        else
+            html += "<tr><td></td><td><button onclick='confirm_add_offer()' type='button'>Dodaj</button></td></tr></tbody></table></form>";
         return html;
     }
 }

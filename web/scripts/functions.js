@@ -53,6 +53,20 @@ $(document).ready(function () {
         });
     });
     
+    $("#add_offer").click(function(){
+        $.ajax({
+            url: "Manage",
+            type: 'POST',
+            async: false,
+            data: {
+                action: "add_offer"
+            },
+            success: function (data) {
+                $('#user_content').html(data);
+            }       
+        });
+    });
+    
     $("#manage_users").click(function(){
         $.ajax({
             url: "Manage",
@@ -223,6 +237,42 @@ function confirm_edit_offer(){
             }
             else if(data == 0){
                 alert("Niepoprawne dane");
+            }
+            else if(data ==2){
+                alert("Proszę wypełnić formularz");
+            }
+            
+        }
+    });
+}
+
+function confirm_add_offer(){
+    var form = $("#add_offer_form").serializeArray();
+    var values = new Array();
+    $.each(form, function (index, element) {
+        if(element.value)
+            values.push(element.name + "=>" + element.value);
+    });
+   $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "confirm_add_offer",
+            form_data: values
+        },
+        success: function (data) {
+            if(data == 1){
+                $('#user_content').html("<h1>Dodano ofertę</h1><img src='correct-us.png' style='width: 300px;'/>");
+            }
+            else if(data == 0){
+                alert("Niepoprawne dane");
+            }
+            else if(data ==2){
+                alert("Proszę wypełnić formularz");
+            }
+            else if(data ==3){
+                alert("Proszę wypełnić wszystkie pola");
             }
         }
     });

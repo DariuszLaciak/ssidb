@@ -252,19 +252,26 @@ public class Manage extends HttpServlet {
                 sess.beginTransaction();
                 Offer offer = (Offer)sess.get(Offer.class, id_offer);
                 params.put("id", Long.toString(offer.getId()));
-                params.put("cena", Float.toString(offer.getPrice()));
-                params.put("powierzchnia", Float.toString(offer.getTotal_area()));
+                params.put("cena[tys zł]", Float.toString(offer.getPrice()));
+                params.put("powierzchnia[m2]", Float.toString(offer.getTotal_area()));
                 params.put("liczba_pokoi", Integer.toString(offer.getN_of_rooms()));
                 params.put("pietro", Integer.toString(offer.getFloor()));
-                params.put("odl_od_centrum", Float.toString(offer.getDistance_to_center()));
-                params.put("odl_od_mpk", Float.toString(offer.getDistance_to_MPK()));
-                params.put("wystawa", offer.getExposition());
+                params.put("odl_od_centrum[km]", Float.toString(offer.getDistance_to_center()));
+                params.put("odl_od_mpk[m]", Float.toString(offer.getDistance_to_MPK()));
+                params.put("wystawa[okien]", offer.getExposition());
                 params.put("adres",offer.getAddress());
                 sess.getTransaction().commit();
-                out.println(Util.createFormText("edit_offer_form", params));
+                out.println(Util.createFormText("edit_offer_form", params,true));
                 break;
             case "confirm_edit_offer":
+                try{
                 obj = request.getParameterValues("form_data[]");
+                obj.toString();
+                }
+                catch(NullPointerException e){
+                    out.println(2);
+                    return;
+                }
                 Map<String, String> offer_dane = new HashMap<>();
                 for (String str : obj) {
                     String[] qwer = str.split("=>");
@@ -285,6 +292,58 @@ public class Manage extends HttpServlet {
                     return;
                 }
                 sess.update(offer_edit);
+                sess.getTransaction().commit();
+                out.println(1);
+                break;
+            case "add_offer":
+                Map<String,String> param = new HashMap<>();
+                param.put("cena[tys zł]", "");
+                param.put("powierzchnia[m2]", "");
+                param.put("liczba_pokoi", "");
+                param.put("pietro", "");
+                param.put("odl_od_centrum[km]", "");
+                param.put("odl_od_mpk[m]", "");
+                param.put("wystawa[okien]", "");
+                param.put("adres","");
+                out.println(Util.createFormText("add_offer_form", param,false));
+                break;
+            case "confirm_add_offer":
+                try{
+                obj = request.getParameterValues("form_data[]");
+                obj.toString();
+                }
+                catch(NullPointerException e){
+                    out.println(2);
+                    return;
+                }
+                Map<String, String> add_dane = new HashMap<>();
+                for (String str : obj) {
+                    String[] qwer = str.split("=>");
+                    add_dane.put(qwer[0], qwer[1]);
+                }
+                if(add_dane.size() != 8){
+                    out.println(3);
+                    return;
+                }
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                Offer new_offer;
+                try {
+                new_offer = new Offer(Float.parseFloat(add_dane.get("cena")), Float.parseFloat(add_dane.get("powierzchnia")),
+                        Integer.parseInt(add_dane.get("liczba_pokoi")), Float.parseFloat(add_dane.get("odl_od_centrum")),
+                        Float.parseFloat(add_dane.get("odl_od_mpk")), Integer.parseInt(add_dane.get("pietro")),
+                        add_dane.get("wystawa"), add_dane.get("adres"));
+                }
+                catch(NumberFormatException e){
+                    out.println(0);
+                    sess.getTransaction().rollback();
+                    return;
+                }
+                
+                UserDTO dev = (UserDTO)s.getAttribute("user_data");
+                dev.getOffers().add(new_offer);
+                new_offer.setUser(dev);
+                sess.save(new_offer);
                 sess.getTransaction().commit();
                 out.println(1);
                 break;

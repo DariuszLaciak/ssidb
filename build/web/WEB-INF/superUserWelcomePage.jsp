@@ -12,7 +12,7 @@
             <div id='user_menu'>
             <h1>Witaj <bean:write name="User" property="login" />!</h1>
                 <p><a id='edit_dane' class='first'>Edytuj swoje dane</a></p>
-                <p><a href='offer.jsp'>Dodaj ofertę</a></p>
+                <p><a id='add_offer'>Dodaj ofertę</a></p>
                 <p><a onclick='displayOffers()'/>Zarządzaj ofertami</a></p>
                 <p><a id='logout'>Wyloguj</a></p>
             </div>

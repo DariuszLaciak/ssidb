@@ -73,8 +73,8 @@ public class Manage extends HttpServlet {
 
                 sess = HibernateUtil.getSessionFactory().getCurrentSession();
                 sess.beginTransaction();
-                user = (UserDTO) sess.load(UserDTO.class, user_id);
-                List<Offer> current_offers = new ArrayList(user.getOffers());
+                //user = (UserDTO) sess.load(UserDTO.class, user_id);
+                List<Offer> current_offers = sess.createQuery("from Offer as o where o.user.id=:id").setLong("id", user_id).list();
                 if (!current_offers.isEmpty()) {
                         out.println(Util.createResultTable(current_offers,false));
                 } else {
@@ -347,6 +347,29 @@ public class Manage extends HttpServlet {
                 sess.getTransaction().commit();
                 out.println(1);
                 break;
+            case "delete_offer_form":
+                long del_offer = Long.parseLong(request.getParameter("id"));
+                String html_del = "";
+                html_del +="<h1>Usuwasz ofertę o id "+del_offer+"</h1>";
+                html_del += "<h2>Potwierdzasz?</h2>";
+                html_del +="<button type='button' onclick='confirm_delete_offer()'>Tak</button>";
+                out.println(html_del);
+                break;
+            case "confirm_delete_offer":
+                long del_offer_id = Long.parseLong(request.getParameter("id"));
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                Offer del = (Offer)sess.get(Offer.class, del_offer_id);
+                if(del == null){
+                    out.println(0);
+                    sess.getTransaction().rollback();
+                    return;
+                }
+                sess.delete(del);
+                sess.getTransaction().commit();
+                out.println(1);
+                break;
+                        
         }
     }
 

@@ -36,6 +36,11 @@ body {
     float: right;
 }
 
+#delete_button{
+    max-width: 100px;
+    float: left;
+}
+
 .first {
     margin-bottom: 30px;
 }

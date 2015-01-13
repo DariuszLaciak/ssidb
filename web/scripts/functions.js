@@ -49,6 +49,8 @@ $(document).ready(function () {
             },
             success: function (data) {
                 $('#user_content').html(data);
+                add_edit_button();
+                add_delete_button();
             }       
         });
     });
@@ -199,12 +201,35 @@ function add_edit_button(){
     });
 }
 
+function add_delete_button(){
+    var tables = $(".result_table");
+    $.each(tables,function(index,element){
+        var id = element.getElementsByClassName("offer_id")[0].getElementsByTagName("b")[0].innerHTML;
+        var id_number = id.substring(id.lastIndexOf(":")+2,id.length);
+        $(this).find("#delete_button").html("<button onclick='delete_offer("+id_number+")'>Usuń</button>");
+    });
+}
+
 function edit_offer(number){
     $.ajax({
         url: "Manage",
         type: "POST",
         data: {
             action: "edit_offer_form",
+            id: number
+        },
+        success: function(data){
+            $("#user_content").html(data);
+        }
+    });
+}
+
+function delete_offer(number){
+    $.ajax({
+        url: "Manage",
+        type: "POST",
+        data: {
+            action: "delete_offer_form",
             id: number
         },
         success: function(data){
@@ -273,6 +298,28 @@ function confirm_add_offer(){
             }
             else if(data ==3){
                 alert("Proszę wypełnić wszystkie pola");
+            }
+        }
+    });
+}
+
+function confirm_delete_offer(){
+    var id_text = $("#user_content").find("h1").text();
+    var id = id_text.substring(id_text.lastIndexOf("d")+2,id_text.length);
+    $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "confirm_delete_offer",
+            id: id
+        },
+        success: function (data) {
+            if(data == 1){
+                $('#user_content').html("<h1>Usunięto ofertę</h1><img src='correct-us.png' style='width: 300px;'/>");
+            }
+            else if(data == 0){
+                $('#user_content').html("<h1>Brak oferty o podanym id</h1>");
             }
         }
     });

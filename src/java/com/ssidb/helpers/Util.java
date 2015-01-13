@@ -14,7 +14,7 @@ public class Util {
         String table = "";
         for (Offer o : offers) {
             table += "<table class='result_table'><tbody>";
-            table += "<tr><td colspan='2'><div class='offer_id'><b>Oferta nr: " + o.getId() + "</b></id><div id='edit_button'></div></td></tr>";
+            table += "<tr><td colspan='2'><div id='delete_button'></div><div class='offer_id'><b>Oferta nr: " + o.getId() + "</b></id><div id='edit_button'></div></td></tr>";
             if(isFuzzy)
                 table += "<tr><td colspan='2'>Dopasowanie: " + o.getMI() + "</td></tr>";
             table += "<tr><td>Cena całkowita: " + Math.round(o.getPrice()) + " tys. zł</td><td>Jednostkowa: " + Math.round((o.getPrice() / o.getTotal_area() * 1000)) + " zł/m<sup>2</sup></td></tr>";

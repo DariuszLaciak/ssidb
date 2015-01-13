@@ -29,10 +29,10 @@ public class Util {
     }
     
     public static String displayUsers(List<UserDTO> users) {
-        String table = "<table id='manageUsers' class='grid'><thead>";
+        String table = "<table class='grid'><thead>";
         table += "<tr><th>Id</th><th>Login</th><th>Email</th><th>Telefon</th><th>Adres</th><th>Uprawnienia</th><th>Zarządzaj</th></tr></thead><tbody>";
         for (UserDTO u : users) {
-            table += "<tr><td class=nr>" + u.getId();
+            table += "<tr><td>" + u.getId();
             table += "</td><td>" + u.getLogin();
             table += "</td><td>" + u.getEmail();
             table += "</td><td>" + u.getPhone();

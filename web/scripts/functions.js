@@ -112,6 +112,8 @@ function saveProfile() {
 }
 
 function resetUserPass(userId) {
+    if(confirm("Czy na pewno chcesz zresetować hasło użytkownika?"))
+    {
     $.ajax({
         url: "Manage",
         type: 'POST',
@@ -124,9 +126,12 @@ function resetUserPass(userId) {
                 $('#user_content').html(data);
         }
     });
+    }
 }
 
 function removeUserRow(userId) {
+    if(confirm("Czy na pewno chcesz usunąć użytkownika?"))
+    {
     $.ajax({
         url: "Manage",
         type: 'POST',
@@ -139,6 +144,7 @@ function removeUserRow(userId) {
             $('#user_content').html(data);
         }
     });
+    }
 }
 
 function editUserRow(userId) {

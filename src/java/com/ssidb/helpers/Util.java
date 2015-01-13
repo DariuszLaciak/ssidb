@@ -110,6 +110,8 @@ public class Util {
         for(int i=0; i<n; i++)
             s += alphabet.charAt(r.nextInt(length));
         return s;
+    }
+    
     public static String createFormText(String id, Map<String,String> params,boolean isNew){
         String html ="";
         if(isNew)

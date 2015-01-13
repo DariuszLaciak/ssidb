@@ -25,7 +25,7 @@
                 <tbody>
                     <tr>
                         <td colspan="2" class='errors'>
-                            <bean:write name="UserDTO" property="error" filter="false"/>
+                            <bean:write name="User" property="error" filter="false"/>
                             <html:errors/>
                         </td>
                         

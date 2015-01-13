@@ -55,6 +55,20 @@ $(document).ready(function () {
         });
     });
     
+    $("#look_offers_user").click(function(){
+        $.ajax({
+            url: "Manage",
+            type: 'POST',
+            async: false,
+            data: {
+                action: "look_offers"
+            },
+            success: function (data) {
+                $('#user_content').html(data);
+            }       
+        });
+    });
+    
     $("#add_offer").click(function(){
         $.ajax({
             url: "Manage",

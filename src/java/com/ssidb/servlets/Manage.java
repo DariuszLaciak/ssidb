@@ -92,14 +92,56 @@ public class Manage extends HttpServlet {
                     out.println(Util.displayUsers(users));
                 sess.getTransaction().commit();
                 break;
-            case "edit_user_row":
+            case "edit_user_form":
                 user_id = Long.parseLong(request.getParameter("id"));
                 sess = HibernateUtil.getSessionFactory().getCurrentSession();
                 sess.beginTransaction();
                 user = (UserDTO)sess.get(UserDTO.class, user_id);
                 //TODO edycja użytkownika ( w osobnym oknie?)
+                Map<String,String> params = new HashMap<>();
+                params.put("id", Long.toString(user.getId()));
+                params.put("login", user.getLogin());
+                params.put("adres", user.getAddress());
+                params.put("e-mail", user.getEmail());
+                params.put("telefon", user.getPhone());
+                params.put("uprawnienia", user.getType());
+                System.out.println("Tuż przed createFormEditUser");
+                out.println(Util.createFormEditUser(params));
                 sess.getTransaction().commit();
-                out.println("<H1>Użytkownik " + user.getLogin() + " ma być edytowany.</H1>");
+                System.out.println("Tuż po createFormEditUser");
+                break;
+            case "confirm_edit_user":
+                try{
+                obj = request.getParameterValues("form_data[]");
+                obj.toString();
+                }
+                catch(NullPointerException e){
+                    out.println(2);
+                    return;
+                }
+                Map<String, String> user_dane = new HashMap<>();
+                for (String str : obj) {
+                    String[] qwer = str.split("=>");
+                    user_dane.put(qwer[0], qwer[1]);
+                }
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                UserDTO user_edit = (UserDTO)sess.get(UserDTO.class, Long.parseLong(request.getParameter("id")));
+                try{
+                    user_edit.setLogin(user_dane.get("login"));
+                    user_edit.setAddress(user_dane.get("adres"));
+                    user_edit.setEmail(user_dane.get("e-mail"));
+                    user_edit.setPhone(user_dane.get("telefon"));
+                    user_edit.setType(user_dane.get("uprawnienia"));
+                }
+                catch(NumberFormatException e){
+                    out.println(0);
+                    sess.getTransaction().rollback();
+                    return;
+                }
+                sess.update(user_edit);
+                sess.getTransaction().commit();
+                out.println(1);
                 break;
             case "remove_user":
                 String id_user = request.getParameter("id");
@@ -235,7 +277,7 @@ public class Manage extends HttpServlet {
                 obj = request.getParameterValues("form_data[]");
                 Map<String, String> dane = new HashMap<>();
                 String reply_dane;
-                UserDTO user_edit = (UserDTO)s.getAttribute("user_data");
+                user_edit = (UserDTO)s.getAttribute("user_data");
                 for (String str : obj) {
                     String[] qwer = str.split("=>");
                     dane.put(qwer[0], qwer[1]);
@@ -284,7 +326,7 @@ public class Manage extends HttpServlet {
                 break;
             case "edit_offer_form":
                 long id_offer = Long.parseLong(request.getParameter("id"));
-                Map<String,String> params = new HashMap<>();
+                params = new HashMap<>();
                 sess = HibernateUtil.getSessionFactory().getCurrentSession();
                 sess.beginTransaction();
                 Offer offer = (Offer)sess.get(Offer.class, id_offer);

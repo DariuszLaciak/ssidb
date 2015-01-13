@@ -153,7 +153,7 @@ function editUserRow(userId) {
         type: 'POST',
         async: false,
         data: {
-            action: "edit_user_row",
+            action: "edit_user_form",
             id: userId
         },
         success: function (data) {
@@ -173,6 +173,7 @@ function displayOffers() {
         success: function (data) {
             $('#user_content').html(data);
             add_edit_button();
+            add_delete_button();
         }
         
     });
@@ -380,4 +381,40 @@ function confirm_delete_offer(){
             }
         }
     });
+    
+}
+    
+function confirm_edit_user(){
+    if(confirm("Czy na pewno chcesz wprowadzić zmiany?"))
+    {
+        var form = $("#edit_user_form").serializeArray();
+        var values = new Array();
+        $.each(form, function (index, element) {
+            if(element.value)
+                values.push(element.name + "=>" + element.value);
+        });
+        var id_text = $("#user_content").find("h1").text();
+        var id = id_text.substring(id_text.lastIndexOf("r")+2,id_text.length);
+        $.ajax({
+            url: "Manage",
+            type: 'POST',
+            async: false,
+            data: {
+                action: "confirm_edit_user",
+                form_data: values,
+                id: id
+            },
+            success: function (data) {
+                if(data === 1){
+                    $('#user_content').html("<h1>Zmieniono dane</h1><img src='correct-us.png' style='width: 300px;'/>");
+                }
+                else if(data === 0){
+                    alert("Niepoprawne dane");
+                }
+                else if(data === 2){
+                    alert("Proszę wypełnić formularz");
+                } 
+            }
+        });
+    }
 }

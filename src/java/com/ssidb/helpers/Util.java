@@ -137,4 +137,22 @@ public class Util {
             html += "<tr><td></td><td><button onclick='confirm_add_offer()' type='button'>Dodaj</button></td></tr></tbody></table></form>";
         return html;
     }
+    
+    public static String createFormEditUser(Map<String,String> params){
+        String html ="<h1>Edytujesz użytkownika nr "+ params.get("id") + "</h1>";
+        html += "<form id='edit_user_form'><table class='content_table'><tbody>";
+        for(Entry<String,String> entry : params.entrySet()){
+            if(!entry.getKey().equals("id")){
+                String label = entry.getKey().substring(0,1).toUpperCase()+entry.getKey().substring(1,entry.getKey().length());
+                label = label.replaceAll("_", " ");
+                String names = entry.getKey();
+                if(entry.getKey().contains("[")){
+                    names = entry.getKey().substring(0,entry.getKey().indexOf("["));
+                }
+                html += "<tr><td>"+label+"</td><td><input type='text' id='"+names+"' name='"+names+"' value='"+entry.getValue()+"'/></td></tr>";
+            }
+        }
+        html += "<tr><td></td><td><button onclick='confirm_edit_user()' type='button'>Zapisz zmiany</button></td></tr></tbody></table></form>";
+        return html;
+    }
 }

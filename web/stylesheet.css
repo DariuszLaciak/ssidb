@@ -24,11 +24,15 @@ body {
     text-align: center;
 }
 
-.grid tr{
-    border: 1px solid gray;
-    margin-left: 10px;
-    margin-right: 10px;
+.grid td{
     margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: left;
+}
+.grid thead{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color:royalblue;
 }
 
 #edit_button{

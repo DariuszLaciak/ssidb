@@ -23,14 +23,6 @@ $(document).ready(function () {
          return isNumber(event);
     });
     
-    $("#delete_user").click(function(){
-        
-    });
-    
-    $("#edit_user").click(function(){
-
-    });
-    
     $("#edit_dane").click(function(){
         $('#user_content').load('edit_dane.jsp');
     });
@@ -112,6 +104,51 @@ function saveProfile() {
         data: {
             action: "save_profile",
             form_data: values
+        },
+        success: function (data) {
+            $('#user_content').html(data);
+        }
+    });
+}
+
+function resetUserPass(userId) {
+    $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "reset_user_password",
+            id: userId
+        },
+        success: function (data) {
+                $('#user_content').html(data);
+        }
+    });
+}
+
+function removeUserRow(userId) {
+    $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "remove_user",
+            id: userId
+        },
+        success: function (data) {
+            $('#user_content').html(data);
+        }
+    });
+}
+
+function editUserRow(userId) {
+    $.ajax({
+        url: "Manage",
+        type: 'POST',
+        async: false,
+        data: {
+            action: "edit_user_row",
+            id: userId
         },
         success: function (data) {
             $('#user_content').html(data);

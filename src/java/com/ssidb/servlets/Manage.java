@@ -92,6 +92,43 @@ public class Manage extends HttpServlet {
                     out.println(Util.displayUsers(users));
                 sess.getTransaction().commit();
                 break;
+            case "edit_user_row":
+                user_id = Long.parseLong(request.getParameter("id"));
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                user = (UserDTO)sess.get(UserDTO.class, user_id);
+                //TODO edycja użytkownika ( w osobnym oknie?)
+                sess.getTransaction().commit();
+                out.println("<H1>Użytkownik " + user.getLogin() + " ma być edytowany.</H1>");
+                break;
+            case "remove_user":
+                String id_user = request.getParameter("id");
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                //delete all dependencies
+                String query = "delete from Profile where USER_ID = " + id_user;
+                sess.beginTransaction();
+                sess.createQuery(query).executeUpdate();
+                query = "delete from Offer where IDUSER = " + id_user;
+                sess.createQuery(query).executeUpdate();
+                //finally delete user
+                query = "delete from UserDTO where ID = " + id_user;
+                sess.createQuery(query).executeUpdate();
+                sess.getTransaction().commit();
+                out.println("<H1>Użytkownik o id = " + id_user + " został usunięty z bazy danych.</H1>");
+                break;
+            case "reset_user_password":
+                user_id = Long.parseLong(request.getParameter("id"));
+                sess = HibernateUtil.getSessionFactory().getCurrentSession();
+                sess.beginTransaction();
+                user = (UserDTO)sess.get(UserDTO.class, user_id);
+                String user_login = user.getLogin();
+                String user_email = user.getEmail();
+                String newPass = Util.generateRandomString(8);
+                user.setPassword(newPass);
+                sess.getTransaction().commit();
+                //TODO wysyłanie maila z nowym hasłem na adres użytkownika
+                out.println("<H1>Użytkownikowi " + user_login + " zresetowano hasło!<br />Tymczasowe hasło " + newPass + " zostało wysłane na adres " + user_email + "</H1>");
+                break;
             case "look_offers":
                 sess = HibernateUtil.getSessionFactory().getCurrentSession();
                 sess.beginTransaction();
@@ -197,7 +234,7 @@ public class Manage extends HttpServlet {
             case "edit_dane":
                 obj = request.getParameterValues("form_data[]");
                 Map<String, String> dane = new HashMap<>();
-                String reply_dane = "";
+                String reply_dane;
                 UserDTO user_edit = (UserDTO)s.getAttribute("user_data");
                 for (String str : obj) {
                     String[] qwer = str.split("=>");

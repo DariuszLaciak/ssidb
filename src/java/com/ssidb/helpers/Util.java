@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Random;
 
 public class Util {
 
@@ -28,16 +29,20 @@ public class Util {
     }
     
     public static String displayUsers(List<UserDTO> users) {
-        String table = "<table class='grid'><tbody>";
-        table += "<tr><th>Id</th><th>Login</th><th>Email</th><th>Telefon</th><th>Adres</th><th>Uprawnienia</th><th>Zarządzaj</th></tr>";
+        String table = "<table id='manageUsers' class='grid'><thead>";
+        table += "<tr><th>Id</th><th>Login</th><th>Email</th><th>Telefon</th><th>Adres</th><th>Uprawnienia</th><th>Zarządzaj</th></tr></thead><tbody>";
         for (UserDTO u : users) {
-            table += "<tr><td>" + u.getId();
+            table += "<tr><td class=nr>" + u.getId();
             table += "</td><td>" + u.getLogin();
             table += "</td><td>" + u.getEmail();
             table += "</td><td>" + u.getPhone();
             table += "</td><td>" + u.getAddress();
             table += "</td><td>" + u.getType();
-            table += "</td><td> <button type=\"button\">Edytuj</button> <button type=\"button\">Usuń</button> <button type=\"button\">Resetuj hasło</button> </td></tr>";  
+            table += "</td><td>";
+            table += "<button onclick=\"editUserRow("+u.getId()+")\">Edytuj</button>";
+            table += "<button onclick=\"removeUserRow("+u.getId()+")\">Usuń</button>";
+            table +="<button onclick=\"resetUserPass("+u.getId()+")\">Resetuj hasło</button>";
+            table += "</td></tr>";
         }
         table += "</tbody></table>";
         return table;
@@ -96,6 +101,15 @@ public class Util {
         return html;
     }
     
+    public static String generateRandomString(int n)
+    {
+        String alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        int length = alphabet.length();
+        String s = "";
+        Random r = new Random(System.currentTimeMillis());
+        for(int i=0; i<n; i++)
+            s += alphabet.charAt(r.nextInt(length));
+        return s;
     public static String createFormText(String id, Map<String,String> params,boolean isNew){
         String html ="";
         if(isNew)

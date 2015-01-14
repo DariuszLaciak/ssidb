@@ -105,10 +105,8 @@ public class Manage extends HttpServlet {
                 params.put("e-mail", user.getEmail());
                 params.put("telefon", user.getPhone());
                 params.put("uprawnienia", user.getType());
-                System.out.println("Tuż przed createFormEditUser");
                 out.println(Util.createFormEditUser(params));
                 sess.getTransaction().commit();
-                System.out.println("Tuż po createFormEditUser");
                 break;
             case "confirm_edit_user":
                 try{

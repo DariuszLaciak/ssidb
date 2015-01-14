@@ -149,7 +149,20 @@ public class Util {
                 if(entry.getKey().contains("[")){
                     names = entry.getKey().substring(0,entry.getKey().indexOf("["));
                 }
-                html += "<tr><td>"+label+"</td><td><input type='text' id='"+names+"' name='"+names+"' value='"+entry.getValue()+"'/></td></tr>";
+                if(entry.getKey().equals("uprawnienia"))
+                {
+                    html += "<tr><td>"+label+"</td><td><input type='radio' id='"+names+1+"' name='"+names+"' value='commonUser' ";
+                    if(entry.getValue().equals("commonUser")) html += "checked='checked'";
+                    html+= "/>commonUser<input type='radio' id='"+names+2+"' name='"+names+"' value='superUser' ";
+                    if(entry.getValue().equals("superUser")) html += "checked='checked'";
+                    html += "/>superUser<input type='radio' id='"+names+3+"' name='"+names+"' value='admin' ";
+                    if(entry.getValue().equals("admin")) html += "checked='checked'";
+                    html += "/>admin</td></tr>";
+                }
+                else
+                {
+                    html += "<tr><td>"+label+"</td><td><input type='text' id='"+names+"' name='"+names+"' value='"+entry.getValue()+"'/></td></tr>";
+                }
             }
         }
         html += "<tr><td></td><td><button onclick='confirm_edit_user()' type='button'>Zapisz zmiany</button></td></tr></tbody></table></form>";

@@ -405,13 +405,13 @@ function confirm_edit_user(){
                 id: id
             },
             success: function (data) {
-                if(data === 1){
+                if(data == 1){
                     $('#user_content').html("<h1>Zmieniono dane</h1><img src='correct-us.png' style='width: 300px;'/>");
                 }
-                else if(data === 0){
+                else if(data == 0){
                     alert("Niepoprawne dane");
                 }
-                else if(data === 2){
+                else if(data == 2){
                     alert("Proszę wypełnić formularz");
                 } 
             }
